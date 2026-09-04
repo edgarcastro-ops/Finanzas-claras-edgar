@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as HerramientasIndexRouteImport } from './routes/herramientas.index'
 import { Route as HerramientasCalculadoraInteresCompuestoRouteImport } from './routes/herramientas.calculadora-interes-compuesto'
 import { Route as HerramientasCalculadoraPrestamoPersonalRouteImport } from './routes/herramientas.calculadora-prestamo-personal'
+import { Route as HerramientasCalculadoraTarjetaCreditoRouteImport } from './routes/herramientas.calculadora-tarjeta-credito'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -36,17 +37,25 @@ const HerramientasCalculadoraPrestamoPersonalRoute =
     path: '/herramientas/calculadora-prestamo-personal',
     getParentRoute: () => rootRouteImport,
   } as any)
+const HerramientasCalculadoraTarjetaCreditoRoute =
+  HerramientasCalculadoraTarjetaCreditoRouteImport.update({
+    id: '/herramientas/calculadora-tarjeta-credito',
+    path: '/herramientas/calculadora-tarjeta-credito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
   '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
   '/herramientas': typeof HerramientasIndexRoute
 }
 export interface FileRoutesById {
@@ -54,6 +63,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
   '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRouteTypes {
@@ -62,18 +72,21 @@ export interface FileRouteTypes {
     | '/'
     | '/herramientas/calculadora-interes-compuesto'
     | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-tarjeta-credito'
     | '/herramientas/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/herramientas/calculadora-interes-compuesto'
     | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-tarjeta-credito'
     | '/herramientas'
   id:
     | '__root__'
     | '/'
     | '/herramientas/calculadora-interes-compuesto'
     | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-tarjeta-credito'
     | '/herramientas/'
   fileRoutesById: FileRoutesById
 }
@@ -81,6 +94,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HerramientasCalculadoraInteresCompuestoRoute: typeof HerramientasCalculadoraInteresCompuestoRoute
   HerramientasCalculadoraPrestamoPersonalRoute: typeof HerramientasCalculadoraPrestamoPersonalRoute
+  HerramientasCalculadoraTarjetaCreditoRoute: typeof HerramientasCalculadoraTarjetaCreditoRoute
   HerramientasIndexRoute: typeof HerramientasIndexRoute
 }
 
@@ -114,6 +128,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HerramientasCalculadoraPrestamoPersonalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/herramientas/calculadora-tarjeta-credito': {
+      id: '/herramientas/calculadora-tarjeta-credito'
+      path: '/herramientas/calculadora-tarjeta-credito'
+      fullPath: '/herramientas/calculadora-tarjeta-credito'
+      preLoaderRoute: typeof HerramientasCalculadoraTarjetaCreditoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,6 +144,8 @@ const rootRouteChildren: RootRouteChildren = {
     HerramientasCalculadoraInteresCompuestoRoute,
   HerramientasCalculadoraPrestamoPersonalRoute:
     HerramientasCalculadoraPrestamoPersonalRoute,
+  HerramientasCalculadoraTarjetaCreditoRoute:
+    HerramientasCalculadoraTarjetaCreditoRoute,
   HerramientasIndexRoute: HerramientasIndexRoute,
 }
 export const routeTree = rootRouteImport
