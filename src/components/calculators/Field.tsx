@@ -54,7 +54,7 @@ export function Field({
         min={min}
         max={max}
         step={step}
-        onValueChange={([v]) => onChange(v)}
+        onValueChange={(vals) => onChange(vals[0] ?? min)}
         aria-label={label}
       />
     </div>
