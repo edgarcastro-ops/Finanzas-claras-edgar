@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { LineChart, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
-import { blogCategories, activeTools } from "@/data/tools";
+import { blogCategories } from "@/data/tools";
 
 const legalLinks = [
   "Aviso legal",
