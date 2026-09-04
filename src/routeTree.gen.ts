@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
 import { Route as HerramientasIndexRouteImport } from './routes/herramientas.index'
 import { Route as HerramientasCalculadoraInteresCompuestoRouteImport } from './routes/herramientas.calculadora-interes-compuesto'
 import { Route as HerramientasCalculadoraPrestamoPersonalRouteImport } from './routes/herramientas.calculadora-prestamo-personal'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreNosotrosRoute = SobreNosotrosRouteImport.update({
+  id: '/sobre-nosotros',
+  path: '/sobre-nosotros',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HerramientasIndexRoute = HerramientasIndexRouteImport.update({
@@ -53,6 +59,7 @@ const HerramientasCalculadoraTarjetaCreditoRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/sobre-nosotros': typeof SobreNosotrosRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
@@ -61,6 +68,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/sobre-nosotros': typeof SobreNosotrosRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/sobre-nosotros': typeof SobreNosotrosRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/blog'
+    | '/sobre-nosotros'
     | '/herramientas/calculadora-interes-compuesto'
     | '/herramientas/calculadora-prestamo-personal'
     | '/herramientas/calculadora-tarjeta-credito'
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/blog'
+    | '/sobre-nosotros'
     | '/herramientas/calculadora-interes-compuesto'
     | '/herramientas/calculadora-prestamo-personal'
     | '/herramientas/calculadora-tarjeta-credito'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/blog'
+    | '/sobre-nosotros'
     | '/herramientas/calculadora-interes-compuesto'
     | '/herramientas/calculadora-prestamo-personal'
     | '/herramientas/calculadora-tarjeta-credito'
@@ -105,6 +117,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
+  SobreNosotrosRoute: typeof SobreNosotrosRoute
   HerramientasCalculadoraInteresCompuestoRoute: typeof HerramientasCalculadoraInteresCompuestoRoute
   HerramientasCalculadoraPrestamoPersonalRoute: typeof HerramientasCalculadoraPrestamoPersonalRoute
   HerramientasCalculadoraTarjetaCreditoRoute: typeof HerramientasCalculadoraTarjetaCreditoRoute
@@ -125,6 +138,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre-nosotros': {
+      id: '/sobre-nosotros'
+      path: '/sobre-nosotros'
+      fullPath: '/sobre-nosotros'
+      preLoaderRoute: typeof SobreNosotrosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/herramientas/': {
@@ -161,6 +181,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
+  SobreNosotrosRoute: SobreNosotrosRoute,
   HerramientasCalculadoraInteresCompuestoRoute:
     HerramientasCalculadoraInteresCompuestoRoute,
   HerramientasCalculadoraPrestamoPersonalRoute:
