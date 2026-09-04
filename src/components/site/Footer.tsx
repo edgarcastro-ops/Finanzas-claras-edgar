@@ -51,17 +51,30 @@ export function Footer() {
           <nav aria-label="Herramientas">
             <h2 className="text-sm font-semibold">Herramientas</h2>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-              {activeTools.map((tool) => (
-                <li key={tool.slug}>
-                  <Link
-                    to="/herramientas/$slug"
-                    params={{ slug: tool.slug }}
-                    className="transition-colors hover:text-brand"
-                  >
-                    {tool.title}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/herramientas/calculadora-interes-compuesto"
+                  className="transition-colors hover:text-brand"
+                >
+                  Interés compuesto
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/herramientas/calculadora-prestamo-personal"
+                  className="transition-colors hover:text-brand"
+                >
+                  Préstamo personal
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/herramientas/calculadora-tarjeta-credito"
+                  className="transition-colors hover:text-brand"
+                >
+                  Tarjeta de crédito
+                </Link>
+              </li>
               <li>
                 <Link to="/herramientas" className="transition-colors hover:text-brand">
                   Ver todas
