@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HerramientasIndexRouteImport } from './routes/herramientas.index'
+import { Route as HerramientasCalculadoraInteresCompuestoRouteImport } from './routes/herramientas.calculadora-interes-compuesto'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,30 +23,45 @@ const HerramientasIndexRoute = HerramientasIndexRouteImport.update({
   path: '/herramientas/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HerramientasCalculadoraInteresCompuestoRoute =
+  HerramientasCalculadoraInteresCompuestoRouteImport.update({
+    id: '/herramientas/calculadora-interes-compuesto',
+    path: '/herramientas/calculadora-interes-compuesto',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas': typeof HerramientasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
   '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/herramientas/'
+  fullPaths:
+    '/' | '/herramientas/calculadora-interes-compuesto' | '/herramientas/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/herramientas'
-  id: '__root__' | '/' | '/herramientas/'
+  to: '/' | '/herramientas/calculadora-interes-compuesto' | '/herramientas'
+  id:
+    | '__root__'
+    | '/'
+    | '/herramientas/calculadora-interes-compuesto'
+    | '/herramientas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HerramientasCalculadoraInteresCompuestoRoute: typeof HerramientasCalculadoraInteresCompuestoRoute
   HerramientasIndexRoute: typeof HerramientasIndexRoute
 }
 
@@ -65,11 +81,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HerramientasIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/herramientas/calculadora-interes-compuesto': {
+      id: '/herramientas/calculadora-interes-compuesto'
+      path: '/herramientas/calculadora-interes-compuesto'
+      fullPath: '/herramientas/calculadora-interes-compuesto'
+      preLoaderRoute: typeof HerramientasCalculadoraInteresCompuestoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HerramientasCalculadoraInteresCompuestoRoute:
+    HerramientasCalculadoraInteresCompuestoRoute,
   HerramientasIndexRoute: HerramientasIndexRoute,
 }
 export const routeTree = rootRouteImport
