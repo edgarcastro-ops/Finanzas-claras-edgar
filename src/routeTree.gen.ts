@@ -10,33 +10,118 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
+import { Route as HerramientasIndexRouteImport } from './routes/herramientas.index'
+import { Route as HerramientasCalculadoraInteresCompuestoRouteImport } from './routes/herramientas.calculadora-interes-compuesto'
+import { Route as HerramientasCalculadoraPrestamoPersonalRouteImport } from './routes/herramientas.calculadora-prestamo-personal'
+import { Route as HerramientasCalculadoraTarjetaCreditoRouteImport } from './routes/herramientas.calculadora-tarjeta-credito'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreNosotrosRoute = SobreNosotrosRouteImport.update({
+  id: '/sobre-nosotros',
+  path: '/sobre-nosotros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HerramientasIndexRoute = HerramientasIndexRouteImport.update({
+  id: '/herramientas/',
+  path: '/herramientas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HerramientasCalculadoraInteresCompuestoRoute =
+  HerramientasCalculadoraInteresCompuestoRouteImport.update({
+    id: '/herramientas/calculadora-interes-compuesto',
+    path: '/herramientas/calculadora-interes-compuesto',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraPrestamoPersonalRoute =
+  HerramientasCalculadoraPrestamoPersonalRouteImport.update({
+    id: '/herramientas/calculadora-prestamo-personal',
+    path: '/herramientas/calculadora-prestamo-personal',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraTarjetaCreditoRoute =
+  HerramientasCalculadoraTarjetaCreditoRouteImport.update({
+    id: '/herramientas/calculadora-tarjeta-credito',
+    path: '/herramientas/calculadora-tarjeta-credito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
+  '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
+  '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
+  '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
+  '/herramientas': typeof HerramientasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
+  '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
+  '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/sobre-nosotros'
+    | '/herramientas/calculadora-interes-compuesto'
+    | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-tarjeta-credito'
+    | '/herramientas/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/blog'
+    | '/sobre-nosotros'
+    | '/herramientas/calculadora-interes-compuesto'
+    | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-tarjeta-credito'
+    | '/herramientas'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/sobre-nosotros'
+    | '/herramientas/calculadora-interes-compuesto'
+    | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-tarjeta-credito'
+    | '/herramientas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
+  SobreNosotrosRoute: typeof SobreNosotrosRoute
+  HerramientasCalculadoraInteresCompuestoRoute: typeof HerramientasCalculadoraInteresCompuestoRoute
+  HerramientasCalculadoraPrestamoPersonalRoute: typeof HerramientasCalculadoraPrestamoPersonalRoute
+  HerramientasCalculadoraTarjetaCreditoRoute: typeof HerramientasCalculadoraTarjetaCreditoRoute
+  HerramientasIndexRoute: typeof HerramientasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +133,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre-nosotros': {
+      id: '/sobre-nosotros'
+      path: '/sobre-nosotros'
+      fullPath: '/sobre-nosotros'
+      preLoaderRoute: typeof SobreNosotrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/': {
+      id: '/herramientas/'
+      path: '/herramientas'
+      fullPath: '/herramientas/'
+      preLoaderRoute: typeof HerramientasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-interes-compuesto': {
+      id: '/herramientas/calculadora-interes-compuesto'
+      path: '/herramientas/calculadora-interes-compuesto'
+      fullPath: '/herramientas/calculadora-interes-compuesto'
+      preLoaderRoute: typeof HerramientasCalculadoraInteresCompuestoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-prestamo-personal': {
+      id: '/herramientas/calculadora-prestamo-personal'
+      path: '/herramientas/calculadora-prestamo-personal'
+      fullPath: '/herramientas/calculadora-prestamo-personal'
+      preLoaderRoute: typeof HerramientasCalculadoraPrestamoPersonalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-tarjeta-credito': {
+      id: '/herramientas/calculadora-tarjeta-credito'
+      path: '/herramientas/calculadora-tarjeta-credito'
+      fullPath: '/herramientas/calculadora-tarjeta-credito'
+      preLoaderRoute: typeof HerramientasCalculadoraTarjetaCreditoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
+  SobreNosotrosRoute: SobreNosotrosRoute,
+  HerramientasCalculadoraInteresCompuestoRoute:
+    HerramientasCalculadoraInteresCompuestoRoute,
+  HerramientasCalculadoraPrestamoPersonalRoute:
+    HerramientasCalculadoraPrestamoPersonalRoute,
+  HerramientasCalculadoraTarjetaCreditoRoute:
+    HerramientasCalculadoraTarjetaCreditoRoute,
+  HerramientasIndexRoute: HerramientasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
