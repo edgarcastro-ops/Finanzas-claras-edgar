@@ -1,11 +1,3 @@
-export const currency = (value: number, maximumFractionDigits = 0) =>
-  new Intl.NumberFormat("es-ES", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits,
-    minimumFractionDigits: 0,
-  }).format(Number.isFinite(value) ? value : 0);
-
 export const percent = (value: number) => `${value.toLocaleString("es-ES", { maximumFractionDigits: 2 })}%`;
 
 /* ---------------- Interés compuesto ---------------- */

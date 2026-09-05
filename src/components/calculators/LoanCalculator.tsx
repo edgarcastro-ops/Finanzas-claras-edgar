@@ -14,7 +14,8 @@ import {
 } from "recharts";
 import { Field } from "@/components/calculators/Field";
 import { CalcShell, ChartCard, ResultStat } from "@/components/calculators/Shared";
-import { amortizationSchedule, currency, monthlyPayment, monthsToText } from "@/lib/finance";
+import { amortizationSchedule, monthlyPayment, monthsToText } from "@/lib/finance";
+import { useCurrency } from "@/lib/currency";
 import {
   Table,
   TableBody,
@@ -25,6 +26,7 @@ import {
 } from "@/components/ui/table";
 
 export function LoanCalculator() {
+  const { money, option } = useCurrency();
   const [amount, setAmount] = useState(15000);
   const [rate, setRate] = useState(9.5);
   const [months, setMonths] = useState(48);
@@ -66,7 +68,7 @@ export function LoanCalculator() {
             min={500}
             max={150000}
             step={500}
-            prefix="$"
+            prefix={option.symbol}
           />
           <Field
             id="rate"
@@ -91,9 +93,9 @@ export function LoanCalculator() {
       }
     >
       <div className="grid gap-4 sm:grid-cols-3">
-        <ResultStat label="Cuota mensual" value={currency(cuota, 2)} highlight sub={monthsToText(months)} />
-        <ResultStat label="Total intereses" value={currency(totalInteres)} accent />
-        <ResultStat label="Total a pagar" value={currency(amount + totalInteres)} />
+        <ResultStat label="Cuota mensual" value={money(cuota, 2)} highlight sub={monthsToText(months)} />
+        <ResultStat label="Total intereses" value={money(totalInteres)} accent />
+        <ResultStat label="Total a pagar" value={money(amount + totalInteres)} />
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
@@ -108,10 +110,10 @@ export function LoanCalculator() {
                 width={62}
                 fontSize={12}
                 stroke="var(--color-muted-foreground)"
-                tickFormatter={(v) => currency(Number(v))}
+                tickFormatter={(v) => money(Number(v))}
               />
               <Tooltip
-                formatter={(v: number, name) => [currency(v), name]}
+                formatter={(v: number, name) => [money(v), name]}
                 contentStyle={{
                   background: "var(--color-card)",
                   border: "1px solid var(--color-border)",
@@ -142,7 +144,7 @@ export function LoanCalculator() {
                 <Cell fill="var(--color-chart-1)" />
               </Pie>
               <Tooltip
-                formatter={(v: number, name) => [currency(v), name]}
+                formatter={(v: number, name) => [money(v), name]}
                 contentStyle={{
                   background: "var(--color-card)",
                   border: "1px solid var(--color-border)",
@@ -175,10 +177,10 @@ export function LoanCalculator() {
               {schedule.map((row) => (
                 <TableRow key={row.mes}>
                   <TableCell className="font-medium">{row.mes}</TableCell>
-                  <TableCell className="text-right">{currency(row.cuota, 2)}</TableCell>
-                  <TableCell className="text-right">{currency(row.capital, 2)}</TableCell>
-                  <TableCell className="text-right text-brand">{currency(row.interes, 2)}</TableCell>
-                  <TableCell className="text-right font-semibold">{currency(row.saldo, 2)}</TableCell>
+                  <TableCell className="text-right">{money(row.cuota, 2)}</TableCell>
+                  <TableCell className="text-right">{money(row.capital, 2)}</TableCell>
+                  <TableCell className="text-right text-brand">{money(row.interes, 2)}</TableCell>
+                  <TableCell className="text-right font-semibold">{money(row.saldo, 2)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

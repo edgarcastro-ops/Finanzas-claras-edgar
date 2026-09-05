@@ -12,9 +12,11 @@ import {
 import { AlertTriangle, TrendingDown } from "lucide-react";
 import { Field } from "@/components/calculators/Field";
 import { CalcShell, ChartCard, ResultStat } from "@/components/calculators/Shared";
-import { creditCardPayoff, currency, monthsToText } from "@/lib/finance";
+import { creditCardPayoff, monthsToText } from "@/lib/finance";
+import { useCurrency } from "@/lib/currency";
 
 export function CreditCardCalculator() {
+  const { money, option } = useCurrency();
   const [balance, setBalance] = useState(3500);
   const [rate, setRate] = useState(24);
   const [payment, setPayment] = useState(200);
@@ -54,7 +56,7 @@ export function CreditCardCalculator() {
             min={100}
             max={50000}
             step={100}
-            prefix="$"
+            prefix={option.symbol}
           />
           <Field
             id="rate"
@@ -74,7 +76,7 @@ export function CreditCardCalculator() {
             min={10}
             max={5000}
             step={10}
-            prefix="$"
+            prefix={option.symbol}
           />
         </>
       }
@@ -98,17 +100,17 @@ export function CreditCardCalculator() {
             label="Tiempo para saldar"
             value={monthsToText(plan.months)}
             highlight
-            sub={`Pagando ${currency(payment)} al mes`}
+            sub={`Pagando ${money(payment)} al mes`}
           />
-          <ResultStat label="Intereses totales" value={currency(plan.totalInterest)} accent />
-          <ResultStat label="Coste total" value={currency(plan.totalPaid)} />
+          <ResultStat label="Intereses totales" value={money(plan.totalInterest)} accent />
+          <ResultStat label="Coste total" value={money(plan.totalPaid)} />
         </div>
       )}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <div className="rounded-2xl border border-border bg-card p-5 shadow-soft card-hover">
           <h2 className="font-display text-base font-semibold">Solo pago mínimo</h2>
-          <p className="mt-1 text-xs text-muted-foreground">2% del saldo (mínimo $25) + intereses</p>
+          <p className="mt-1 text-xs text-muted-foreground">2% del saldo (mínimo {money(25)}) + intereses</p>
           <dl className="mt-4 space-y-2 text-sm">
             <div className="flex justify-between">
               <dt className="text-muted-foreground">Tiempo</dt>
@@ -119,7 +121,7 @@ export function CreditCardCalculator() {
             <div className="flex justify-between">
               <dt className="text-muted-foreground">Intereses</dt>
               <dd className="font-semibold tabular-nums text-destructive">
-                {currency(minimum.totalInterest)}
+                {money(minimum.totalInterest)}
               </dd>
             </div>
           </dl>
@@ -129,7 +131,7 @@ export function CreditCardCalculator() {
           <h2 className="flex items-center gap-2 font-display text-base font-semibold text-accent-foreground">
             <TrendingDown className="h-4 w-4" /> Con tu pago fijo
           </h2>
-          <p className="mt-1 text-xs text-accent-foreground/80">{currency(payment)} cada mes</p>
+          <p className="mt-1 text-xs text-accent-foreground/80">{money(payment)} cada mes</p>
           <dl className="mt-4 space-y-2 text-sm text-accent-foreground">
             <div className="flex justify-between">
               <dt className="opacity-80">Tiempo</dt>
@@ -140,7 +142,7 @@ export function CreditCardCalculator() {
             <div className="flex justify-between">
               <dt className="opacity-80">Ahorro en intereses</dt>
               <dd className="font-semibold tabular-nums">
-                {plan.feasible && ahorro > 0 ? currency(ahorro) : "—"}
+                {plan.feasible && ahorro > 0 ? money(ahorro) : "—"}
               </dd>
             </div>
           </dl>
@@ -165,10 +167,10 @@ export function CreditCardCalculator() {
               width={62}
               fontSize={12}
               stroke="var(--color-muted-foreground)"
-              tickFormatter={(v) => currency(Number(v))}
+              tickFormatter={(v) => money(Number(v))}
             />
             <Tooltip
-              formatter={(v: number, name) => [currency(v), name]}
+              formatter={(v: number, name) => [money(v), name]}
               labelFormatter={(l) => `Mes ${l}`}
               contentStyle={{
                 background: "var(--color-card)",
