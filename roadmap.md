@@ -18,3 +18,6 @@
 - Fase 2: resto de calculadoras (meta de ahorro, hipoteca, 50/30/20, fondo emergencia, inflación)
 - Fase 3: blog real (artículos, categorías)
 - Fase 4: páginas legales + integración AdSense en los AD SLOT
+
+## Extras completados
+- [x] Selector global de moneda (10 monedas, detección por región del navegador, localStorage, formato en las 3 calculadoras; componente reutilizable `CurrencySelect` + hook `useCurrency`)
