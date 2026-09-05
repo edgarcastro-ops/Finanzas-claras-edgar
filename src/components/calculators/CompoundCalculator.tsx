@@ -44,7 +44,7 @@ export function CompoundCalculator() {
             min={0}
             max={100000}
             step={100}
-            prefix="$"
+            prefix={option.symbol}
           />
           <Field
             id="monthly"
@@ -54,7 +54,7 @@ export function CompoundCalculator() {
             min={0}
             max={3000}
             step={25}
-            prefix="$"
+            prefix={option.symbol}
           />
           <Field
             id="rate"
@@ -79,9 +79,9 @@ export function CompoundCalculator() {
       }
     >
       <div className="grid gap-4 sm:grid-cols-3">
-        <ResultStat label="Valor final" value={currency(last.total)} highlight />
-        <ResultStat label="Total aportado" value={currency(last.aportado)} />
-        <ResultStat label="Intereses generados" value={currency(last.intereses)} accent />
+        <ResultStat label="Valor final" value={money(last.total)} highlight />
+        <ResultStat label="Total aportado" value={money(last.aportado)} />
+        <ResultStat label="Intereses generados" value={money(last.intereses)} accent />
       </div>
 
       <ChartCard title="Crecimiento de tu inversión">
@@ -110,12 +110,12 @@ export function CompoundCalculator() {
               tickLine={false}
               axisLine={false}
               width={62}
-              tickFormatter={(v) => currency(Number(v))}
+              tickFormatter={(v) => money(Number(v))}
               stroke="var(--color-muted-foreground)"
               fontSize={12}
             />
             <Tooltip
-              formatter={(v: number, name) => [currency(v), name]}
+              formatter={(v: number, name) => [money(v), name]}
               labelFormatter={(l) => `Año ${l}`}
               contentStyle={{
                 background: "var(--color-card)",
@@ -161,9 +161,9 @@ export function CompoundCalculator() {
               {rows.slice(1).map((row) => (
                 <TableRow key={row.year}>
                   <TableCell className="font-medium">{row.year}</TableCell>
-                  <TableCell className="text-right">{currency(row.aportado)}</TableCell>
-                  <TableCell className="text-right text-brand">{currency(row.intereses)}</TableCell>
-                  <TableCell className="text-right font-semibold">{currency(row.total)}</TableCell>
+                  <TableCell className="text-right">{money(row.aportado)}</TableCell>
+                  <TableCell className="text-right text-brand">{money(row.intereses)}</TableCell>
+                  <TableCell className="text-right font-semibold">{money(row.total)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
