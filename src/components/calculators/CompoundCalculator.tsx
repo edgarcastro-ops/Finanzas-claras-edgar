@@ -10,7 +10,8 @@ import {
 } from "recharts";
 import { Field } from "@/components/calculators/Field";
 import { ResultStat, CalcShell, ChartCard } from "@/components/calculators/Shared";
-import { compoundInterest, currency } from "@/lib/finance";
+import { compoundInterest } from "@/lib/finance";
+import { useCurrency } from "@/lib/currency";
 import {
   Table,
   TableBody,
@@ -21,6 +22,7 @@ import {
 } from "@/components/ui/table";
 
 export function CompoundCalculator() {
+  const { money, option } = useCurrency();
   const [initial, setInitial] = useState(2000);
   const [monthly, setMonthly] = useState(200);
   const [rate, setRate] = useState(7);

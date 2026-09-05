@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, LineChart, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CurrencySelect } from "@/components/site/CurrencySelect";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -83,6 +84,7 @@ export function Header() {
               </Link>
             ))}
           </nav>
+          <CurrencySelect />
           <ThemeToggle />
           <Button asChild variant="brand" size="sm" className="ml-1 hidden md:inline-flex">
             <Link to="/herramientas">Calcular ahora</Link>

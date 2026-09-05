@@ -12,9 +12,11 @@ import {
 import { AlertTriangle, TrendingDown } from "lucide-react";
 import { Field } from "@/components/calculators/Field";
 import { CalcShell, ChartCard, ResultStat } from "@/components/calculators/Shared";
-import { creditCardPayoff, currency, monthsToText } from "@/lib/finance";
+import { creditCardPayoff, monthsToText } from "@/lib/finance";
+import { useCurrency } from "@/lib/currency";
 
 export function CreditCardCalculator() {
+  const { money, option } = useCurrency();
   const [balance, setBalance] = useState(3500);
   const [rate, setRate] = useState(24);
   const [payment, setPayment] = useState(200);

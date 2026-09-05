@@ -14,7 +14,8 @@ import {
 } from "recharts";
 import { Field } from "@/components/calculators/Field";
 import { CalcShell, ChartCard, ResultStat } from "@/components/calculators/Shared";
-import { amortizationSchedule, currency, monthlyPayment, monthsToText } from "@/lib/finance";
+import { amortizationSchedule, monthlyPayment, monthsToText } from "@/lib/finance";
+import { useCurrency } from "@/lib/currency";
 import {
   Table,
   TableBody,
@@ -25,6 +26,7 @@ import {
 } from "@/components/ui/table";
 
 export function LoanCalculator() {
+  const { money, option } = useCurrency();
   const [amount, setAmount] = useState(15000);
   const [rate, setRate] = useState(9.5);
   const [months, setMonths] = useState(48);
