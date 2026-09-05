@@ -12,7 +12,7 @@
 - [x] Calculadora interés compuesto (gráfico + tabla anual)
 - [x] Calculadora préstamo personal (cuota, amortización, gráficos)
 - [x] Calculadora tarjeta de crédito (mínimo vs. pago fijo)
-- [ ] Verificación visual y de funcionamiento en el navegador
+- [x] Verificación visual y de funcionamiento en el navegador
 
 ## Próximas fases
 - Fase 2: resto de calculadoras (meta de ahorro, hipoteca, 50/30/20, fondo emergencia, inflación)
