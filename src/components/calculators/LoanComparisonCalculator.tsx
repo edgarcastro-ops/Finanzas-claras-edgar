@@ -60,8 +60,9 @@ export function LoanComparisonCalculator() {
     [offers],
   );
 
-  const mejor = rows.reduce((best, r) => (r.costeTotal < best.costeTotal ? r : best), rows[0]);
-  const peor = rows.reduce((worst, r) => (r.costeTotal > worst.costeTotal ? r : worst), rows[0]);
+  const mejor = rows.reduce((best, r) => (r.costeTotal < best.costeTotal ? r : best), rows[0]!);
+  const peor = rows.reduce((worst, r) => (r.costeTotal > worst.costeTotal ? r : worst), rows[0]!);
+
 
   return (
     <CalcShell
