@@ -6,7 +6,7 @@ const title = "Calculadora de jubilación y retiro";
 const description = "Proyecta el capital que tendrás al jubilarte según tu edad, tus aportes mensuales y el rendimiento esperado, y la renta que podrías retirar.";
 const path = "/herramientas/calculadora-jubilacion";
 
-export const Route = createFileRoute(path)({
+export const Route = createFileRoute("/herramientas/calculadora-jubilacion")({
   head: () => ({
     meta: [
       { title: `${title} | FinanzasClaras` },

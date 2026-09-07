@@ -6,7 +6,7 @@ const title = "Calculadora de hipoteca";
 const description = "Calcula la cuota de tu hipoteca, los intereses totales y la tabla de amortización, incluyendo entrada y abonos extra a capital.";
 const path = "/herramientas/calculadora-hipoteca";
 
-export const Route = createFileRoute(path)({
+export const Route = createFileRoute("/herramientas/calculadora-hipoteca")({
   head: () => ({
     meta: [
       { title: `${title} | FinanzasClaras` },

@@ -13,9 +13,23 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
 import { Route as HerramientasIndexRouteImport } from './routes/herramientas.index'
+import { Route as HerramientasCalculadoraAhorroMetaRouteImport } from './routes/herramientas.calculadora-ahorro-meta'
+import { Route as HerramientasCalculadoraCapacidadEndeudamientoRouteImport } from './routes/herramientas.calculadora-capacidad-endeudamiento'
+import { Route as HerramientasCalculadoraHipotecaRouteImport } from './routes/herramientas.calculadora-hipoteca'
 import { Route as HerramientasCalculadoraInteresCompuestoRouteImport } from './routes/herramientas.calculadora-interes-compuesto'
+import { Route as HerramientasCalculadoraJubilacionRouteImport } from './routes/herramientas.calculadora-jubilacion'
+import { Route as HerramientasCalculadoraPagoAnticipadoRouteImport } from './routes/herramientas.calculadora-pago-anticipado'
+import { Route as HerramientasCalculadoraPagoDeudasRouteImport } from './routes/herramientas.calculadora-pago-deudas'
+import { Route as HerramientasCalculadoraPrestamoEmpresarialRouteImport } from './routes/herramientas.calculadora-prestamo-empresarial'
+import { Route as HerramientasCalculadoraPrestamoEstudiantilRouteImport } from './routes/herramientas.calculadora-prestamo-estudiantil'
 import { Route as HerramientasCalculadoraPrestamoPersonalRouteImport } from './routes/herramientas.calculadora-prestamo-personal'
+import { Route as HerramientasCalculadoraPrestamoVehicularRouteImport } from './routes/herramientas.calculadora-prestamo-vehicular'
+import { Route as HerramientasCalculadoraPresupuestoMensualRouteImport } from './routes/herramientas.calculadora-presupuesto-mensual'
+import { Route as HerramientasCalculadoraRefinanciamientoRouteImport } from './routes/herramientas.calculadora-refinanciamiento'
+import { Route as HerramientasCalculadoraSalarioNetoRouteImport } from './routes/herramientas.calculadora-salario-neto'
 import { Route as HerramientasCalculadoraTarjetaCreditoRouteImport } from './routes/herramientas.calculadora-tarjeta-credito'
+import { Route as HerramientasComparadorDePrestamosRouteImport } from './routes/herramientas.comparador-de-prestamos'
+import { Route as HerramientasConversorDeMonedaRouteImport } from './routes/herramientas.conversor-de-moneda'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -37,10 +51,58 @@ const HerramientasIndexRoute = HerramientasIndexRouteImport.update({
   path: '/herramientas/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HerramientasCalculadoraAhorroMetaRoute =
+  HerramientasCalculadoraAhorroMetaRouteImport.update({
+    id: '/herramientas/calculadora-ahorro-meta',
+    path: '/herramientas/calculadora-ahorro-meta',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraCapacidadEndeudamientoRoute =
+  HerramientasCalculadoraCapacidadEndeudamientoRouteImport.update({
+    id: '/herramientas/calculadora-capacidad-endeudamiento',
+    path: '/herramientas/calculadora-capacidad-endeudamiento',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraHipotecaRoute =
+  HerramientasCalculadoraHipotecaRouteImport.update({
+    id: '/herramientas/calculadora-hipoteca',
+    path: '/herramientas/calculadora-hipoteca',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HerramientasCalculadoraInteresCompuestoRoute =
   HerramientasCalculadoraInteresCompuestoRouteImport.update({
     id: '/herramientas/calculadora-interes-compuesto',
     path: '/herramientas/calculadora-interes-compuesto',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraJubilacionRoute =
+  HerramientasCalculadoraJubilacionRouteImport.update({
+    id: '/herramientas/calculadora-jubilacion',
+    path: '/herramientas/calculadora-jubilacion',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraPagoAnticipadoRoute =
+  HerramientasCalculadoraPagoAnticipadoRouteImport.update({
+    id: '/herramientas/calculadora-pago-anticipado',
+    path: '/herramientas/calculadora-pago-anticipado',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraPagoDeudasRoute =
+  HerramientasCalculadoraPagoDeudasRouteImport.update({
+    id: '/herramientas/calculadora-pago-deudas',
+    path: '/herramientas/calculadora-pago-deudas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraPrestamoEmpresarialRoute =
+  HerramientasCalculadoraPrestamoEmpresarialRouteImport.update({
+    id: '/herramientas/calculadora-prestamo-empresarial',
+    path: '/herramientas/calculadora-prestamo-empresarial',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraPrestamoEstudiantilRoute =
+  HerramientasCalculadoraPrestamoEstudiantilRouteImport.update({
+    id: '/herramientas/calculadora-prestamo-estudiantil',
+    path: '/herramientas/calculadora-prestamo-estudiantil',
     getParentRoute: () => rootRouteImport,
   } as any)
 const HerramientasCalculadoraPrestamoPersonalRoute =
@@ -49,10 +111,46 @@ const HerramientasCalculadoraPrestamoPersonalRoute =
     path: '/herramientas/calculadora-prestamo-personal',
     getParentRoute: () => rootRouteImport,
   } as any)
+const HerramientasCalculadoraPrestamoVehicularRoute =
+  HerramientasCalculadoraPrestamoVehicularRouteImport.update({
+    id: '/herramientas/calculadora-prestamo-vehicular',
+    path: '/herramientas/calculadora-prestamo-vehicular',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraPresupuestoMensualRoute =
+  HerramientasCalculadoraPresupuestoMensualRouteImport.update({
+    id: '/herramientas/calculadora-presupuesto-mensual',
+    path: '/herramientas/calculadora-presupuesto-mensual',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraRefinanciamientoRoute =
+  HerramientasCalculadoraRefinanciamientoRouteImport.update({
+    id: '/herramientas/calculadora-refinanciamiento',
+    path: '/herramientas/calculadora-refinanciamiento',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasCalculadoraSalarioNetoRoute =
+  HerramientasCalculadoraSalarioNetoRouteImport.update({
+    id: '/herramientas/calculadora-salario-neto',
+    path: '/herramientas/calculadora-salario-neto',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HerramientasCalculadoraTarjetaCreditoRoute =
   HerramientasCalculadoraTarjetaCreditoRouteImport.update({
     id: '/herramientas/calculadora-tarjeta-credito',
     path: '/herramientas/calculadora-tarjeta-credito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasComparadorDePrestamosRoute =
+  HerramientasComparadorDePrestamosRouteImport.update({
+    id: '/herramientas/comparador-de-prestamos',
+    path: '/herramientas/comparador-de-prestamos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HerramientasConversorDeMonedaRoute =
+  HerramientasConversorDeMonedaRouteImport.update({
+    id: '/herramientas/conversor-de-moneda',
+    path: '/herramientas/conversor-de-moneda',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -60,18 +158,46 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
+  '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
+  '/herramientas/calculadora-hipoteca': typeof HerramientasCalculadoraHipotecaRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
+  '/herramientas/calculadora-jubilacion': typeof HerramientasCalculadoraJubilacionRoute
+  '/herramientas/calculadora-pago-anticipado': typeof HerramientasCalculadoraPagoAnticipadoRoute
+  '/herramientas/calculadora-pago-deudas': typeof HerramientasCalculadoraPagoDeudasRoute
+  '/herramientas/calculadora-prestamo-empresarial': typeof HerramientasCalculadoraPrestamoEmpresarialRoute
+  '/herramientas/calculadora-prestamo-estudiantil': typeof HerramientasCalculadoraPrestamoEstudiantilRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-prestamo-vehicular': typeof HerramientasCalculadoraPrestamoVehicularRoute
+  '/herramientas/calculadora-presupuesto-mensual': typeof HerramientasCalculadoraPresupuestoMensualRoute
+  '/herramientas/calculadora-refinanciamiento': typeof HerramientasCalculadoraRefinanciamientoRoute
+  '/herramientas/calculadora-salario-neto': typeof HerramientasCalculadoraSalarioNetoRoute
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
+  '/herramientas/comparador-de-prestamos': typeof HerramientasComparadorDePrestamosRoute
+  '/herramientas/conversor-de-moneda': typeof HerramientasConversorDeMonedaRoute
   '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
+  '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
+  '/herramientas/calculadora-hipoteca': typeof HerramientasCalculadoraHipotecaRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
+  '/herramientas/calculadora-jubilacion': typeof HerramientasCalculadoraJubilacionRoute
+  '/herramientas/calculadora-pago-anticipado': typeof HerramientasCalculadoraPagoAnticipadoRoute
+  '/herramientas/calculadora-pago-deudas': typeof HerramientasCalculadoraPagoDeudasRoute
+  '/herramientas/calculadora-prestamo-empresarial': typeof HerramientasCalculadoraPrestamoEmpresarialRoute
+  '/herramientas/calculadora-prestamo-estudiantil': typeof HerramientasCalculadoraPrestamoEstudiantilRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-prestamo-vehicular': typeof HerramientasCalculadoraPrestamoVehicularRoute
+  '/herramientas/calculadora-presupuesto-mensual': typeof HerramientasCalculadoraPresupuestoMensualRoute
+  '/herramientas/calculadora-refinanciamiento': typeof HerramientasCalculadoraRefinanciamientoRoute
+  '/herramientas/calculadora-salario-neto': typeof HerramientasCalculadoraSalarioNetoRoute
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
+  '/herramientas/comparador-de-prestamos': typeof HerramientasComparadorDePrestamosRoute
+  '/herramientas/conversor-de-moneda': typeof HerramientasConversorDeMonedaRoute
   '/herramientas': typeof HerramientasIndexRoute
 }
 export interface FileRoutesById {
@@ -79,9 +205,23 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
+  '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
+  '/herramientas/calculadora-hipoteca': typeof HerramientasCalculadoraHipotecaRoute
   '/herramientas/calculadora-interes-compuesto': typeof HerramientasCalculadoraInteresCompuestoRoute
+  '/herramientas/calculadora-jubilacion': typeof HerramientasCalculadoraJubilacionRoute
+  '/herramientas/calculadora-pago-anticipado': typeof HerramientasCalculadoraPagoAnticipadoRoute
+  '/herramientas/calculadora-pago-deudas': typeof HerramientasCalculadoraPagoDeudasRoute
+  '/herramientas/calculadora-prestamo-empresarial': typeof HerramientasCalculadoraPrestamoEmpresarialRoute
+  '/herramientas/calculadora-prestamo-estudiantil': typeof HerramientasCalculadoraPrestamoEstudiantilRoute
   '/herramientas/calculadora-prestamo-personal': typeof HerramientasCalculadoraPrestamoPersonalRoute
+  '/herramientas/calculadora-prestamo-vehicular': typeof HerramientasCalculadoraPrestamoVehicularRoute
+  '/herramientas/calculadora-presupuesto-mensual': typeof HerramientasCalculadoraPresupuestoMensualRoute
+  '/herramientas/calculadora-refinanciamiento': typeof HerramientasCalculadoraRefinanciamientoRoute
+  '/herramientas/calculadora-salario-neto': typeof HerramientasCalculadoraSalarioNetoRoute
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
+  '/herramientas/comparador-de-prestamos': typeof HerramientasComparadorDePrestamosRoute
+  '/herramientas/conversor-de-moneda': typeof HerramientasConversorDeMonedaRoute
   '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRouteTypes {
@@ -90,27 +230,69 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/sobre-nosotros'
+    | '/herramientas/calculadora-ahorro-meta'
+    | '/herramientas/calculadora-capacidad-endeudamiento'
+    | '/herramientas/calculadora-hipoteca'
     | '/herramientas/calculadora-interes-compuesto'
+    | '/herramientas/calculadora-jubilacion'
+    | '/herramientas/calculadora-pago-anticipado'
+    | '/herramientas/calculadora-pago-deudas'
+    | '/herramientas/calculadora-prestamo-empresarial'
+    | '/herramientas/calculadora-prestamo-estudiantil'
     | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-prestamo-vehicular'
+    | '/herramientas/calculadora-presupuesto-mensual'
+    | '/herramientas/calculadora-refinanciamiento'
+    | '/herramientas/calculadora-salario-neto'
     | '/herramientas/calculadora-tarjeta-credito'
+    | '/herramientas/comparador-de-prestamos'
+    | '/herramientas/conversor-de-moneda'
     | '/herramientas/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/blog'
     | '/sobre-nosotros'
+    | '/herramientas/calculadora-ahorro-meta'
+    | '/herramientas/calculadora-capacidad-endeudamiento'
+    | '/herramientas/calculadora-hipoteca'
     | '/herramientas/calculadora-interes-compuesto'
+    | '/herramientas/calculadora-jubilacion'
+    | '/herramientas/calculadora-pago-anticipado'
+    | '/herramientas/calculadora-pago-deudas'
+    | '/herramientas/calculadora-prestamo-empresarial'
+    | '/herramientas/calculadora-prestamo-estudiantil'
     | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-prestamo-vehicular'
+    | '/herramientas/calculadora-presupuesto-mensual'
+    | '/herramientas/calculadora-refinanciamiento'
+    | '/herramientas/calculadora-salario-neto'
     | '/herramientas/calculadora-tarjeta-credito'
+    | '/herramientas/comparador-de-prestamos'
+    | '/herramientas/conversor-de-moneda'
     | '/herramientas'
   id:
     | '__root__'
     | '/'
     | '/blog'
     | '/sobre-nosotros'
+    | '/herramientas/calculadora-ahorro-meta'
+    | '/herramientas/calculadora-capacidad-endeudamiento'
+    | '/herramientas/calculadora-hipoteca'
     | '/herramientas/calculadora-interes-compuesto'
+    | '/herramientas/calculadora-jubilacion'
+    | '/herramientas/calculadora-pago-anticipado'
+    | '/herramientas/calculadora-pago-deudas'
+    | '/herramientas/calculadora-prestamo-empresarial'
+    | '/herramientas/calculadora-prestamo-estudiantil'
     | '/herramientas/calculadora-prestamo-personal'
+    | '/herramientas/calculadora-prestamo-vehicular'
+    | '/herramientas/calculadora-presupuesto-mensual'
+    | '/herramientas/calculadora-refinanciamiento'
+    | '/herramientas/calculadora-salario-neto'
     | '/herramientas/calculadora-tarjeta-credito'
+    | '/herramientas/comparador-de-prestamos'
+    | '/herramientas/conversor-de-moneda'
     | '/herramientas/'
   fileRoutesById: FileRoutesById
 }
@@ -118,9 +300,23 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
   SobreNosotrosRoute: typeof SobreNosotrosRoute
+  HerramientasCalculadoraAhorroMetaRoute: typeof HerramientasCalculadoraAhorroMetaRoute
+  HerramientasCalculadoraCapacidadEndeudamientoRoute: typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
+  HerramientasCalculadoraHipotecaRoute: typeof HerramientasCalculadoraHipotecaRoute
   HerramientasCalculadoraInteresCompuestoRoute: typeof HerramientasCalculadoraInteresCompuestoRoute
+  HerramientasCalculadoraJubilacionRoute: typeof HerramientasCalculadoraJubilacionRoute
+  HerramientasCalculadoraPagoAnticipadoRoute: typeof HerramientasCalculadoraPagoAnticipadoRoute
+  HerramientasCalculadoraPagoDeudasRoute: typeof HerramientasCalculadoraPagoDeudasRoute
+  HerramientasCalculadoraPrestamoEmpresarialRoute: typeof HerramientasCalculadoraPrestamoEmpresarialRoute
+  HerramientasCalculadoraPrestamoEstudiantilRoute: typeof HerramientasCalculadoraPrestamoEstudiantilRoute
   HerramientasCalculadoraPrestamoPersonalRoute: typeof HerramientasCalculadoraPrestamoPersonalRoute
+  HerramientasCalculadoraPrestamoVehicularRoute: typeof HerramientasCalculadoraPrestamoVehicularRoute
+  HerramientasCalculadoraPresupuestoMensualRoute: typeof HerramientasCalculadoraPresupuestoMensualRoute
+  HerramientasCalculadoraRefinanciamientoRoute: typeof HerramientasCalculadoraRefinanciamientoRoute
+  HerramientasCalculadoraSalarioNetoRoute: typeof HerramientasCalculadoraSalarioNetoRoute
   HerramientasCalculadoraTarjetaCreditoRoute: typeof HerramientasCalculadoraTarjetaCreditoRoute
+  HerramientasComparadorDePrestamosRoute: typeof HerramientasComparadorDePrestamosRoute
+  HerramientasConversorDeMonedaRoute: typeof HerramientasConversorDeMonedaRoute
   HerramientasIndexRoute: typeof HerramientasIndexRoute
 }
 
@@ -154,11 +350,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HerramientasIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/herramientas/calculadora-ahorro-meta': {
+      id: '/herramientas/calculadora-ahorro-meta'
+      path: '/herramientas/calculadora-ahorro-meta'
+      fullPath: '/herramientas/calculadora-ahorro-meta'
+      preLoaderRoute: typeof HerramientasCalculadoraAhorroMetaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-capacidad-endeudamiento': {
+      id: '/herramientas/calculadora-capacidad-endeudamiento'
+      path: '/herramientas/calculadora-capacidad-endeudamiento'
+      fullPath: '/herramientas/calculadora-capacidad-endeudamiento'
+      preLoaderRoute: typeof HerramientasCalculadoraCapacidadEndeudamientoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-hipoteca': {
+      id: '/herramientas/calculadora-hipoteca'
+      path: '/herramientas/calculadora-hipoteca'
+      fullPath: '/herramientas/calculadora-hipoteca'
+      preLoaderRoute: typeof HerramientasCalculadoraHipotecaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/herramientas/calculadora-interes-compuesto': {
       id: '/herramientas/calculadora-interes-compuesto'
       path: '/herramientas/calculadora-interes-compuesto'
       fullPath: '/herramientas/calculadora-interes-compuesto'
       preLoaderRoute: typeof HerramientasCalculadoraInteresCompuestoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-jubilacion': {
+      id: '/herramientas/calculadora-jubilacion'
+      path: '/herramientas/calculadora-jubilacion'
+      fullPath: '/herramientas/calculadora-jubilacion'
+      preLoaderRoute: typeof HerramientasCalculadoraJubilacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-pago-anticipado': {
+      id: '/herramientas/calculadora-pago-anticipado'
+      path: '/herramientas/calculadora-pago-anticipado'
+      fullPath: '/herramientas/calculadora-pago-anticipado'
+      preLoaderRoute: typeof HerramientasCalculadoraPagoAnticipadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-pago-deudas': {
+      id: '/herramientas/calculadora-pago-deudas'
+      path: '/herramientas/calculadora-pago-deudas'
+      fullPath: '/herramientas/calculadora-pago-deudas'
+      preLoaderRoute: typeof HerramientasCalculadoraPagoDeudasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-prestamo-empresarial': {
+      id: '/herramientas/calculadora-prestamo-empresarial'
+      path: '/herramientas/calculadora-prestamo-empresarial'
+      fullPath: '/herramientas/calculadora-prestamo-empresarial'
+      preLoaderRoute: typeof HerramientasCalculadoraPrestamoEmpresarialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-prestamo-estudiantil': {
+      id: '/herramientas/calculadora-prestamo-estudiantil'
+      path: '/herramientas/calculadora-prestamo-estudiantil'
+      fullPath: '/herramientas/calculadora-prestamo-estudiantil'
+      preLoaderRoute: typeof HerramientasCalculadoraPrestamoEstudiantilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/herramientas/calculadora-prestamo-personal': {
@@ -168,11 +420,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HerramientasCalculadoraPrestamoPersonalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/herramientas/calculadora-prestamo-vehicular': {
+      id: '/herramientas/calculadora-prestamo-vehicular'
+      path: '/herramientas/calculadora-prestamo-vehicular'
+      fullPath: '/herramientas/calculadora-prestamo-vehicular'
+      preLoaderRoute: typeof HerramientasCalculadoraPrestamoVehicularRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-presupuesto-mensual': {
+      id: '/herramientas/calculadora-presupuesto-mensual'
+      path: '/herramientas/calculadora-presupuesto-mensual'
+      fullPath: '/herramientas/calculadora-presupuesto-mensual'
+      preLoaderRoute: typeof HerramientasCalculadoraPresupuestoMensualRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-refinanciamiento': {
+      id: '/herramientas/calculadora-refinanciamiento'
+      path: '/herramientas/calculadora-refinanciamiento'
+      fullPath: '/herramientas/calculadora-refinanciamiento'
+      preLoaderRoute: typeof HerramientasCalculadoraRefinanciamientoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/calculadora-salario-neto': {
+      id: '/herramientas/calculadora-salario-neto'
+      path: '/herramientas/calculadora-salario-neto'
+      fullPath: '/herramientas/calculadora-salario-neto'
+      preLoaderRoute: typeof HerramientasCalculadoraSalarioNetoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/herramientas/calculadora-tarjeta-credito': {
       id: '/herramientas/calculadora-tarjeta-credito'
       path: '/herramientas/calculadora-tarjeta-credito'
       fullPath: '/herramientas/calculadora-tarjeta-credito'
       preLoaderRoute: typeof HerramientasCalculadoraTarjetaCreditoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/comparador-de-prestamos': {
+      id: '/herramientas/comparador-de-prestamos'
+      path: '/herramientas/comparador-de-prestamos'
+      fullPath: '/herramientas/comparador-de-prestamos'
+      preLoaderRoute: typeof HerramientasComparadorDePrestamosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas/conversor-de-moneda': {
+      id: '/herramientas/conversor-de-moneda'
+      path: '/herramientas/conversor-de-moneda'
+      fullPath: '/herramientas/conversor-de-moneda'
+      preLoaderRoute: typeof HerramientasConversorDeMonedaRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -182,12 +476,38 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
   SobreNosotrosRoute: SobreNosotrosRoute,
+  HerramientasCalculadoraAhorroMetaRoute:
+    HerramientasCalculadoraAhorroMetaRoute,
+  HerramientasCalculadoraCapacidadEndeudamientoRoute:
+    HerramientasCalculadoraCapacidadEndeudamientoRoute,
+  HerramientasCalculadoraHipotecaRoute: HerramientasCalculadoraHipotecaRoute,
   HerramientasCalculadoraInteresCompuestoRoute:
     HerramientasCalculadoraInteresCompuestoRoute,
+  HerramientasCalculadoraJubilacionRoute:
+    HerramientasCalculadoraJubilacionRoute,
+  HerramientasCalculadoraPagoAnticipadoRoute:
+    HerramientasCalculadoraPagoAnticipadoRoute,
+  HerramientasCalculadoraPagoDeudasRoute:
+    HerramientasCalculadoraPagoDeudasRoute,
+  HerramientasCalculadoraPrestamoEmpresarialRoute:
+    HerramientasCalculadoraPrestamoEmpresarialRoute,
+  HerramientasCalculadoraPrestamoEstudiantilRoute:
+    HerramientasCalculadoraPrestamoEstudiantilRoute,
   HerramientasCalculadoraPrestamoPersonalRoute:
     HerramientasCalculadoraPrestamoPersonalRoute,
+  HerramientasCalculadoraPrestamoVehicularRoute:
+    HerramientasCalculadoraPrestamoVehicularRoute,
+  HerramientasCalculadoraPresupuestoMensualRoute:
+    HerramientasCalculadoraPresupuestoMensualRoute,
+  HerramientasCalculadoraRefinanciamientoRoute:
+    HerramientasCalculadoraRefinanciamientoRoute,
+  HerramientasCalculadoraSalarioNetoRoute:
+    HerramientasCalculadoraSalarioNetoRoute,
   HerramientasCalculadoraTarjetaCreditoRoute:
     HerramientasCalculadoraTarjetaCreditoRoute,
+  HerramientasComparadorDePrestamosRoute:
+    HerramientasComparadorDePrestamosRoute,
+  HerramientasConversorDeMonedaRoute: HerramientasConversorDeMonedaRoute,
   HerramientasIndexRoute: HerramientasIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -6,7 +6,7 @@ const title = "Calculadora de meta de ahorro";
 const description = "Calcula cuánto ahorrar cada mes para alcanzar tu meta en el plazo que te propongas, con o sin rendimiento.";
 const path = "/herramientas/calculadora-ahorro-meta";
 
-export const Route = createFileRoute(path)({
+export const Route = createFileRoute("/herramientas/calculadora-ahorro-meta")({
   head: () => ({
     meta: [
       { title: `${title} | FinanzasClaras` },

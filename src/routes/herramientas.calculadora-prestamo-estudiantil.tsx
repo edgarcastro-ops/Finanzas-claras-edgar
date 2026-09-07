@@ -6,7 +6,7 @@ const title = "Calculadora de préstamo estudiantil";
 const description = "Calcula la cuota y el coste total de tu crédito educativo y cuánto ahorras abonando capital extra al terminar los estudios.";
 const path = "/herramientas/calculadora-prestamo-estudiantil";
 
-export const Route = createFileRoute(path)({
+export const Route = createFileRoute("/herramientas/calculadora-prestamo-estudiantil")({
   head: () => ({
     meta: [
       { title: `${title} | FinanzasClaras` },

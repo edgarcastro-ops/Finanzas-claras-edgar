@@ -6,7 +6,7 @@ const title = "Calculadora de refinanciamiento de préstamo";
 const description = "Compara tu préstamo actual con una nueva oferta y descubre si refinanciar te ahorra dinero, incluyendo comisiones.";
 const path = "/herramientas/calculadora-refinanciamiento";
 
-export const Route = createFileRoute(path)({
+export const Route = createFileRoute("/herramientas/calculadora-refinanciamiento")({
   head: () => ({
     meta: [
       { title: `${title} | FinanzasClaras` },

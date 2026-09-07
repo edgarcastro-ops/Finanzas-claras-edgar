@@ -6,7 +6,7 @@ const title = "Calculadora de préstamo vehicular";
 const description = "Calcula la cuota de tu crédito de auto con enganche incluido, el total de intereses y la tabla de pagos mes a mes.";
 const path = "/herramientas/calculadora-prestamo-vehicular";
 
-export const Route = createFileRoute(path)({
+export const Route = createFileRoute("/herramientas/calculadora-prestamo-vehicular")({
   head: () => ({
     meta: [
       { title: `${title} | FinanzasClaras` },

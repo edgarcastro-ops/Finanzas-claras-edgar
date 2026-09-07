@@ -6,7 +6,7 @@ const title = "Comparador de préstamos: hasta 3 ofertas lado a lado";
 const description = "Compara tres ofertas de préstamo a la vez: cuota, intereses, comisiones y coste total, para saber cuál sale realmente más barata.";
 const path = "/herramientas/comparador-de-prestamos";
 
-export const Route = createFileRoute(path)({
+export const Route = createFileRoute("/herramientas/comparador-de-prestamos")({
   head: () => ({
     meta: [
       { title: `${title} | FinanzasClaras` },

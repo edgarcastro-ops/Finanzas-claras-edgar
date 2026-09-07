@@ -6,7 +6,7 @@ const title = "Calculadora de pago anticipado de préstamo";
 const description = "Descubre cuánto ahorras en intereses y cuántos meses te quitas abonando capital extra a tu préstamo cada mes o de una sola vez.";
 const path = "/herramientas/calculadora-pago-anticipado";
 
-export const Route = createFileRoute(path)({
+export const Route = createFileRoute("/herramientas/calculadora-pago-anticipado")({
   head: () => ({
     meta: [
       { title: `${title} | FinanzasClaras` },
