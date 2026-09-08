@@ -10,8 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HerramientasIndexRouteImport } from './routes/herramientas.index'
 import { Route as HerramientasCalculadoraAhorroMetaRouteImport } from './routes/herramientas.calculadora-ahorro-meta'
 import { Route as HerramientasCalculadoraCapacidadEndeudamientoRouteImport } from './routes/herramientas.calculadora-capacidad-endeudamiento'
@@ -36,15 +37,20 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SobreNosotrosRoute = SobreNosotrosRouteImport.update({
   id: '/sobre-nosotros',
   path: '/sobre-nosotros',
   getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
 } as any)
 const HerramientasIndexRoute = HerramientasIndexRouteImport.update({
   id: '/herramientas/',
@@ -156,8 +162,8 @@ const HerramientasConversorDeMonedaRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
   '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
   '/herramientas/calculadora-hipoteca': typeof HerramientasCalculadoraHipotecaRoute
@@ -175,12 +181,13 @@ export interface FileRoutesByFullPath {
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
   '/herramientas/comparador-de-prestamos': typeof HerramientasComparadorDePrestamosRoute
   '/herramientas/conversor-de-moneda': typeof HerramientasConversorDeMonedaRoute
+  '/blog/': typeof BlogIndexRoute
   '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
   '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
   '/herramientas/calculadora-hipoteca': typeof HerramientasCalculadoraHipotecaRoute
@@ -198,13 +205,14 @@ export interface FileRoutesByTo {
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
   '/herramientas/comparador-de-prestamos': typeof HerramientasComparadorDePrestamosRoute
   '/herramientas/conversor-de-moneda': typeof HerramientasConversorDeMonedaRoute
+  '/blog': typeof BlogIndexRoute
   '/herramientas': typeof HerramientasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
   '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
   '/herramientas/calculadora-hipoteca': typeof HerramientasCalculadoraHipotecaRoute
@@ -222,14 +230,15 @@ export interface FileRoutesById {
   '/herramientas/calculadora-tarjeta-credito': typeof HerramientasCalculadoraTarjetaCreditoRoute
   '/herramientas/comparador-de-prestamos': typeof HerramientasComparadorDePrestamosRoute
   '/herramientas/conversor-de-moneda': typeof HerramientasConversorDeMonedaRoute
+  '/blog/': typeof BlogIndexRoute
   '/herramientas/': typeof HerramientasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/blog'
     | '/sobre-nosotros'
+    | '/blog/$slug'
     | '/herramientas/calculadora-ahorro-meta'
     | '/herramientas/calculadora-capacidad-endeudamiento'
     | '/herramientas/calculadora-hipoteca'
@@ -247,12 +256,13 @@ export interface FileRouteTypes {
     | '/herramientas/calculadora-tarjeta-credito'
     | '/herramientas/comparador-de-prestamos'
     | '/herramientas/conversor-de-moneda'
+    | '/blog/'
     | '/herramientas/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/blog'
     | '/sobre-nosotros'
+    | '/blog/$slug'
     | '/herramientas/calculadora-ahorro-meta'
     | '/herramientas/calculadora-capacidad-endeudamiento'
     | '/herramientas/calculadora-hipoteca'
@@ -270,12 +280,13 @@ export interface FileRouteTypes {
     | '/herramientas/calculadora-tarjeta-credito'
     | '/herramientas/comparador-de-prestamos'
     | '/herramientas/conversor-de-moneda'
+    | '/blog'
     | '/herramientas'
   id:
     | '__root__'
     | '/'
-    | '/blog'
     | '/sobre-nosotros'
+    | '/blog/$slug'
     | '/herramientas/calculadora-ahorro-meta'
     | '/herramientas/calculadora-capacidad-endeudamiento'
     | '/herramientas/calculadora-hipoteca'
@@ -293,12 +304,12 @@ export interface FileRouteTypes {
     | '/herramientas/calculadora-tarjeta-credito'
     | '/herramientas/comparador-de-prestamos'
     | '/herramientas/conversor-de-moneda'
+    | '/blog/'
     | '/herramientas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlogRoute: typeof BlogRoute
   SobreNosotrosRoute: typeof SobreNosotrosRoute
   HerramientasCalculadoraAhorroMetaRoute: typeof HerramientasCalculadoraAhorroMetaRoute
   HerramientasCalculadoraCapacidadEndeudamientoRoute: typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
@@ -317,6 +328,7 @@ export interface RootRouteChildren {
   HerramientasCalculadoraTarjetaCreditoRoute: typeof HerramientasCalculadoraTarjetaCreditoRoute
   HerramientasComparadorDePrestamosRoute: typeof HerramientasComparadorDePrestamosRoute
   HerramientasConversorDeMonedaRoute: typeof HerramientasConversorDeMonedaRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   HerramientasIndexRoute: typeof HerramientasIndexRoute
 }
 
@@ -329,19 +341,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sobre-nosotros': {
       id: '/sobre-nosotros'
       path: '/sobre-nosotros'
       fullPath: '/sobre-nosotros'
       preLoaderRoute: typeof SobreNosotrosRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
     }
     '/herramientas/': {
       id: '/herramientas/'
@@ -474,7 +493,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlogRoute: BlogRoute,
   SobreNosotrosRoute: SobreNosotrosRoute,
   HerramientasCalculadoraAhorroMetaRoute:
     HerramientasCalculadoraAhorroMetaRoute,
@@ -508,6 +526,7 @@ const rootRouteChildren: RootRouteChildren = {
   HerramientasComparadorDePrestamosRoute:
     HerramientasComparadorDePrestamosRoute,
   HerramientasConversorDeMonedaRoute: HerramientasConversorDeMonedaRoute,
+  BlogIndexRoute: BlogIndexRoute,
   HerramientasIndexRoute: HerramientasIndexRoute,
 }
 export const routeTree = rootRouteImport

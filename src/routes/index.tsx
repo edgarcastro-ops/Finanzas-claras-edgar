@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
 import { AdSlot } from "@/components/site/AdSlot";
 import { ToolCard } from "@/components/site/ToolCard";
-import { activeTools, blogCategories, placeholderPosts } from "@/data/tools";
+import { activeTools, blogCategories } from "@/data/tools";
+import { posts } from "@/data/posts";
 
 const description =
   "Calculadoras gratuitas de interés compuesto, préstamos y tarjetas de crédito, más guías claras para ahorrar, invertir y salir de deudas.";
@@ -116,21 +117,24 @@ function Index() {
             Últimos artículos del blog
           </h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            Estamos preparando la primera tanda de guías. Estos serán los primeros en publicarse.
+            Guías prácticas para tomar decisiones más claras con tu dinero.
           </p>
         </Reveal>
         <ul className="mt-8 grid gap-5 sm:grid-cols-3">
-          {placeholderPosts.map((post, i) => (
-            <Reveal as="li" key={post.title} delay={i * 70}>
-              <article className="card-hover h-full rounded-2xl border border-dashed border-border bg-card p-6">
+          {posts.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((post, i) => (
+            <Reveal as="li" key={post.slug} delay={i * 70}>
+              <Link
+                to="/blog/$slug"
+                params={{ slug: post.slug }}
+                className="card-hover block h-full rounded-2xl border border-border bg-card p-6 shadow-soft"
+              >
                 <p className="text-xs font-semibold uppercase tracking-wide text-brand">
                   {post.category}
                 </p>
                 <h3 className="mt-3 font-display text-base font-semibold">{post.title}</h3>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  {post.readTime} de lectura · Próximamente
-                </p>
-              </article>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+                <p className="mt-4 text-xs text-muted-foreground">{post.readTime} de lectura</p>
+              </Link>
             </Reveal>
           ))}
         </ul>
