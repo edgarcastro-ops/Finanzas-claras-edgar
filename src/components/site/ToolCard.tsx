@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   CreditCard,
@@ -10,6 +11,7 @@ import {
   Wallet,
   Home,
   Lock,
+  Star,
 } from "lucide-react";
 import type { Tool } from "@/data/tools";
 
@@ -56,20 +58,44 @@ function CardBody({ tool }: { tool: Tool }) {
 }
 
 export function ToolCard({ tool }: { tool: Tool }) {
+  const [favorite, setFavorite] = useState(false);
   const base =
-    "group card-hover block h-full rounded-2xl border border-border bg-card p-6 shadow-soft";
+    "group card-hover relative block h-full rounded-2xl border border-border bg-card p-6 shadow-soft";
+
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("favorite-tools") ?? "[]") as string[];
+    setFavorite(stored.includes(tool.slug));
+  }, [tool.slug]);
+
+  const toggleFavorite = () => {
+    const stored = JSON.parse(localStorage.getItem("favorite-tools") ?? "[]") as string[];
+    const next = stored.includes(tool.slug)
+      ? stored.filter((slug) => slug !== tool.slug)
+      : [...stored, tool.slug];
+    localStorage.setItem("favorite-tools", JSON.stringify(next));
+    setFavorite(next.includes(tool.slug));
+  };
+
+  const favoriteButton = (
+    <button
+      type="button"
+      onClick={toggleFavorite}
+      aria-label={favorite ? `Quitar ${tool.title} de favoritos` : `Guardar ${tool.title} en favoritos`}
+      aria-pressed={favorite}
+      className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-brand hover:text-brand"
+    >
+      <Star className={`h-4 w-4 ${favorite ? "fill-brand text-brand" : ""}`} />
+    </button>
+  );
 
   if (tool.status !== "activa") {
     return (
       <div className={`${base} opacity-70`} aria-disabled="true">
+        {favoriteButton}
         <CardBody tool={tool} />
       </div>
     );
   }
 
-  return (
-    <Link to={activePaths[tool.slug as ActiveSlug]} className={base}>
-      <CardBody tool={tool} />
-    </Link>
-  );
+  return <div className={base}>{favoriteButton}<Link to={activePaths[tool.slug as ActiveSlug]} className="block"><CardBody tool={tool} /></Link></div>;
 }

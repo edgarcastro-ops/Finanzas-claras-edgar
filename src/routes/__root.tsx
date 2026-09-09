@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { CookieBanner } from "@/components/site/CookieBanner";
 import { CurrencyProvider } from "@/lib/currency";
 
 function NotFoundComponent() {
@@ -138,6 +139,7 @@ function RootComponent() {
             <Outlet />
           </div>
           <Footer />
+          <CookieBanner />
         </div>
       </CurrencyProvider>
     </QueryClientProvider>

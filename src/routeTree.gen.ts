@@ -10,7 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
+import { Route as TerminosRouteImport } from './routes/terminos'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HerramientasIndexRouteImport } from './routes/herramientas.index'
@@ -37,9 +41,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvisoLegalRoute = AvisoLegalRouteImport.update({
+  id: '/aviso-legal',
+  path: '/aviso-legal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadRoute = PrivacidadRouteImport.update({
+  id: '/privacidad',
+  path: '/privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreNosotrosRoute = SobreNosotrosRouteImport.update({
   id: '/sobre-nosotros',
   path: '/sobre-nosotros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerminosRoute = TerminosRouteImport.update({
+  id: '/terminos',
+  path: '/terminos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -48,9 +72,9 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const HerramientasIndexRoute = HerramientasIndexRouteImport.update({
   id: '/herramientas/',
@@ -162,7 +186,11 @@ const HerramientasConversorDeMonedaRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
+  '/cookies': typeof CookiesRoute
+  '/privacidad': typeof PrivacidadRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
   '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
@@ -186,7 +214,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
+  '/cookies': typeof CookiesRoute
+  '/privacidad': typeof PrivacidadRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
   '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
@@ -211,7 +243,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
+  '/cookies': typeof CookiesRoute
+  '/privacidad': typeof PrivacidadRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/herramientas/calculadora-ahorro-meta': typeof HerramientasCalculadoraAhorroMetaRoute
   '/herramientas/calculadora-capacidad-endeudamiento': typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
@@ -237,7 +273,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/aviso-legal'
+    | '/cookies'
+    | '/privacidad'
     | '/sobre-nosotros'
+    | '/terminos'
     | '/blog/$slug'
     | '/herramientas/calculadora-ahorro-meta'
     | '/herramientas/calculadora-capacidad-endeudamiento'
@@ -261,7 +301,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/aviso-legal'
+    | '/cookies'
+    | '/privacidad'
     | '/sobre-nosotros'
+    | '/terminos'
     | '/blog/$slug'
     | '/herramientas/calculadora-ahorro-meta'
     | '/herramientas/calculadora-capacidad-endeudamiento'
@@ -285,7 +329,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/aviso-legal'
+    | '/cookies'
+    | '/privacidad'
     | '/sobre-nosotros'
+    | '/terminos'
     | '/blog/$slug'
     | '/herramientas/calculadora-ahorro-meta'
     | '/herramientas/calculadora-capacidad-endeudamiento'
@@ -310,7 +358,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisoLegalRoute: typeof AvisoLegalRoute
+  CookiesRoute: typeof CookiesRoute
+  PrivacidadRoute: typeof PrivacidadRoute
   SobreNosotrosRoute: typeof SobreNosotrosRoute
+  TerminosRoute: typeof TerminosRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   HerramientasCalculadoraAhorroMetaRoute: typeof HerramientasCalculadoraAhorroMetaRoute
   HerramientasCalculadoraCapacidadEndeudamientoRoute: typeof HerramientasCalculadoraCapacidadEndeudamientoRoute
   HerramientasCalculadoraHipotecaRoute: typeof HerramientasCalculadoraHipotecaRoute
@@ -341,11 +394,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aviso-legal': {
+      id: '/aviso-legal'
+      path: '/aviso-legal'
+      fullPath: '/aviso-legal'
+      preLoaderRoute: typeof AvisoLegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidad': {
+      id: '/privacidad'
+      path: '/privacidad'
+      fullPath: '/privacidad'
+      preLoaderRoute: typeof PrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre-nosotros': {
       id: '/sobre-nosotros'
       path: '/sobre-nosotros'
       fullPath: '/sobre-nosotros'
       preLoaderRoute: typeof SobreNosotrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terminos': {
+      id: '/terminos'
+      path: '/terminos'
+      fullPath: '/terminos'
+      preLoaderRoute: typeof TerminosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -357,10 +438,10 @@ declare module '@tanstack/react-router' {
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/herramientas/': {
       id: '/herramientas/'
@@ -493,7 +574,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisoLegalRoute: AvisoLegalRoute,
+  CookiesRoute: CookiesRoute,
+  PrivacidadRoute: PrivacidadRoute,
   SobreNosotrosRoute: SobreNosotrosRoute,
+  TerminosRoute: TerminosRoute,
+  BlogSlugRoute: BlogSlugRoute,
   HerramientasCalculadoraAhorroMetaRoute:
     HerramientasCalculadoraAhorroMetaRoute,
   HerramientasCalculadoraCapacidadEndeudamientoRoute:

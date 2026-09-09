@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
+import { FormEvent, useState } from "react";
 import { LineChart, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { blogCategories } from "@/data/tools";
 
 const legalLinks = [
-  "Aviso legal",
-  "Política de privacidad",
-  "Política de cookies",
-  "Descargo de responsabilidad",
+  { label: "Aviso legal", to: "/aviso-legal" },
+  { label: "Política de privacidad", to: "/privacidad" },
+  { label: "Política de cookies", to: "/cookies" },
+  { label: "Términos y condiciones", to: "/terminos" },
 ];
 
 const socials = [
@@ -17,6 +18,15 @@ const socials = [
 ];
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email.trim()) return;
+    setSubscribed(true);
+  };
+
   return (
     <footer className="mt-20 border-t border-border bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
@@ -33,6 +43,28 @@ export function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Calculadoras y guías para tomar mejores decisiones con tu dinero. Sin jerga, sin humo.
             </p>
+            <div className="mt-6">
+              <h2 className="text-sm font-semibold">Recibí nuevas guías</h2>
+              {subscribed ? (
+                <p className="mt-2 text-sm text-brand">¡Listo! Revisá tu correo para confirmar.</p>
+              ) : (
+                <form onSubmit={handleSubmit} className="mt-3 flex gap-2">
+                  <label className="sr-only" htmlFor="newsletter-email">Tu email</label>
+                  <input
+                    id="newsletter-email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    placeholder="tu@email.com"
+                    className="min-w-0 flex-1 rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+                  />
+                  <button type="submit" className="rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-brand-foreground hover:opacity-90">
+                    Suscribirme
+                  </button>
+                </form>
+              )}
+            </div>
             <ul className="mt-5 flex gap-2">
               {socials.map(({ icon: Icon, label }) => (
                 <li key={label}>
@@ -100,10 +132,10 @@ export function Footer() {
             <h2 className="text-sm font-semibold">Legal</h2>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {legalLinks.map((item) => (
-                <li key={item}>
-                  <span className="cursor-not-allowed opacity-70" title="Próximamente">
-                    {item}
-                  </span>
+                <li key={item.to}>
+                  <Link to={item.to} className="transition-colors hover:text-brand">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
