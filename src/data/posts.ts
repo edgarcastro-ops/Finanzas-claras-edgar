@@ -202,4 +202,90 @@ Tu reporte no reemplaza un presupuesto. Antes de pedir otro préstamo, suma tus 
 
 Comprueba tu nivel de deuda y la cuota que podrías asumir con la **calculadora de capacidad de endeudamiento**.`
   },
+  {
+    slug: "bcrd-mantiene-tasa-agosto-2026",
+    title: "El Banco Central mantiene la tasa en 5.25%: qué significa para tus préstamos",
+    category: "Crédito",
+    excerpt: "El BCRD dejó sin cambios su tasa de referencia en agosto de 2026. Te explicamos qué implica esto si tenés o estás por pedir un préstamo.",
+    readTime: "4 min",
+    date: "2026-09-09",
+    relatedToolSlug: "calculadora-prestamo-personal",
+    content: `El Banco Central de la República Dominicana (BCRD) decidió mantener su tasa de política monetaria (TPM) en 5.25% anual en su reunión de agosto de 2026, la misma cifra que viene sosteniendo desde hace varios meses. Junto a esta, la tasa de repos a un día se mantuvo en 5.75% y la de depósitos remunerados (overnight) en 4.50%.
+
+## ¿Por qué es relevante para vos?
+
+La TPM es la tasa de referencia que influye, de forma indirecta, en cuánto cobran los bancos por sus préstamos y cuánto pagan por los depósitos. Cuando el Banco Central la mantiene estable, generalmente significa que **las tasas de los préstamos personales, hipotecarios y de tarjetas de crédito tampoco deberían moverse bruscamente en el corto plazo**.
+
+## El contexto detrás de la decisión
+
+El BCRD explicó que esta decisión responde al dinamismo reciente de la economía dominicana, aunque persiste la incertidumbre internacional asociada al conflicto en Medio Oriente, que ha presionado al alza los precios del petróleo. Las reservas internacionales del país se ubican por encima de los US$15,000 millones, superando las métricas recomendadas por el Fondo Monetario Internacional — una señal de estabilidad para la economía en general.
+
+> Si estabas esperando "el momento ideal" para pedir un préstamo pensando en que las tasas iban a bajar pronto, esta decisión sugiere que no hay señales de un cambio inminente.
+
+## Qué hacer con esta información
+
+Si estás evaluando pedir un préstamo personal, este es un buen momento para comparar ofertas concretas de distintos bancos, ya que el escenario de tasas se mantiene relativamente predecible. Podés usar nuestra [calculadora de préstamo personal](/herramientas/calculadora-prestamo-personal) para simular distintas cuotas según el monto y plazo que estés considerando.
+
+*Fuente: Banco Central de la República Dominicana (BCRD), comunicado de política monetaria de agosto de 2026.*`
+  },
+  {
+    slug: "inflacion-agosto-2026-presupuesto-familiar",
+    title: "La inflación bajó a 5.13% en agosto, pero la canasta básica sigue presionando el presupuesto",
+    category: "Presupuesto",
+    excerpt: "Buenas y malas noticias: la inflación interanual bajó por segundo mes consecutivo, pero el costo de vida sigue por encima de la meta del Banco Central.",
+    readTime: "5 min",
+    date: "2026-09-09",
+    relatedToolSlug: "calculadora-presupuesto-mensual",
+    content: `La inflación interanual en República Dominicana se ubicó en 5.13% en agosto de 2026, bajando por segundo mes consecutivo desde el 5.67% registrado en junio, según el Banco Central de la República Dominicana (BCRD). Es una buena noticia en la tendencia, aunque la cifra todavía está por encima del rango meta oficial de 4.0% ± 1.0%.
+
+## Qué está empujando los precios hacia arriba
+
+El índice de precios al consumidor (IPC) subió 0.38% solo en agosto, explicado principalmente por aumentos en:
+- **Educación** (+2.72%), por el ajuste de tarifas de colegios privados y universidades al inicio del año escolar, junto con útiles y transporte escolar.
+- **Alimentos y bebidas no alcohólicas** (+0.42%), con subas puntuales en pollo, arroz, agua purificada y hortalizas frescas (aunque bajaron aguacate, huevos y yuca, amortiguando el impacto).
+- Muebles y artículos para el hogar, transporte, y restaurantes y hoteles.
+
+## Lo positivo: la inflación subyacente está más controlada
+
+La inflación subyacente (que excluye los productos más volátiles, como combustibles y algunos alimentos) se ubicó en 4.76% interanual, dentro del rango que maneja el Banco Central como objetivo. El BCRD proyecta que la inflación general retome el rango meta durante el último trimestre de 2026.
+
+## Cómo ajustar tu presupuesto mientras tanto
+
+1. **Revisá el rubro de educación si tenés hijos en el sistema privado** — es el grupo que más subió este mes, así que conviene anticipar ese gasto en tu planificación mensual.
+2. **Aprovechá las bajas puntuales en algunos alimentos** (aguacate, huevos, yuca, naranjas) ajustando tu lista de compras según lo que esté más barato ese mes, en vez de mantener siempre los mismos productos fijos.
+3. **No asumas que "ya bajó la inflación" significa que los precios volvieron atrás** — una inflación más baja significa que los precios suben más lento, no que bajan. El costo acumulado de los últimos meses sigue ahí.
+
+Si querés ver con números concretos cómo estos cambios impactan en tu presupuesto mensual, probá nuestra [calculadora de presupuesto 50/30/20](/herramientas/calculadora-presupuesto-mensual) y ajustá las categorías según tus gastos reales de este mes.
+
+*Fuente: Banco Central de la República Dominicana (BCRD), Índice de Precios al Consumidor, agosto de 2026.*`
+  },
+  {
+    slug: "cuentas-ahorro-tradicionales-pierden-frente-inflacion",
+    title: "Por qué tu cuenta de ahorro tradicional te está haciendo perder dinero frente a la inflación",
+    category: "Ahorro",
+    excerpt: "Con la inflación en 5.13% y las cuentas de ahorro tradicionales pagando apenas 0.5%-2%, tu dinero guardado está perdiendo poder de compra. Te explicamos las alternativas.",
+    readTime: "5 min",
+    date: "2026-09-09",
+    relatedToolSlug: "calculadora-ahorro-meta",
+    content: `Si tenés tus ahorros en una cuenta de ahorro tradicional en República Dominicana, es momento de hacer una cuenta simple: la mayoría de estas cuentas pagan entre 0.5% y 2% de interés anual, mientras que la inflación interanual se ubicó en 5.13% en agosto de 2026. La diferencia significa que, en términos reales, **tu dinero guardado está perdiendo poder de compra cada mes que pasa**.
+
+## El problema no es ahorrar, es dónde ahorrar
+
+Guardar dinero siempre es mejor que no hacerlo, pero no todas las opciones de ahorro protegen tu dinero de la misma forma frente a la inflación. Esto es lo que existe hoy en el mercado dominicano:
+
+- **Cuentas de ahorro tradicionales de bancos múltiples**: generalmente entre 0.5% y 2% anual — muy por debajo de la inflación actual.
+- **Cuentas de ahorro programado o escalonadas**: algunas cuentas digitales ofrecen tasas más altas según el balance mantenido, acercándose más a compensar la inflación.
+- **Certificados financieros (CDs)**: suelen rendir entre 8% y 12% anual según el banco y el plazo, superando la inflación actual.
+- **Cooperativas de ahorro y crédito**: al ser organizaciones sin fines de lucro, algunas ofrecen ahorro programado desde 7% hasta 9% anual, entre las opciones más competitivas del mercado.
+
+> Un dato importante para cualquier opción: los bancos retienen un 10% de los intereses generados como impuesto (DGII). La tasa que ves anunciada es bruta — lo que realmente recibís es un poco menos.
+
+## Qué podés hacer con esta información
+
+No se trata de sacar todo tu dinero de la cuenta de ahorro básica — esa cuenta sigue siendo útil para el efectivo que necesitás disponible de inmediato. La estrategia más común es dividir tus ahorros: mantener un fondo de emergencia accesible en la cuenta tradicional, y mover el resto (lo que no vas a necesitar en el corto plazo) hacia certificados financieros o cooperativas que ofrezcan mejor rendimiento.
+
+Si querés proyectar cuánto necesitás ahorrar por mes para alcanzar una meta concreta, considerando distintas tasas de interés, probá nuestra [calculadora de meta de ahorro](/herramientas/calculadora-ahorro-meta).
+
+*Fuente: Banco Central de la República Dominicana (tasas de referencia e inflación, agosto 2026); tarifarios públicos de bancos y cooperativas dominicanas.*`
+  },
 ];

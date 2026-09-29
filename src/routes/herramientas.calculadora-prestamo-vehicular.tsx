@@ -9,9 +9,9 @@ const path = "/herramientas/calculadora-prestamo-vehicular";
 export const Route = createFileRoute("/herramientas/calculadora-prestamo-vehicular")({
   head: () => ({
     meta: [
-      { title: `${title} | FinanzasClaras` },
+      { title: `${title} | Finanzas a tu Bolsillo` },
       { name: "description", content: description },
-      { property: "og:title", content: `${title} | FinanzasClaras` },
+      { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
       { property: "og:url", content: path },

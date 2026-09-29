@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
 
 const title = "Política de Cookies";
-const description = "Información sobre las cookies necesarias, analíticas, publicitarias y funcionales de FinanzasClaras.";
+const description = "Información sobre las cookies necesarias, analíticas, publicitarias y funcionales de Finanzas a tu Bolsillo.";
 const content = `# Política de Cookies
 Última actualización: 9 de septiembre de 2026
 
@@ -29,9 +29,9 @@ Al continuar navegando en este sitio y aceptar el banner de cookies, consentís 
 export const Route = createFileRoute("/cookies")({
   head: () => ({
     meta: [
-      { title: `${title} | FinanzasClaras` },
+      { title: `${title} | Finanzas a tu Bolsillo` },
       { name: "description", content: description },
-      { property: "og:title", content: `${title} | FinanzasClaras` },
+      { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
     ],

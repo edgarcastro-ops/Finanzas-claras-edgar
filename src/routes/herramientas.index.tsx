@@ -7,13 +7,13 @@ import { AdSlot } from "@/components/site/AdSlot";
 export const Route = createFileRoute("/herramientas/")({
   head: () => ({
     meta: [
-      { title: "Calculadoras financieras gratuitas | FinanzasClaras" },
+      { title: "Calculadoras financieras gratuitas | Finanzas a tu Bolsillo" },
       {
         name: "description",
         content:
           "Calculadoras de interés compuesto, préstamos personales y tarjetas de crédito. Gratis, sin registro y con resultados al instante.",
       },
-      { property: "og:title", content: "Calculadoras financieras gratuitas | FinanzasClaras" },
+      { property: "og:title", content: "Calculadoras financieras gratuitas | Finanzas a tu Bolsillo" },
       {
         property: "og:description",
         content: "Herramientas para calcular inversiones, cuotas de préstamo y deudas de tarjeta.",

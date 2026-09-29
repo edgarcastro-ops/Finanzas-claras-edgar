@@ -11,9 +11,9 @@ const description =
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Blog de finanzas personales | FinanzasClaras" },
+      { title: "Blog de finanzas personales | Finanzas a tu Bolsillo" },
       { name: "description", content: description },
-      { property: "og:title", content: "Blog de finanzas personales | FinanzasClaras" },
+      { property: "og:title", content: "Blog de finanzas personales | Finanzas a tu Bolsillo" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/blog" },

@@ -143,7 +143,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} FinanzasClaras. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Finanzas a tu Bolsillo. Todos los derechos reservados.</p>
           <p>
             El contenido es informativo y no constituye asesoramiento financiero personalizado.
           </p>

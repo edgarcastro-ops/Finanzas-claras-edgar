@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 import { AdSlot } from "@/components/site/AdSlot";
 
 const description =
-  "Conoce al equipo de FinanzasClaras: explicamos las finanzas personales sin jerga y creamos calculadoras gratuitas que puedes usar hoy mismo.";
+  "Conoce al equipo de Finanzas a tu Bolsillo: explicamos las finanzas personales sin jerga y creamos calculadoras gratuitas que puedes usar hoy mismo.";
 
 export const Route = createFileRoute("/sobre-nosotros")({
   head: () => ({
     meta: [
-      { title: "Sobre nosotros | FinanzasClaras" },
+      { title: "Sobre nosotros | Finanzas a tu Bolsillo" },
       { name: "description", content: description },
-      { property: "og:title", content: "Sobre nosotros | FinanzasClaras" },
+      { property: "og:title", content: "Sobre nosotros | Finanzas a tu Bolsillo" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/sobre-nosotros" },
@@ -58,7 +58,7 @@ function AboutPage() {
             Finanzas personales explicadas con claridad
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            FinanzasClaras nació de una idea simple: la mayoría de las malas decisiones con el dinero
+            Finanzas a tu Bolsillo nació de una idea simple: la mayoría de las malas decisiones con el dinero
             no vienen de la falta de disciplina, sino de la falta de información entendible.
           </p>
         </header>

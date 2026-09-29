@@ -2,11 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
 
 const title = "Política de Privacidad";
-const description = "Conocé cómo FinanzasClaras recopila, usa y protege la información de sus visitantes.";
+const description = "Conocé cómo Finanzas a tu Bolsillo recopila, usa y protege la información de sus visitantes.";
 const content = `# Política de Privacidad
 Última actualización: 9 de septiembre de 2026
 
-En FinanzasClaras ("nosotros", "nuestro" o "el sitio"), accesible desde [dominio.com], respetamos tu privacidad y nos comprometemos a proteger los datos personales que puedas compartir al usar nuestro sitio web.
+En Finanzas a tu Bolsillo ("nosotros", "nuestro" o "el sitio"), accesible desde [dominio.com], respetamos tu privacidad y nos comprometemos a proteger los datos personales que puedas compartir al usar nuestro sitio web.
 
 ## 1. Información que recopilamos
 - Datos que nos proporcionas voluntariamente: si usas el formulario de contacto o te suscribes al newsletter, podemos recopilar tu nombre y correo electrónico.
@@ -42,9 +42,9 @@ Si tenés preguntas, escribinos a accesototal707@gmail.com.`;
 export const Route = createFileRoute("/privacidad")({
   head: () => ({
     meta: [
-      { title: `${title} | FinanzasClaras` },
+      { title: `${title} | Finanzas a tu Bolsillo` },
       { name: "description", content: description },
-      { property: "og:title", content: `${title} | FinanzasClaras` },
+      { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
     ],

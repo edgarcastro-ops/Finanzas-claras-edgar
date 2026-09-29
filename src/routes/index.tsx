@@ -13,11 +13,11 @@ const description =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FinanzasClaras — Calculadoras y guías de finanzas personales" },
+      { title: "Finanzas a tu Bolsillo — Calculadoras y guías de finanzas personales" },
       { name: "description", content: description },
       {
         property: "og:title",
-        content: "FinanzasClaras — Calculadoras y guías de finanzas personales",
+        content: "Finanzas a tu Bolsillo — Calculadoras y guías de finanzas personales",
       },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
@@ -49,7 +49,7 @@ function Index() {
               Decisiones de dinero <span className="text-gradient-brand">con números claros</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Simula tus inversiones, tus préstamos y tus deudas en segundos. FinanzasClaras
+              Simula tus inversiones, tus préstamos y tus deudas en segundos. Finanzas a tu Bolsillo
               convierte fórmulas complicadas en respuestas que puedes usar hoy.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
