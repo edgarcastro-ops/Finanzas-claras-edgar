@@ -6,7 +6,7 @@ const title = "Calculadora de tarjeta de crédito";
 const description =
   "Descubre en cuánto tiempo saldas la deuda de tu tarjeta y cuánto ahorras frente a pagar solo el mínimo mensual.";
 
-export const Route = createFileRoute("/herramientas/calculadora-tarjeta-credito")({
+export const Route = createFileRoute("/calculadoras/calculadora-tarjeta-credito")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },
@@ -14,10 +14,10 @@ export const Route = createFileRoute("/herramientas/calculadora-tarjeta-credito"
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/herramientas/calculadora-tarjeta-credito" },
+      { property: "og:url", content: "/calculadoras/calculadora-tarjeta-credito" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/herramientas/calculadora-tarjeta-credito" }],
+    links: [{ rel: "canonical", href: "/calculadoras/calculadora-tarjeta-credito" }],
   }),
   component: Page,
 });

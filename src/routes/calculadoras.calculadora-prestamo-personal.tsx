@@ -6,7 +6,7 @@ const title = "Calculadora de préstamo personal";
 const description =
   "Calcula la cuota mensual de tu préstamo, el total de intereses y consulta la tabla de amortización completa mes a mes.";
 
-export const Route = createFileRoute("/herramientas/calculadora-prestamo-personal")({
+export const Route = createFileRoute("/calculadoras/calculadora-prestamo-personal")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },
@@ -14,10 +14,10 @@ export const Route = createFileRoute("/herramientas/calculadora-prestamo-persona
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/herramientas/calculadora-prestamo-personal" },
+      { property: "og:url", content: "/calculadoras/calculadora-prestamo-personal" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/herramientas/calculadora-prestamo-personal" }],
+    links: [{ rel: "canonical", href: "/calculadoras/calculadora-prestamo-personal" }],
   }),
   component: Page,
 });

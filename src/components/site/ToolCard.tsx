@@ -27,9 +27,9 @@ const icons = {
 };
 
 const activePaths = {
-  "calculadora-interes-compuesto": "/herramientas/calculadora-interes-compuesto",
-  "calculadora-prestamo-personal": "/herramientas/calculadora-prestamo-personal",
-  "calculadora-tarjeta-credito": "/herramientas/calculadora-tarjeta-credito",
+  "calculadora-interes-compuesto": "/calculadoras/calculadora-interes-compuesto",
+  "calculadora-prestamo-personal": "/calculadoras/calculadora-prestamo-personal",
+  "calculadora-tarjeta-credito": "/calculadoras/calculadora-tarjeta-credito",
 } as const;
 
 type ActiveSlug = keyof typeof activePaths;

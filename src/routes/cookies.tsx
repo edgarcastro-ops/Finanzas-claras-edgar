@@ -15,7 +15,7 @@ Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo c
 | Necesarias | Funcionamiento básico del sitio | Preferencias de navegación, consentimiento de cookies |
 | Analíticas | Entender cómo se usa el sitio | Google Analytics |
 | Publicitarias | Mostrar anuncios relevantes | Google AdSense, cookie DART |
-| Funcionales | Recordar tus preferencias | Modo oscuro, moneda seleccionada, herramientas favoritas |
+| Funcionales | Recordar tus preferencias | Modo oscuro, moneda seleccionada, Calculadoras favoritas |
 
 ## 3. Cookies de terceros
 Google y otros proveedores de publicidad pueden colocar y leer cookies en tu navegador. El uso que Google haga de estas cookies se rige por su [Política de Privacidad](https://policies.google.com/privacy).

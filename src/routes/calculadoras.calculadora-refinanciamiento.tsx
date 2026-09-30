@@ -4,9 +4,9 @@ import { RefinanceCalculator } from "@/components/calculators/RefinanceCalculato
 
 const title = "Calculadora de refinanciamiento de préstamo";
 const description = "Compara tu préstamo actual con una nueva oferta y descubre si refinanciar te ahorra dinero, incluyendo comisiones.";
-const path = "/herramientas/calculadora-refinanciamiento";
+const path = "/calculadoras/calculadora-refinanciamiento";
 
-export const Route = createFileRoute("/herramientas/calculadora-refinanciamiento")({
+export const Route = createFileRoute("/calculadoras/calculadora-refinanciamiento")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

@@ -4,9 +4,9 @@ import { BudgetCalculator } from "@/components/calculators/BudgetCalculator";
 
 const title = "Calculadora de presupuesto mensual 50/30/20";
 const description = "Reparte tu ingreso mensual entre necesidades, gustos y ahorro con la regla 50/30/20 y ajusta los porcentajes a tu realidad.";
-const path = "/herramientas/calculadora-presupuesto-mensual";
+const path = "/calculadoras/calculadora-presupuesto-mensual";
 
-export const Route = createFileRoute("/herramientas/calculadora-presupuesto-mensual")({
+export const Route = createFileRoute("/calculadoras/calculadora-presupuesto-mensual")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

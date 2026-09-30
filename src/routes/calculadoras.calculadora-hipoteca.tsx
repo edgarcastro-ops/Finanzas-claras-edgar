@@ -4,9 +4,9 @@ import { AmortizationCalculator } from "@/components/calculators/AmortizationCal
 
 const title = "Calculadora de hipoteca";
 const description = "Calcula la cuota de tu hipoteca, los intereses totales y la tabla de amortización, incluyendo entrada y abonos extra a capital.";
-const path = "/herramientas/calculadora-hipoteca";
+const path = "/calculadoras/calculadora-hipoteca";
 
-export const Route = createFileRoute("/herramientas/calculadora-hipoteca")({
+export const Route = createFileRoute("/calculadoras/calculadora-hipoteca")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

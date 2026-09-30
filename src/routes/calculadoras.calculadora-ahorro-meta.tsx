@@ -4,9 +4,9 @@ import { SavingsGoalCalculator } from "@/components/calculators/SavingsGoalCalcu
 
 const title = "Calculadora de meta de ahorro";
 const description = "Calcula cuánto ahorrar cada mes para alcanzar tu meta en el plazo que te propongas, con o sin rendimiento.";
-const path = "/herramientas/calculadora-ahorro-meta";
+const path = "/calculadoras/calculadora-ahorro-meta";
 
-export const Route = createFileRoute("/herramientas/calculadora-ahorro-meta")({
+export const Route = createFileRoute("/calculadoras/calculadora-ahorro-meta")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

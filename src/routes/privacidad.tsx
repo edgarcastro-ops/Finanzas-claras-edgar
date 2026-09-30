@@ -10,8 +10,8 @@ En Finanzas a tu Bolsillo ("nosotros", "nuestro" o "el sitio"), accesible desde 
 
 ## 1. Información que recopilamos
 - Datos que nos proporcionas voluntariamente: si usas el formulario de contacto o te suscribes al newsletter, podemos recopilar tu nombre y correo electrónico.
-- Datos de uso recopilados automáticamente: dirección IP, tipo de navegador, páginas visitadas, tiempo de permanencia, sitio de referencia y datos similares recolectados mediante cookies y herramientas de analítica (como Google Analytics).
-- Datos ingresados en las calculadoras: los valores que ingresas en nuestras herramientas se procesan únicamente en tu navegador para mostrarte el resultado. No almacenamos ni enviamos esta información a nuestros servidores.
+- Datos de uso recopilados automáticamente: dirección IP, tipo de navegador, páginas visitadas, tiempo de permanencia, sitio de referencia y datos similares recolectados mediante cookies y Calculadoras de analítica (como Google Analytics).
+- Datos ingresados en las calculadoras: los valores que ingresas en nuestras Calculadoras se procesan únicamente en tu navegador para mostrarte el resultado. No almacenamos ni enviamos esta información a nuestros servidores.
 
 ## 2. Uso de cookies y publicidad de terceros
 Este sitio utiliza Google AdSense, un servicio de publicidad de Google LLC. Google, como proveedor externo, utiliza cookies (incluida la cookie DART) para mostrar anuncios basados en tus visitas anteriores a este y otros sitios web.

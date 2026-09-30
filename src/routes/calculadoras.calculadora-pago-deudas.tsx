@@ -4,9 +4,9 @@ import { DebtStrategyCalculator } from "@/components/calculators/DebtStrategyCal
 
 const title = "Calculadora de pago de deudas: bola de nieve vs. avalancha";
 const description = "Compara el método bola de nieve y el método avalancha para saber cuál elimina tus deudas antes y con menos intereses.";
-const path = "/herramientas/calculadora-pago-deudas";
+const path = "/calculadoras/calculadora-pago-deudas";
 
-export const Route = createFileRoute("/herramientas/calculadora-pago-deudas")({
+export const Route = createFileRoute("/calculadoras/calculadora-pago-deudas")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

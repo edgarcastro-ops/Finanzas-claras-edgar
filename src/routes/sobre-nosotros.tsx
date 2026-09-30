@@ -42,7 +42,7 @@ const values = [
   {
     icon: Sparkles,
     title: "Siempre gratis",
-    text: "Todas las herramientas son gratuitas y funcionan en tu navegador, sin registro.",
+    text: "Todas las Calculadoras son gratuitas y funcionan en tu navegador, sin registro.",
   },
 ];
 
@@ -68,7 +68,7 @@ function AboutPage() {
             Somos un pequeño equipo de divulgadores y analistas financieros que lleva años
             traduciendo hojas de cálculo y contratos bancarios a un lenguaje que cualquiera pueda
             entender. Empezamos ayudando a amigos y familiares a comparar préstamos y terminamos
-            construyendo las herramientas que nos hubiera gustado tener.
+            construyendo las Calculadoras que nos hubiera gustado tener.
           </p>
           <p>
             Nuestro objetivo es que salgas de cada página con una respuesta concreta: cuánto vas a
@@ -101,7 +101,7 @@ function AboutPage() {
             minuto.
           </p>
           <Button asChild variant="hero" size="lg" className="mt-6">
-            <Link to="/herramientas">Ver todas las calculadoras</Link>
+            <Link to="/calculadoras">Ver todas las calculadoras</Link>
           </Button>
         </section>
       </article>

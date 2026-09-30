@@ -4,7 +4,7 @@ import { ToolCard } from "@/components/site/ToolCard";
 import { Reveal } from "@/components/site/Reveal";
 import { AdSlot } from "@/components/site/AdSlot";
 
-export const Route = createFileRoute("/herramientas/")({
+export const Route = createFileRoute("/calculadoras/")({
   head: () => ({
     meta: [
       { title: "Calculadoras financieras gratuitas | Finanzas a tu Bolsillo" },
@@ -16,23 +16,23 @@ export const Route = createFileRoute("/herramientas/")({
       { property: "og:title", content: "Calculadoras financieras gratuitas | Finanzas a tu Bolsillo" },
       {
         property: "og:description",
-        content: "Herramientas para calcular inversiones, cuotas de préstamo y deudas de tarjeta.",
+        content: "Calculadoras para calcular inversiones, cuotas de préstamo y deudas de tarjeta.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/herramientas" },
+      { property: "og:url", content: "/calculadoras" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/herramientas" }],
+    links: [{ rel: "canonical", href: "/calculadoras" }],
   }),
-  component: HerramientasPage,
+  component: CalculadorasPage,
 });
 
-function HerramientasPage() {
+function CalculadorasPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
       <header className="max-w-2xl">
         <span className="inline-flex items-center rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold text-accent-foreground">
-          Herramientas
+          Calculadoras
         </span>
         <h1 className="mt-4 text-3xl font-bold sm:text-5xl">Calculadoras financieras gratuitas</h1>
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">

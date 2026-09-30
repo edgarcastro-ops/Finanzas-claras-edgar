@@ -6,7 +6,7 @@ const title = "Calculadora de interés compuesto";
 const description =
   "Calcula cuánto crecerá tu dinero con aportes mensuales: gráfico de crecimiento, tabla anual y total de intereses generados.";
 
-export const Route = createFileRoute("/herramientas/calculadora-interes-compuesto")({
+export const Route = createFileRoute("/calculadoras/calculadora-interes-compuesto")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },
@@ -14,10 +14,10 @@ export const Route = createFileRoute("/herramientas/calculadora-interes-compuest
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/herramientas/calculadora-interes-compuesto" },
+      { property: "og:url", content: "/calculadoras/calculadora-interes-compuesto" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/herramientas/calculadora-interes-compuesto" }],
+    links: [{ rel: "canonical", href: "/calculadoras/calculadora-interes-compuesto" }],
   }),
   component: Page,
 });

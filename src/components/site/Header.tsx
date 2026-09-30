@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { to: "/", label: "Inicio" },
   { to: "/blog", label: "Blog" },
-  { to: "/herramientas", label: "Herramientas" },
+  { to: "/calculadoras", label: "Calculadoras" },
   { to: "/sobre-nosotros", label: "Sobre nosotros" },
 ] as const;
 
@@ -67,7 +67,7 @@ export function Header() {
             <LineChart className="h-4.5 w-4.5" />
           </span>
           <span className="truncate font-display text-lg font-bold tracking-tight">
-            Finanzas<span className="text-brand">Claras</span>
+            Finanzas <span className="text-brand">a tu Bolsillo</span>
           </span>
         </Link>
 
@@ -87,7 +87,7 @@ export function Header() {
           <CurrencySelect />
           <ThemeToggle />
           <Button asChild variant="brand" size="sm" className="ml-1 hidden md:inline-flex">
-            <Link to="/herramientas">Calcular ahora</Link>
+            <Link to="/calculadoras">Calcular ahora</Link>
           </Button>
           <Button
             variant="ghost"

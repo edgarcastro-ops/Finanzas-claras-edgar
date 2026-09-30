@@ -4,9 +4,9 @@ import { AmortizationCalculator } from "@/components/calculators/AmortizationCal
 
 const title = "Calculadora de préstamo empresarial";
 const description = "Calcula la cuota de un crédito para tu negocio, los intereses totales y su tabla de amortización para planificar tu flujo de caja.";
-const path = "/herramientas/calculadora-prestamo-empresarial";
+const path = "/calculadoras/calculadora-prestamo-empresarial";
 
-export const Route = createFileRoute("/herramientas/calculadora-prestamo-empresarial")({
+export const Route = createFileRoute("/calculadoras/calculadora-prestamo-empresarial")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

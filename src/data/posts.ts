@@ -224,7 +224,7 @@ El BCRD explicó que esta decisión responde al dinamismo reciente de la econom�
 
 ## Qué hacer con esta información
 
-Si estás evaluando pedir un préstamo personal, este es un buen momento para comparar ofertas concretas de distintos bancos, ya que el escenario de tasas se mantiene relativamente predecible. Podés usar nuestra [calculadora de préstamo personal](/herramientas/calculadora-prestamo-personal) para simular distintas cuotas según el monto y plazo que estés considerando.
+Si estás evaluando pedir un préstamo personal, este es un buen momento para comparar ofertas concretas de distintos bancos, ya que el escenario de tasas se mantiene relativamente predecible. Podés usar nuestra [calculadora de préstamo personal](/calculadoras/calculadora-prestamo-personal) para simular distintas cuotas según el monto y plazo que estés considerando.
 
 *Fuente: Banco Central de la República Dominicana (BCRD), comunicado de política monetaria de agosto de 2026.*`
   },
@@ -255,7 +255,7 @@ La inflación subyacente (que excluye los productos más volátiles, como combus
 2. **Aprovechá las bajas puntuales en algunos alimentos** (aguacate, huevos, yuca, naranjas) ajustando tu lista de compras según lo que esté más barato ese mes, en vez de mantener siempre los mismos productos fijos.
 3. **No asumas que "ya bajó la inflación" significa que los precios volvieron atrás** — una inflación más baja significa que los precios suben más lento, no que bajan. El costo acumulado de los últimos meses sigue ahí.
 
-Si querés ver con números concretos cómo estos cambios impactan en tu presupuesto mensual, probá nuestra [calculadora de presupuesto 50/30/20](/herramientas/calculadora-presupuesto-mensual) y ajustá las categorías según tus gastos reales de este mes.
+Si querés ver con números concretos cómo estos cambios impactan en tu presupuesto mensual, probá nuestra [calculadora de presupuesto 50/30/20](/calculadoras/calculadora-presupuesto-mensual) y ajustá las categorías según tus gastos reales de este mes.
 
 *Fuente: Banco Central de la República Dominicana (BCRD), Índice de Precios al Consumidor, agosto de 2026.*`
   },
@@ -284,7 +284,7 @@ Guardar dinero siempre es mejor que no hacerlo, pero no todas las opciones de ah
 
 No se trata de sacar todo tu dinero de la cuenta de ahorro básica — esa cuenta sigue siendo útil para el efectivo que necesitás disponible de inmediato. La estrategia más común es dividir tus ahorros: mantener un fondo de emergencia accesible en la cuenta tradicional, y mover el resto (lo que no vas a necesitar en el corto plazo) hacia certificados financieros o cooperativas que ofrezcan mejor rendimiento.
 
-Si querés proyectar cuánto necesitás ahorrar por mes para alcanzar una meta concreta, considerando distintas tasas de interés, probá nuestra [calculadora de meta de ahorro](/herramientas/calculadora-ahorro-meta).
+Si querés proyectar cuánto necesitás ahorrar por mes para alcanzar una meta concreta, considerando distintas tasas de interés, probá nuestra [calculadora de meta de ahorro](/calculadoras/calculadora-ahorro-meta).
 
 *Fuente: Banco Central de la República Dominicana (tasas de referencia e inflación, agosto 2026); tarifarios públicos de bancos y cooperativas dominicanas.*`
   },

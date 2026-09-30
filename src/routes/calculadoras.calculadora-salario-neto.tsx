@@ -4,9 +4,9 @@ import { NetSalaryCalculator } from "@/components/calculators/NetSalaryCalculato
 
 const title = "Calculadora de salario neto a partir del bruto";
 const description = "Convierte tu sueldo bruto en neto descontando impuestos y seguridad social, con el desglose mensual y anual.";
-const path = "/herramientas/calculadora-salario-neto";
+const path = "/calculadoras/calculadora-salario-neto";
 
-export const Route = createFileRoute("/herramientas/calculadora-salario-neto")({
+export const Route = createFileRoute("/calculadoras/calculadora-salario-neto")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

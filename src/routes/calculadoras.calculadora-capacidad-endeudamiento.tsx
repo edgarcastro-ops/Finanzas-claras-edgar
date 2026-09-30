@@ -4,9 +4,9 @@ import { DebtCapacityCalculator } from "@/components/calculators/DebtCapacityCal
 
 const title = "Calculadora de capacidad de endeudamiento (DTI)";
 const description = "Calcula qué porcentaje de tu ingreso se va en deudas y cuál es la cuota máxima que puedes asumir antes de pedir un crédito.";
-const path = "/herramientas/calculadora-capacidad-endeudamiento";
+const path = "/calculadoras/calculadora-capacidad-endeudamiento";
 
-export const Route = createFileRoute("/herramientas/calculadora-capacidad-endeudamiento")({
+export const Route = createFileRoute("/calculadoras/calculadora-capacidad-endeudamiento")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

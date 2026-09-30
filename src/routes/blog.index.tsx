@@ -51,7 +51,7 @@ function BlogPage() {
           funcionen en tu vida real.
         </p>
         <Button asChild variant="hero" size="lg" className="mt-6">
-          <Link to="/herramientas">Ver calculadoras</Link>
+          <Link to="/calculadoras">Ver calculadoras</Link>
         </Button>
       </header>
 

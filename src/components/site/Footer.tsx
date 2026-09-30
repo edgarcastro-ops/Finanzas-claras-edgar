@@ -37,7 +37,7 @@ export function Footer() {
                 <LineChart className="h-4.5 w-4.5" />
               </span>
               <span className="font-display text-lg font-bold">
-                Finanzas<span className="text-brand">Claras</span>
+                Finanzas <span className="text-brand">a tu Bolsillo</span>
               </span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -80,12 +80,12 @@ export function Footer() {
             </ul>
           </div>
 
-          <nav aria-label="Herramientas">
-            <h2 className="text-sm font-semibold">Herramientas</h2>
+          <nav aria-label="Calculadoras">
+            <h2 className="text-sm font-semibold">Calculadoras</h2>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <Link
-                  to="/herramientas/calculadora-interes-compuesto"
+                  to="/calculadoras/calculadora-interes-compuesto"
                   className="transition-colors hover:text-brand"
                 >
                   Interés compuesto
@@ -93,7 +93,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/herramientas/calculadora-prestamo-personal"
+                  to="/calculadoras/calculadora-prestamo-personal"
                   className="transition-colors hover:text-brand"
                 >
                   Préstamo personal
@@ -101,14 +101,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/herramientas/calculadora-tarjeta-credito"
+                  to="/calculadoras/calculadora-tarjeta-credito"
                   className="transition-colors hover:text-brand"
                 >
                   Tarjeta de crédito
                 </Link>
               </li>
               <li>
-                <Link to="/herramientas" className="transition-colors hover:text-brand">
+                <Link to="/calculadoras" className="transition-colors hover:text-brand">
                   Ver todas
                 </Link>
               </li>

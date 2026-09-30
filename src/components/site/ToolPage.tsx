@@ -20,8 +20,8 @@ export function ToolPage({ title, category, intro, children, notes }: ToolPagePr
           Inicio
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
-        <Link to="/herramientas" className="transition-colors hover:text-brand">
-          Herramientas
+        <Link to="/calculadoras" className="transition-colors hover:text-brand">
+          Calculadoras
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
         <span className="truncate text-foreground">{title}</span>

@@ -4,9 +4,9 @@ import { CurrencyConverterCalculator } from "@/components/calculators/CurrencyCo
 
 const title = "Conversor de moneda";
 const description = "Convierte importes entre monedas introduciendo tú mismo el tipo de cambio, y calcula el impacto de las comisiones de cambio.";
-const path = "/herramientas/conversor-de-moneda";
+const path = "/calculadoras/conversor-de-moneda";
 
-export const Route = createFileRoute("/herramientas/conversor-de-moneda")({
+export const Route = createFileRoute("/calculadoras/conversor-de-moneda")({
   head: () => ({
     meta: [
       { title: `${title} | Finanzas a tu Bolsillo` },

@@ -54,7 +54,7 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="hero" size="xl">
-                <Link to="/herramientas">
+                <Link to="/calculadoras">
                   Explorar calculadoras <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -82,19 +82,19 @@ function Index() {
         <AdSlot />
       </div>
 
-      <section aria-labelledby="herramientas-destacadas" className="mx-auto max-w-6xl px-4 pt-16 sm:px-6">
+      <section aria-labelledby="Calculadoras-destacadas" className="mx-auto max-w-6xl px-4 pt-16 sm:px-6">
         <Reveal>
           <div className="grid gap-4 sm:flex sm:items-end sm:justify-between">
             <div className="max-w-xl">
-              <h2 id="herramientas-destacadas" className="text-2xl font-bold sm:text-3xl">
-                Herramientas destacadas
+              <h2 id="Calculadoras-destacadas" className="text-2xl font-bold sm:text-3xl">
+                Calculadoras destacadas
               </h2>
               <p className="mt-3 text-muted-foreground">
                 Las tres calculadoras que más ayudan a poner orden en tus finanzas.
               </p>
             </div>
             <Link
-              to="/herramientas"
+              to="/calculadoras"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
             >
               Ver todas <ArrowRight className="h-4 w-4" />
