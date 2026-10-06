@@ -3,15 +3,24 @@ import { useEffect, useState } from "react";
 
 const consentKey = "cookie-consent";
 
+declare global {
+  interface Window {
+    updateAnalyticsConsent: (consent: "granted" | "denied") => void;
+  }
+}
+
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(localStorage.getItem(consentKey) === null);
+    const consent = localStorage.getItem(consentKey);
+    window.updateAnalyticsConsent(consent === "accepted" ? "granted" : "denied");
+    setVisible(consent === null);
   }, []);
 
   const choose = (value: "accepted" | "rejected") => {
     localStorage.setItem(consentKey, value);
+    window.updateAnalyticsConsent(value === "accepted" ? "granted" : "denied");
     setVisible(false);
   };
 
@@ -25,8 +34,8 @@ export function CookieBanner() {
     >
       <h2 className="font-display text-lg font-semibold">Usamos cookies 🍪</h2>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        Utilizamos cookies propias y de terceros (incluido Google AdSense) para mejorar tu experiencia,
-        analizar el tráfico del sitio y mostrar publicidad relevante.
+        Utilizamos cookies propias y de terceros (incluidos Google Analytics y Google AdSense) para
+        mejorar tu experiencia, analizar el tráfico del sitio y mostrar publicidad relevante.
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button

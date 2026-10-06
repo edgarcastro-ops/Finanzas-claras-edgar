@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
 
 const title = "Política de Cookies";
-const description = "Información sobre las cookies necesarias, analíticas, publicitarias y funcionales de Finanzas a tu Bolsillo.";
+const description =
+  "Información sobre las cookies necesarias, analíticas, publicitarias y funcionales de Finanzas a tu Bolsillo.";
 const content = `# Política de Cookies
 Última actualización: 9 de septiembre de 2026
 
@@ -24,7 +25,7 @@ Google y otros proveedores de publicidad pueden colocar y leer cookies en tu nav
 Podés configurar tu navegador para rechazar cookies, o gestionar las cookies publicitarias en [Configuración de anuncios de Google](https://adssettings.google.com/) o en [www.aboutads.info/choices](http://www.aboutads.info/choices/).
 
 ## 5. Consentimiento
-Al continuar navegando en este sitio y aceptar el banner de cookies, consentís el uso de cookies conforme a esta política.`;
+Al aceptar todas las cookies en el banner, consentís el uso de cookies conforme a esta política. Google Analytics 4 solo se activa después de aceptar; si rechazás las cookies no esenciales, no se carga ni registra datos de analítica.`;
 
 export const Route = createFileRoute("/cookies")({
   head: () => ({

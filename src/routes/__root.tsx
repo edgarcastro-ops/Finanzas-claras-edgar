@@ -118,6 +118,26 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              window.gtag = function () { window.dataLayer.push(arguments); };
+              window.gtag('consent', 'default', { analytics_storage: 'denied' });
+              window.updateAnalyticsConsent = function (consent) {
+                window.gtag('consent', 'update', { analytics_storage: consent });
+                if (consent !== 'granted' || document.querySelector('script[data-ga4]')) return;
+                window.gtag('js', new Date());
+                window.gtag('config', 'G-LC56QQ4YNN');
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-LC56QQ4YNN';
+                script.setAttribute('data-ga4', 'true');
+                document.head.appendChild(script);
+              };
+            `,
+          }}
+        />
       </head>
       <body>
         {children}
