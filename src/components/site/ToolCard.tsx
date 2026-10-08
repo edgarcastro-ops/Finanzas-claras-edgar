@@ -10,7 +10,6 @@ import {
   TrendingUp,
   Wallet,
   Home,
-  Lock,
   Star,
 } from "lucide-react";
 import type { Tool } from "@/data/tools";
@@ -30,28 +29,43 @@ const activePaths = {
   "calculadora-interes-compuesto": "/calculadoras/calculadora-interes-compuesto",
   "calculadora-prestamo-personal": "/calculadoras/calculadora-prestamo-personal",
   "calculadora-tarjeta-credito": "/calculadoras/calculadora-tarjeta-credito",
+  "calculadora-ahorro-meta": "/calculadoras/calculadora-ahorro-meta",
+  "calculadora-hipoteca": "/calculadoras/calculadora-hipoteca",
+  "calculadora-presupuesto-mensual": "/calculadoras/calculadora-presupuesto-mensual",
+  "calculadora-pago-deudas": "/calculadoras/calculadora-pago-deudas",
+  "calculadora-jubilacion": "/calculadoras/calculadora-jubilacion",
+  "conversor-de-moneda": "/calculadoras/conversor-de-moneda",
+  "calculadora-salario-neto": "/calculadoras/calculadora-salario-neto",
+  "calculadora-prestamo-vehicular": "/calculadoras/calculadora-prestamo-vehicular",
+  "calculadora-prestamo-estudiantil": "/calculadoras/calculadora-prestamo-estudiantil",
+  "calculadora-prestamo-empresarial": "/calculadoras/calculadora-prestamo-empresarial",
+  "calculadora-refinanciamiento": "/calculadoras/calculadora-refinanciamiento",
+  "calculadora-capacidad-endeudamiento": "/calculadoras/calculadora-capacidad-endeudamiento",
+  "comparador-de-prestamos": "/calculadoras/comparador-de-prestamos",
+  "calculadora-pago-anticipado": "/calculadoras/calculadora-pago-anticipado",
+  "calculadora-prestaciones-rd": "/calculadoras/calculadora-prestaciones-rd",
+  "calculadora-finiquito-mexico": "/calculadoras/calculadora-finiquito-mexico",
 } as const;
 
 type ActiveSlug = keyof typeof activePaths;
 
 function CardBody({ tool }: { tool: Tool }) {
   const Icon = icons[tool.icon];
-  const disabled = tool.status !== "activa";
   return (
     <>
       <div className="flex items-center justify-between">
         <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-accent-foreground">
-          {disabled ? <Lock className="h-5 w-5" /> : <Icon className="h-5 w-5" />}
+          <Icon className="h-5 w-5" />
         </span>
         <span className="rounded-full bg-secondary px-2.5 py-1 text-[11px] font-semibold text-secondary-foreground">
-          {disabled ? "Próximamente" : tool.category}
+          {tool.category}
         </span>
       </div>
       <h3 className="mt-4 font-display text-base font-semibold">{tool.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{tool.short}</p>
       <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
-        {disabled ? "Disponible pronto" : "Usar calculadora"}
-        {!disabled && <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
+        Usar calculadora
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
       </span>
     </>
   );
@@ -80,7 +94,9 @@ export function ToolCard({ tool }: { tool: Tool }) {
     <button
       type="button"
       onClick={toggleFavorite}
-      aria-label={favorite ? `Quitar ${tool.title} de favoritos` : `Guardar ${tool.title} en favoritos`}
+      aria-label={
+        favorite ? `Quitar ${tool.title} de favoritos` : `Guardar ${tool.title} en favoritos`
+      }
       aria-pressed={favorite}
       className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-brand hover:text-brand"
     >
@@ -88,14 +104,12 @@ export function ToolCard({ tool }: { tool: Tool }) {
     </button>
   );
 
-  if (tool.status !== "activa") {
-    return (
-      <div className={`${base} opacity-70`} aria-disabled="true">
-        {favoriteButton}
+  return (
+    <div className={base}>
+      {favoriteButton}
+      <Link to={activePaths[tool.slug as ActiveSlug]} className="block">
         <CardBody tool={tool} />
-      </div>
-    );
-  }
-
-  return <div className={base}>{favoriteButton}<Link to={activePaths[tool.slug as ActiveSlug]} className="block"><CardBody tool={tool} /></Link></div>;
+      </Link>
+    </div>
+  );
 }

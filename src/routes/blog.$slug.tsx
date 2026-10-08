@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import ReactMarkdown from "react-markdown";
 import { ArrowLeft, Clock3 } from "lucide-react";
 import { AdSlot } from "@/components/site/AdSlot";
@@ -7,10 +7,16 @@ import { posts } from "@/data/posts";
 import { tools } from "@/data/tools";
 
 export const Route = createFileRoute("/blog/$slug")({
+  loader: ({ params }) => {
+    if (!posts.some((post) => post.slug === params.slug)) {
+      throw notFound();
+    }
+  },
   head: ({ params }) => {
     const post = posts.find((item) => item.slug === params.slug);
     const title = post?.title ?? "Artículo de finanzas personales";
-    const description = post?.excerpt ?? "Guías claras de finanzas personales en Finanzas a tu Bolsillo.";
+    const description =
+      post?.excerpt ?? "Guías claras de finanzas personales en Finanzas a tu Bolsillo.";
     const path = `/blog/${params.slug}`;
 
     return {
@@ -65,7 +71,10 @@ function ArticleBody({ content }: { content: string }) {
                 h2: ({ children }) => {
                   const text = String(children);
                   return (
-                    <h2 id={slugifyHeading(text)} className="mt-10 scroll-mt-24 font-display text-2xl font-bold">
+                    <h2
+                      id={slugifyHeading(text)}
+                      className="mt-10 scroll-mt-24 font-display text-2xl font-bold"
+                    >
                       {children}
                     </h2>
                   );
@@ -73,12 +82,17 @@ function ArticleBody({ content }: { content: string }) {
                 h3: ({ children }) => {
                   const text = String(children);
                   return (
-                    <h3 id={slugifyHeading(text)} className="mt-8 scroll-mt-24 font-display text-xl font-semibold">
+                    <h3
+                      id={slugifyHeading(text)}
+                      className="mt-8 scroll-mt-24 font-display text-xl font-semibold"
+                    >
                       {children}
                     </h3>
                   );
                 },
-                p: ({ children }) => <p className="mt-5 text-base leading-8 text-muted-foreground">{children}</p>,
+                p: ({ children }) => (
+                  <p className="mt-5 text-base leading-8 text-muted-foreground">{children}</p>
+                ),
                 blockquote: ({ children }) => (
                   <blockquote className="my-7 border-l-4 border-brand bg-brand-soft px-5 py-4 text-base italic leading-7 text-foreground">
                     {children}
@@ -105,7 +119,10 @@ function PostPage() {
       <main className="mx-auto w-full max-w-3xl px-4 py-20 text-center sm:px-6">
         <h1 className="font-display text-3xl font-bold">Artículo no encontrado</h1>
         <p className="mt-4 text-muted-foreground">El artículo que buscas no existe o fue movido.</p>
-        <Link to="/blog" className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline">
+        <Link
+          to="/blog"
+          className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
+        >
           <ArrowLeft className="h-4 w-4" /> Volver al blog
         </Link>
       </main>
@@ -114,7 +131,9 @@ function PostPage() {
 
   const headings = getHeadings(post.content);
   const relatedTool = tools.find((tool) => tool.slug === post.relatedToolSlug);
-  const relatedPosts = posts.filter((item) => item.category === post.category && item.slug !== post.slug).slice(0, 3);
+  const relatedPosts = posts
+    .filter((item) => item.category === post.category && item.slug !== post.slug)
+    .slice(0, 3);
   const formattedDate = new Date(post.date).toLocaleDateString("es", {
     year: "numeric",
     month: "long",
@@ -124,9 +143,13 @@ function PostPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
       <nav aria-label="Breadcrumbs" className="text-sm text-muted-foreground">
-        <Link to="/" className="hover:text-foreground hover:underline">Inicio</Link>
+        <Link to="/" className="hover:text-foreground hover:underline">
+          Inicio
+        </Link>
         <span className="mx-2">/</span>
-        <Link to="/blog" className="hover:text-foreground hover:underline">Blog</Link>
+        <Link to="/blog" className="hover:text-foreground hover:underline">
+          Blog
+        </Link>
         <span className="mx-2">/</span>
         <span>{post.category}</span>
         <span className="mx-2">/</span>
@@ -136,11 +159,18 @@ function PostPage() {
       <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
         <article>
           <header className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-wide text-brand">{post.category}</p>
-            <h1 className="mt-3 font-display text-4xl font-bold leading-tight sm:text-5xl">{post.title}</h1>
+            <p className="text-xs font-semibold uppercase tracking-wide text-brand">
+              {post.category}
+            </p>
+            <h1 className="mt-3 font-display text-4xl font-bold leading-tight sm:text-5xl">
+              {post.title}
+            </h1>
             <div className="mt-5 flex items-center gap-4 text-sm text-muted-foreground">
               <span>{formattedDate}</span>
-              <span className="inline-flex items-center gap-1.5"><Clock3 className="h-4 w-4" />{post.readTime} de lectura</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Clock3 className="h-4 w-4" />
+                {post.readTime} de lectura
+              </span>
             </div>
           </header>
 
@@ -150,11 +180,18 @@ function PostPage() {
 
           {relatedTool && (
             <Reveal className="mt-12 max-w-3xl">
-              <Link to={relatedTool.href} className="card-hover block rounded-2xl border border-brand/30 bg-brand-soft p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand">Calculadora relacionada</p>
+              <Link
+                to={relatedTool.href}
+                className="card-hover block rounded-2xl border border-brand/30 bg-brand-soft p-6"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wide text-brand">
+                  Calculadora relacionada
+                </p>
                 <h2 className="mt-2 font-display text-xl font-semibold">{relatedTool.title}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{relatedTool.short}</p>
-                <span className="mt-4 inline-flex text-sm font-semibold text-brand">Probar calculadora →</span>
+                <span className="mt-4 inline-flex text-sm font-semibold text-brand">
+                  Probar calculadora →
+                </span>
               </Link>
             </Reveal>
           )}
@@ -181,14 +218,28 @@ function PostPage() {
       </div>
 
       {relatedPosts.length > 0 && (
-        <section aria-labelledby="articulos-relacionados" className="mt-16 border-t border-border pt-10">
-          <h2 id="articulos-relacionados" className="font-display text-2xl font-bold">Artículos relacionados</h2>
+        <section
+          aria-labelledby="articulos-relacionados"
+          className="mt-16 border-t border-border pt-10"
+        >
+          <h2 id="articulos-relacionados" className="font-display text-2xl font-bold">
+            Artículos relacionados
+          </h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {relatedPosts.map((relatedPost) => (
-              <Link key={relatedPost.slug} to="/blog/$slug" params={{ slug: relatedPost.slug }} className="card-hover rounded-2xl border border-border bg-card p-5 shadow-soft">
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand">{relatedPost.category}</p>
+              <Link
+                key={relatedPost.slug}
+                to="/blog/$slug"
+                params={{ slug: relatedPost.slug }}
+                className="card-hover rounded-2xl border border-border bg-card p-5 shadow-soft"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wide text-brand">
+                  {relatedPost.category}
+                </p>
                 <h3 className="mt-2 font-display font-semibold">{relatedPost.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{relatedPost.readTime} de lectura</p>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  {relatedPost.readTime} de lectura
+                </p>
               </Link>
             ))}
           </div>

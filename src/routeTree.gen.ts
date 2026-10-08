@@ -20,11 +20,13 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CalculadorasIndexRouteImport } from './routes/calculadoras.index'
 import { Route as CalculadorasCalculadoraAhorroMetaRouteImport } from './routes/calculadoras.calculadora-ahorro-meta'
 import { Route as CalculadorasCalculadoraCapacidadEndeudamientoRouteImport } from './routes/calculadoras.calculadora-capacidad-endeudamiento'
+import { Route as CalculadorasCalculadoraFiniquitoMexicoRouteImport } from './routes/calculadoras.calculadora-finiquito-mexico'
 import { Route as CalculadorasCalculadoraHipotecaRouteImport } from './routes/calculadoras.calculadora-hipoteca'
 import { Route as CalculadorasCalculadoraInteresCompuestoRouteImport } from './routes/calculadoras.calculadora-interes-compuesto'
 import { Route as CalculadorasCalculadoraJubilacionRouteImport } from './routes/calculadoras.calculadora-jubilacion'
 import { Route as CalculadorasCalculadoraPagoAnticipadoRouteImport } from './routes/calculadoras.calculadora-pago-anticipado'
 import { Route as CalculadorasCalculadoraPagoDeudasRouteImport } from './routes/calculadoras.calculadora-pago-deudas'
+import { Route as CalculadorasCalculadoraPrestacionesRdRouteImport } from './routes/calculadoras.calculadora-prestaciones-rd'
 import { Route as CalculadorasCalculadoraPrestamoEmpresarialRouteImport } from './routes/calculadoras.calculadora-prestamo-empresarial'
 import { Route as CalculadorasCalculadoraPrestamoEstudiantilRouteImport } from './routes/calculadoras.calculadora-prestamo-estudiantil'
 import { Route as CalculadorasCalculadoraPrestamoPersonalRouteImport } from './routes/calculadoras.calculadora-prestamo-personal'
@@ -93,6 +95,12 @@ const CalculadorasCalculadoraCapacidadEndeudamientoRoute =
     path: '/calculadoras/calculadora-capacidad-endeudamiento',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CalculadorasCalculadoraFiniquitoMexicoRoute =
+  CalculadorasCalculadoraFiniquitoMexicoRouteImport.update({
+    id: '/calculadoras/calculadora-finiquito-mexico',
+    path: '/calculadoras/calculadora-finiquito-mexico',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CalculadorasCalculadoraHipotecaRoute =
   CalculadorasCalculadoraHipotecaRouteImport.update({
     id: '/calculadoras/calculadora-hipoteca',
@@ -121,6 +129,12 @@ const CalculadorasCalculadoraPagoDeudasRoute =
   CalculadorasCalculadoraPagoDeudasRouteImport.update({
     id: '/calculadoras/calculadora-pago-deudas',
     path: '/calculadoras/calculadora-pago-deudas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CalculadorasCalculadoraPrestacionesRdRoute =
+  CalculadorasCalculadoraPrestacionesRdRouteImport.update({
+    id: '/calculadoras/calculadora-prestaciones-rd',
+    path: '/calculadoras/calculadora-prestaciones-rd',
     getParentRoute: () => rootRouteImport,
   } as any)
 const CalculadorasCalculadoraPrestamoEmpresarialRoute =
@@ -194,11 +208,13 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/calculadoras/calculadora-ahorro-meta': typeof CalculadorasCalculadoraAhorroMetaRoute
   '/calculadoras/calculadora-capacidad-endeudamiento': typeof CalculadorasCalculadoraCapacidadEndeudamientoRoute
+  '/calculadoras/calculadora-finiquito-mexico': typeof CalculadorasCalculadoraFiniquitoMexicoRoute
   '/calculadoras/calculadora-hipoteca': typeof CalculadorasCalculadoraHipotecaRoute
   '/calculadoras/calculadora-interes-compuesto': typeof CalculadorasCalculadoraInteresCompuestoRoute
   '/calculadoras/calculadora-jubilacion': typeof CalculadorasCalculadoraJubilacionRoute
   '/calculadoras/calculadora-pago-anticipado': typeof CalculadorasCalculadoraPagoAnticipadoRoute
   '/calculadoras/calculadora-pago-deudas': typeof CalculadorasCalculadoraPagoDeudasRoute
+  '/calculadoras/calculadora-prestaciones-rd': typeof CalculadorasCalculadoraPrestacionesRdRoute
   '/calculadoras/calculadora-prestamo-empresarial': typeof CalculadorasCalculadoraPrestamoEmpresarialRoute
   '/calculadoras/calculadora-prestamo-estudiantil': typeof CalculadorasCalculadoraPrestamoEstudiantilRoute
   '/calculadoras/calculadora-prestamo-personal': typeof CalculadorasCalculadoraPrestamoPersonalRoute
@@ -222,11 +238,13 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/calculadoras/calculadora-ahorro-meta': typeof CalculadorasCalculadoraAhorroMetaRoute
   '/calculadoras/calculadora-capacidad-endeudamiento': typeof CalculadorasCalculadoraCapacidadEndeudamientoRoute
+  '/calculadoras/calculadora-finiquito-mexico': typeof CalculadorasCalculadoraFiniquitoMexicoRoute
   '/calculadoras/calculadora-hipoteca': typeof CalculadorasCalculadoraHipotecaRoute
   '/calculadoras/calculadora-interes-compuesto': typeof CalculadorasCalculadoraInteresCompuestoRoute
   '/calculadoras/calculadora-jubilacion': typeof CalculadorasCalculadoraJubilacionRoute
   '/calculadoras/calculadora-pago-anticipado': typeof CalculadorasCalculadoraPagoAnticipadoRoute
   '/calculadoras/calculadora-pago-deudas': typeof CalculadorasCalculadoraPagoDeudasRoute
+  '/calculadoras/calculadora-prestaciones-rd': typeof CalculadorasCalculadoraPrestacionesRdRoute
   '/calculadoras/calculadora-prestamo-empresarial': typeof CalculadorasCalculadoraPrestamoEmpresarialRoute
   '/calculadoras/calculadora-prestamo-estudiantil': typeof CalculadorasCalculadoraPrestamoEstudiantilRoute
   '/calculadoras/calculadora-prestamo-personal': typeof CalculadorasCalculadoraPrestamoPersonalRoute
@@ -251,11 +269,13 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/calculadoras/calculadora-ahorro-meta': typeof CalculadorasCalculadoraAhorroMetaRoute
   '/calculadoras/calculadora-capacidad-endeudamiento': typeof CalculadorasCalculadoraCapacidadEndeudamientoRoute
+  '/calculadoras/calculadora-finiquito-mexico': typeof CalculadorasCalculadoraFiniquitoMexicoRoute
   '/calculadoras/calculadora-hipoteca': typeof CalculadorasCalculadoraHipotecaRoute
   '/calculadoras/calculadora-interes-compuesto': typeof CalculadorasCalculadoraInteresCompuestoRoute
   '/calculadoras/calculadora-jubilacion': typeof CalculadorasCalculadoraJubilacionRoute
   '/calculadoras/calculadora-pago-anticipado': typeof CalculadorasCalculadoraPagoAnticipadoRoute
   '/calculadoras/calculadora-pago-deudas': typeof CalculadorasCalculadoraPagoDeudasRoute
+  '/calculadoras/calculadora-prestaciones-rd': typeof CalculadorasCalculadoraPrestacionesRdRoute
   '/calculadoras/calculadora-prestamo-empresarial': typeof CalculadorasCalculadoraPrestamoEmpresarialRoute
   '/calculadoras/calculadora-prestamo-estudiantil': typeof CalculadorasCalculadoraPrestamoEstudiantilRoute
   '/calculadoras/calculadora-prestamo-personal': typeof CalculadorasCalculadoraPrestamoPersonalRoute
@@ -281,11 +301,13 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/calculadoras/calculadora-ahorro-meta'
     | '/calculadoras/calculadora-capacidad-endeudamiento'
+    | '/calculadoras/calculadora-finiquito-mexico'
     | '/calculadoras/calculadora-hipoteca'
     | '/calculadoras/calculadora-interes-compuesto'
     | '/calculadoras/calculadora-jubilacion'
     | '/calculadoras/calculadora-pago-anticipado'
     | '/calculadoras/calculadora-pago-deudas'
+    | '/calculadoras/calculadora-prestaciones-rd'
     | '/calculadoras/calculadora-prestamo-empresarial'
     | '/calculadoras/calculadora-prestamo-estudiantil'
     | '/calculadoras/calculadora-prestamo-personal'
@@ -309,11 +331,13 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/calculadoras/calculadora-ahorro-meta'
     | '/calculadoras/calculadora-capacidad-endeudamiento'
+    | '/calculadoras/calculadora-finiquito-mexico'
     | '/calculadoras/calculadora-hipoteca'
     | '/calculadoras/calculadora-interes-compuesto'
     | '/calculadoras/calculadora-jubilacion'
     | '/calculadoras/calculadora-pago-anticipado'
     | '/calculadoras/calculadora-pago-deudas'
+    | '/calculadoras/calculadora-prestaciones-rd'
     | '/calculadoras/calculadora-prestamo-empresarial'
     | '/calculadoras/calculadora-prestamo-estudiantil'
     | '/calculadoras/calculadora-prestamo-personal'
@@ -337,11 +361,13 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/calculadoras/calculadora-ahorro-meta'
     | '/calculadoras/calculadora-capacidad-endeudamiento'
+    | '/calculadoras/calculadora-finiquito-mexico'
     | '/calculadoras/calculadora-hipoteca'
     | '/calculadoras/calculadora-interes-compuesto'
     | '/calculadoras/calculadora-jubilacion'
     | '/calculadoras/calculadora-pago-anticipado'
     | '/calculadoras/calculadora-pago-deudas'
+    | '/calculadoras/calculadora-prestaciones-rd'
     | '/calculadoras/calculadora-prestamo-empresarial'
     | '/calculadoras/calculadora-prestamo-estudiantil'
     | '/calculadoras/calculadora-prestamo-personal'
@@ -366,11 +392,13 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   CalculadorasCalculadoraAhorroMetaRoute: typeof CalculadorasCalculadoraAhorroMetaRoute
   CalculadorasCalculadoraCapacidadEndeudamientoRoute: typeof CalculadorasCalculadoraCapacidadEndeudamientoRoute
+  CalculadorasCalculadoraFiniquitoMexicoRoute: typeof CalculadorasCalculadoraFiniquitoMexicoRoute
   CalculadorasCalculadoraHipotecaRoute: typeof CalculadorasCalculadoraHipotecaRoute
   CalculadorasCalculadoraInteresCompuestoRoute: typeof CalculadorasCalculadoraInteresCompuestoRoute
   CalculadorasCalculadoraJubilacionRoute: typeof CalculadorasCalculadoraJubilacionRoute
   CalculadorasCalculadoraPagoAnticipadoRoute: typeof CalculadorasCalculadoraPagoAnticipadoRoute
   CalculadorasCalculadoraPagoDeudasRoute: typeof CalculadorasCalculadoraPagoDeudasRoute
+  CalculadorasCalculadoraPrestacionesRdRoute: typeof CalculadorasCalculadoraPrestacionesRdRoute
   CalculadorasCalculadoraPrestamoEmpresarialRoute: typeof CalculadorasCalculadoraPrestamoEmpresarialRoute
   CalculadorasCalculadoraPrestamoEstudiantilRoute: typeof CalculadorasCalculadoraPrestamoEstudiantilRoute
   CalculadorasCalculadoraPrestamoPersonalRoute: typeof CalculadorasCalculadoraPrestamoPersonalRoute
@@ -464,6 +492,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalculadorasCalculadoraCapacidadEndeudamientoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/calculadoras/calculadora-finiquito-mexico': {
+      id: '/calculadoras/calculadora-finiquito-mexico'
+      path: '/calculadoras/calculadora-finiquito-mexico'
+      fullPath: '/calculadoras/calculadora-finiquito-mexico'
+      preLoaderRoute: typeof CalculadorasCalculadoraFiniquitoMexicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calculadoras/calculadora-hipoteca': {
       id: '/calculadoras/calculadora-hipoteca'
       path: '/calculadoras/calculadora-hipoteca'
@@ -497,6 +532,13 @@ declare module '@tanstack/react-router' {
       path: '/calculadoras/calculadora-pago-deudas'
       fullPath: '/calculadoras/calculadora-pago-deudas'
       preLoaderRoute: typeof CalculadorasCalculadoraPagoDeudasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculadoras/calculadora-prestaciones-rd': {
+      id: '/calculadoras/calculadora-prestaciones-rd'
+      path: '/calculadoras/calculadora-prestaciones-rd'
+      fullPath: '/calculadoras/calculadora-prestaciones-rd'
+      preLoaderRoute: typeof CalculadorasCalculadoraPrestacionesRdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calculadoras/calculadora-prestamo-empresarial': {
@@ -584,6 +626,8 @@ const rootRouteChildren: RootRouteChildren = {
     CalculadorasCalculadoraAhorroMetaRoute,
   CalculadorasCalculadoraCapacidadEndeudamientoRoute:
     CalculadorasCalculadoraCapacidadEndeudamientoRoute,
+  CalculadorasCalculadoraFiniquitoMexicoRoute:
+    CalculadorasCalculadoraFiniquitoMexicoRoute,
   CalculadorasCalculadoraHipotecaRoute: CalculadorasCalculadoraHipotecaRoute,
   CalculadorasCalculadoraInteresCompuestoRoute:
     CalculadorasCalculadoraInteresCompuestoRoute,
@@ -593,6 +637,8 @@ const rootRouteChildren: RootRouteChildren = {
     CalculadorasCalculadoraPagoAnticipadoRoute,
   CalculadorasCalculadoraPagoDeudasRoute:
     CalculadorasCalculadoraPagoDeudasRoute,
+  CalculadorasCalculadoraPrestacionesRdRoute:
+    CalculadorasCalculadoraPrestacionesRdRoute,
   CalculadorasCalculadoraPrestamoEmpresarialRoute:
     CalculadorasCalculadoraPrestamoEmpresarialRoute,
   CalculadorasCalculadoraPrestamoEstudiantilRoute:

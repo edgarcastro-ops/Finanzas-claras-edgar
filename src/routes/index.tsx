@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BadgeCheck, Gauge, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, BadgeCheck, Gauge, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
 import { AdSlot } from "@/components/site/AdSlot";
 import { ToolCard } from "@/components/site/ToolCard";
-import { activeTools, blogCategories } from "@/data/tools";
+import { tools, blogCategories } from "@/data/tools";
 import { posts } from "@/data/posts";
 
 const description =
@@ -30,9 +30,21 @@ export const Route = createFileRoute("/")({
 });
 
 const highlights = [
-  { icon: Gauge, title: "Resultados al instante", text: "Mueve un valor y todo se recalcula en tiempo real." },
-  { icon: ShieldCheck, title: "Sin registro ni datos", text: "Todo se calcula en tu navegador. Nada se envía a un servidor." },
-  { icon: BadgeCheck, title: "Fórmulas transparentes", text: "Explicamos el método detrás de cada resultado." },
+  {
+    icon: Gauge,
+    title: "Resultados al instante",
+    text: "Mueve un valor y todo se recalcula en tiempo real.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Sin registro ni datos",
+    text: "Todo se calcula en tu navegador. Nada se envía a un servidor.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Fórmulas transparentes",
+    text: "Explicamos el método detrás de cada resultado.",
+  },
 ];
 
 function Index() {
@@ -41,10 +53,6 @@ function Index() {
       <section className="hero-surface relative overflow-hidden">
         <div className="mx-auto max-w-6xl px-4 pt-16 pb-14 sm:px-6 sm:pt-24">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold text-muted-foreground shadow-soft">
-              <Sparkles className="h-3.5 w-3.5 text-brand" />
-              3 calculadoras gratuitas, sin registro
-            </span>
             <h1 className="mt-6 text-4xl font-bold leading-[1.08] sm:text-6xl">
               Decisiones de dinero <span className="text-gradient-brand">con números claros</span>
             </h1>
@@ -82,7 +90,10 @@ function Index() {
         <AdSlot />
       </div>
 
-      <section aria-labelledby="Calculadoras-destacadas" className="mx-auto max-w-6xl px-4 pt-16 sm:px-6">
+      <section
+        aria-labelledby="Calculadoras-destacadas"
+        className="mx-auto max-w-6xl px-4 pt-16 sm:px-6"
+      >
         <Reveal>
           <div className="grid gap-4 sm:flex sm:items-end sm:justify-between">
             <div className="max-w-xl">
@@ -90,7 +101,7 @@ function Index() {
                 Calculadoras destacadas
               </h2>
               <p className="mt-3 text-muted-foreground">
-                Las tres calculadoras que más ayudan a poner orden en tus finanzas.
+                Herramientas prácticas para poner orden en tus finanzas.
               </p>
             </div>
             <Link
@@ -103,7 +114,7 @@ function Index() {
         </Reveal>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {activeTools.map((tool, i) => (
+          {tools.map((tool, i) => (
             <Reveal key={tool.slug} delay={i * 70}>
               <ToolCard tool={tool} />
             </Reveal>
@@ -121,22 +132,28 @@ function Index() {
           </p>
         </Reveal>
         <ul className="mt-8 grid gap-5 sm:grid-cols-3">
-          {posts.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((post, i) => (
-            <Reveal as="li" key={post.slug} delay={i * 70}>
-              <Link
-                to="/blog/$slug"
-                params={{ slug: post.slug }}
-                className="card-hover block h-full rounded-2xl border border-border bg-card p-6 shadow-soft"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand">
-                  {post.category}
-                </p>
-                <h3 className="mt-3 font-display text-base font-semibold">{post.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
-                <p className="mt-4 text-xs text-muted-foreground">{post.readTime} de lectura</p>
-              </Link>
-            </Reveal>
-          ))}
+          {posts
+            .slice()
+            .sort((a, b) => b.date.localeCompare(a.date))
+            .slice(0, 3)
+            .map((post, i) => (
+              <Reveal as="li" key={post.slug} delay={i * 70}>
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: post.slug }}
+                  className="card-hover block h-full rounded-2xl border border-border bg-card p-6 shadow-soft"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand">
+                    {post.category}
+                  </p>
+                  <h3 className="mt-3 font-display text-base font-semibold">{post.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {post.excerpt}
+                  </p>
+                  <p className="mt-4 text-xs text-muted-foreground">{post.readTime} de lectura</p>
+                </Link>
+              </Reveal>
+            ))}
         </ul>
       </section>
 
