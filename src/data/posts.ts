@@ -204,15 +204,17 @@ Comprueba tu nivel de deuda y la cuota que podrías asumir con la **calculadora 
   },
   {
     slug: "bcrd-mantiene-tasa-agosto-2026",
-    title: "El Banco Central mantiene la tasa en 5.25%: qué significa para tus préstamos",
+    title: "El Banco Central mantuvo la tasa en 5.25% en agosto (actualización: en septiembre subió a 5.50%)",
     category: "Crédito",
-    excerpt: "El BCRD dejó sin cambios su tasa de referencia en agosto de 2026. Te explicamos qué implica esto si tenés o estás por pedir un préstamo.",
+    excerpt: "En agosto de 2026 el BCRD dejó la tasa en 5.25%, pero el 30 de septiembre la subió a 5.50%. Mira qué decidió en agosto y qué cambió después.",
     readTime: "4 min",
     date: "2026-09-09",
     relatedToolSlug: "calculadora-prestamo-personal",
-    content: `El Banco Central de la República Dominicana (BCRD) decidió mantener su tasa de política monetaria (TPM) en 5.25% anual en su reunión de agosto de 2026, la misma cifra que viene sosteniendo desde hace varios meses. Junto a esta, la tasa de repos a un día se mantuvo en 5.75% y la de depósitos remunerados (overnight) en 4.50%.
+    content: `> **Actualización (30 de septiembre de 2026):** el BCRD subió su tasa de política monetaria de 5.25% a 5.50%. Lee la [nota más reciente](/blog/bcrd-sube-tasa-septiembre-2026). Lo que sigue describe la decisión de agosto.
 
-## ¿Por qué es relevante para vos?
+El Banco Central de la República Dominicana (BCRD) decidió mantener su tasa de política monetaria (TPM) en 5.25% anual en su reunión de agosto de 2026, la misma cifra que viene sosteniendo desde hace varios meses. Junto a esta, la tasa de repos a un día se mantuvo en 5.75% y la de depósitos remunerados (overnight) en 4.50%.
+
+## ¿Por qué es relevante para ti?
 
 La TPM es la tasa de referencia que influye, de forma indirecta, en cuánto cobran los bancos por sus préstamos y cuánto pagan por los depósitos. Cuando el Banco Central la mantiene estable, generalmente significa que **las tasas de los préstamos personales, hipotecarios y de tarjetas de crédito tampoco deberían moverse bruscamente en el corto plazo**.
 
@@ -220,13 +222,51 @@ La TPM es la tasa de referencia que influye, de forma indirecta, en cuánto cobr
 
 El BCRD explicó que esta decisión responde al dinamismo reciente de la economía dominicana, aunque persiste la incertidumbre internacional asociada al conflicto en Medio Oriente, que ha presionado al alza los precios del petróleo. Las reservas internacionales del país se ubican por encima de los US$15,000 millones, superando las métricas recomendadas por el Fondo Monetario Internacional — una señal de estabilidad para la economía en general.
 
-> Si estabas esperando "el momento ideal" para pedir un préstamo pensando en que las tasas iban a bajar pronto, esta decisión sugiere que no hay señales de un cambio inminente.
+> Esta decisión de agosto mantenía la tasa estable, pero el Banco Central la subió en septiembre. Revisa la nota actualizada antes de decidir.
 
 ## Qué hacer con esta información
 
-Si estás evaluando pedir un préstamo personal, este es un buen momento para comparar ofertas concretas de distintos bancos, ya que el escenario de tasas se mantiene relativamente predecible. Podés usar nuestra [calculadora de préstamo personal](/calculadoras/calculadora-prestamo-personal) para simular distintas cuotas según el monto y plazo que estés considerando.
+Si estás evaluando pedir un préstamo personal, este es un buen momento para comparar ofertas concretas de distintos bancos, ya que el escenario de tasas se mantiene relativamente predecible. Puedes usar nuestra [calculadora de préstamo personal](/calculadoras/calculadora-prestamo-personal) para simular distintas cuotas según el monto y plazo que estés considerando.
 
 *Fuente: Banco Central de la República Dominicana (BCRD), comunicado de política monetaria de agosto de 2026.*`
+  },
+  {
+    slug: "bcrd-sube-tasa-septiembre-2026",
+    title: "El Banco Central sube la tasa a 5.50%: qué cambia para tus préstamos y tu ahorro",
+    category: "Crédito",
+    excerpt: "El BCRD subió su tasa de política monetaria 25 puntos básicos el 30 de septiembre de 2026. Te explicamos qué puede cambiar para tus préstamos, tus tarjetas y tu ahorro.",
+    readTime: "5 min",
+    date: "2026-10-08",
+    relatedToolSlug: "calculadora-prestamo-personal",
+    content: `El 30 de septiembre de 2026, el Banco Central de la República Dominicana (BCRD) subió su tasa de política monetaria (TPM) en 25 puntos básicos: pasó de 5.25% a 5.50% anual. La tasa se había mantenido sin cambios en las reuniones de junio, julio y agosto.
+
+Junto con la TPM se movieron las otras dos tasas con las que el Banco Central maneja la liquidez del sistema:
+
+- **Facilidad permanente de expansión de liquidez (repos a un día):** subió de 5.75% a 6.00%.
+- **Depósitos remunerados (overnight):** subió de 4.50% a 4.75%.
+
+## ¿Por qué subió la tasa?
+
+El Banco Central explicó que el entorno internacional empujó la decisión: la Reserva Federal de Estados Unidos subió su tasa de referencia 25 puntos básicos en septiembre y dejó abierta la posibilidad de otro aumento antes de que termine el año, y el Banco Central Europeo también la subió en su reunión de ese mes. En la región, la mayoría de los bancos centrales dejó sus tasas sin cambios, aunque los analistas esperan aumentos en algunas economías antes de cerrar 2026.
+
+En el plano local, la inflación interanual de agosto fue de 5.13%, un poco por encima del techo del rango meta del Banco Central (4.0% ± 1.0%). Subir la tasa es una de las herramientas con las que un banco central intenta enfriar la demanda y llevar los precios de vuelta a su meta.
+
+## Qué puede cambiar para ti
+
+Una subida de 0.25 puntos es pequeña, y no se traslada de un día para otro ni de forma automática a todos los productos:
+
+- **Préstamos nuevos:** con el tiempo, los bancos pueden ofrecer tasas algo más altas. No están obligados a subir exactamente lo mismo que el Banco Central.
+- **Préstamos con tasa variable:** son los más sensibles. Revisa en tu contrato si la tasa se ajusta y cada cuánto.
+- **Préstamos con tasa fija:** si ya los firmaste, no cambian. Tu cuota sigue siendo la misma.
+- **Tarjetas de crédito:** si mantienes saldo, la tasa puede subir con el tiempo y el costo financiero puede volver más pesado.
+
+## Qué debes hacer ahora
+
+Si tienes deuda con tasa variable, revisa tu contrato y calcula cuánto subiría tu cuota con un ajuste adicional. Si estás comparando crédito, compara ofertas antes de firmar, porque una diferencia pequeña de tasa puede influir en el costo total. Si ahorras, una tasa más alta no siempre es mala noticia: puede mejorar el rendimiento de algunos productos de ahorro y plazo fijo.
+
+Para simular el impacto real en tu cuota y ver cómo cambia el costo total, usa nuestra **calculadora de préstamo personal** y compara distintos escenarios antes de decidir.
+
+*Fuente: Banco Central de la República Dominicana (BCRD), comunicado de política monetaria del 30 de septiembre de 2026.*`
   },
   {
     slug: "inflacion-agosto-2026-presupuesto-familiar",
@@ -251,11 +291,11 @@ La inflación subyacente (que excluye los productos más volátiles, como combus
 
 ## Cómo ajustar tu presupuesto mientras tanto
 
-1. **Revisá el rubro de educación si tenés hijos en el sistema privado** — es el grupo que más subió este mes, así que conviene anticipar ese gasto en tu planificación mensual.
-2. **Aprovechá las bajas puntuales en algunos alimentos** (aguacate, huevos, yuca, naranjas) ajustando tu lista de compras según lo que esté más barato ese mes, en vez de mantener siempre los mismos productos fijos.
+1. **Revisa el rubro de educación si tienes hijos en el sistema privado** — es el grupo que más subió este mes, así que conviene anticipar ese gasto en tu planificación mensual.
+2. **Aprovecha las bajas puntuales en algunos alimentos** (aguacate, huevos, yuca, naranjas) ajustando tu lista de compras según lo que esté más barato ese mes, en vez de mantener siempre los mismos productos fijos.
 3. **No asumas que "ya bajó la inflación" significa que los precios volvieron atrás** — una inflación más baja significa que los precios suben más lento, no que bajan. El costo acumulado de los últimos meses sigue ahí.
 
-Si querés ver con números concretos cómo estos cambios impactan en tu presupuesto mensual, probá nuestra [calculadora de presupuesto 50/30/20](/calculadoras/calculadora-presupuesto-mensual) y ajustá las categorías según tus gastos reales de este mes.
+Si quieres ver con números concretos cómo estos cambios impactan en tu presupuesto mensual, prueba nuestra [calculadora de presupuesto 50/30/20](/calculadoras/calculadora-presupuesto-mensual) y ajusta las categorías según tus gastos reales de este mes.
 
 *Fuente: Banco Central de la República Dominicana (BCRD), Índice de Precios al Consumidor, agosto de 2026.*`
   },
@@ -267,7 +307,7 @@ Si querés ver con números concretos cómo estos cambios impactan en tu presupu
     readTime: "5 min",
     date: "2026-09-09",
     relatedToolSlug: "calculadora-ahorro-meta",
-    content: `Si tenés tus ahorros en una cuenta de ahorro tradicional en República Dominicana, es momento de hacer una cuenta simple: la mayoría de estas cuentas pagan entre 0.5% y 2% de interés anual, mientras que la inflación interanual se ubicó en 5.13% en agosto de 2026. La diferencia significa que, en términos reales, **tu dinero guardado está perdiendo poder de compra cada mes que pasa**.
+    content: `Si tienes tus ahorros en una cuenta de ahorro tradicional en República Dominicana, es momento de hacer una cuenta simple: la mayoría de estas cuentas pagan entre 0.5% y 2% de interés anual, mientras que la inflación interanual se ubicó en 5.13% en agosto de 2026. La diferencia significa que, en términos reales, **tu dinero guardado está perdiendo poder de compra cada mes que pasa**.
 
 ## El problema no es ahorrar, es dónde ahorrar
 
@@ -278,13 +318,13 @@ Guardar dinero siempre es mejor que no hacerlo, pero no todas las opciones de ah
 - **Certificados financieros (CDs)**: suelen rendir entre 8% y 12% anual según el banco y el plazo, superando la inflación actual.
 - **Cooperativas de ahorro y crédito**: al ser organizaciones sin fines de lucro, algunas ofrecen ahorro programado desde 7% hasta 9% anual, entre las opciones más competitivas del mercado.
 
-> Un dato importante para cualquier opción: los bancos retienen un 10% de los intereses generados como impuesto (DGII). La tasa que ves anunciada es bruta — lo que realmente recibís es un poco menos.
+> Un dato importante para cualquier opción: los bancos retienen un 10% de los intereses generados como impuesto (DGII). La tasa que ves anunciada es bruta — lo que realmente recibes es un poco menos.
 
-## Qué podés hacer con esta información
+## Qué puedes hacer con esta información
 
-No se trata de sacar todo tu dinero de la cuenta de ahorro básica — esa cuenta sigue siendo útil para el efectivo que necesitás disponible de inmediato. La estrategia más común es dividir tus ahorros: mantener un fondo de emergencia accesible en la cuenta tradicional, y mover el resto (lo que no vas a necesitar en el corto plazo) hacia certificados financieros o cooperativas que ofrezcan mejor rendimiento.
+No se trata de sacar todo tu dinero de la cuenta de ahorro básica — esa cuenta sigue siendo útil para el efectivo que necesitas disponible de inmediato. La estrategia más común es dividir tus ahorros: mantener un fondo de emergencia accesible en la cuenta tradicional, y mover el resto (lo que no vas a necesitar en el corto plazo) hacia certificados financieros o cooperativas que ofrezcan mejor rendimiento.
 
-Si querés proyectar cuánto necesitás ahorrar por mes para alcanzar una meta concreta, considerando distintas tasas de interés, probá nuestra [calculadora de meta de ahorro](/calculadoras/calculadora-ahorro-meta).
+Si quieres proyectar cuánto necesitas ahorrar por mes para alcanzar una meta concreta, considerando distintas tasas de interés, prueba nuestra [calculadora de meta de ahorro](/calculadoras/calculadora-ahorro-meta).
 
 *Fuente: Banco Central de la República Dominicana (tasas de referencia e inflación, agosto 2026); tarifarios públicos de bancos y cooperativas dominicanas.*`
   },

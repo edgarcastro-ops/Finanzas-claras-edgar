@@ -22,10 +22,10 @@ Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo c
 Google y otros proveedores de publicidad pueden colocar y leer cookies en tu navegador. El uso que Google haga de estas cookies se rige por su [Política de Privacidad](https://policies.google.com/privacy).
 
 ## 4. Cómo gestionar las cookies
-Podés configurar tu navegador para rechazar cookies, o gestionar las cookies publicitarias en [Configuración de anuncios de Google](https://adssettings.google.com/) o en [www.aboutads.info/choices](http://www.aboutads.info/choices/).
+Puedes configurar tu navegador para rechazar cookies, o gestionar las cookies publicitarias en [Configuración de anuncios de Google](https://adssettings.google.com/) o en [www.aboutads.info/choices](http://www.aboutads.info/choices/).
 
 ## 5. Consentimiento
-Al aceptar todas las cookies en el banner, consentís el uso de cookies conforme a esta política. Google Analytics 4 solo se activa después de aceptar; si rechazás las cookies no esenciales, no se carga ni registra datos de analítica.`;
+Al aceptar todas las cookies en el banner, consientes el uso de cookies conforme a esta política. Google Analytics 4 solo se activa después de aceptar; si rechazas las cookies no esenciales, no se carga ni registra datos de analítica.`;
 
 export const Route = createFileRoute("/cookies")({
   head: () => ({

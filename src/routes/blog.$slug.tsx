@@ -48,7 +48,10 @@ function getHeadings(content: string) {
   return content
     .split("\n")
     .map((line) => line.match(/^(#{2,3})\s+(.+)$/))
-    .filter((match): match is RegExpMatchArray => Boolean(match))
+    .filter(
+      (match): match is RegExpMatchArray & { 1: string; 2: string } =>
+        Boolean(match?.[1] && match[2]),
+    )
     .map((match) => ({ level: match[1].length, title: match[2], id: slugifyHeading(match[2]) }));
 }
 

@@ -20,7 +20,7 @@ function getHeadings(content: string) {
   return content
     .split("\n")
     .map((line) => line.match(/^##\s+(.+)$/))
-    .filter((match): match is RegExpMatchArray => Boolean(match))
+    .filter((match): match is RegExpMatchArray & { 1: string } => Boolean(match?.[1]))
     .map((match) => ({ title: match[1], id: slugifyHeading(match[1]) }));
 }
 

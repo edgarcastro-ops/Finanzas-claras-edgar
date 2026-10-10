@@ -75,6 +75,9 @@ function AboutPage() {
             pagar, cuánto puedes ahorrar y qué alternativa te conviene. Nada de promesas de
             enriquecimiento rápido ni de productos milagro.
           </p>
+          <p>
+            ¿Tienes una pregunta o una sugerencia? Puedes escribirnos en nuestra página de <Link to="/contacto" className="font-medium text-brand hover:underline">contacto</Link>.
+          </p>
         </section>
 
         <section aria-label="Nuestros principios" className="mt-12">

@@ -6,10 +6,16 @@ interface AdSlotProps {
   variant?: "banner" | "box";
 }
 
+const ADS_ENABLED = false;
+
 /**
- * Reserved advertising space (Google AdSense will be injected here later).
+ * Advertising slots stay disabled until AdSense approval is active.
  */
 export function AdSlot({ label = "Espacio publicitario", className, variant = "banner" }: AdSlotProps) {
+  if (!ADS_ENABLED) {
+    return null;
+  }
+
   return (
     <aside
       aria-label="Publicidad"
