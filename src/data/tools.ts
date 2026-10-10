@@ -95,7 +95,7 @@ export const tools: Tool[] = [
     title: "Conversor de moneda",
     short: "Convierte importes con tu propio tipo de cambio.",
     description:
-      "Convierte importes entre monedas introduciendo tú mismo el tipo de cambio, y calcula el impacto de las comisiones de cambio.",
+      "Convierte importes con el tipo de cambio que indiques y descuenta una comisión porcentual para estimar el importe neto.",
     category: "Divisas",
     icon: "receipt",
   },

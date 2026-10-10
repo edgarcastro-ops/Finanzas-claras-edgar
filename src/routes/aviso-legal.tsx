@@ -22,7 +22,7 @@ Finanzas a tu Bolsillo no es un banco, entidad de crédito, asesor de inversión
 El uso de la información de este sitio es bajo tu propio riesgo.
 
 ## 6. Contacto
-Ante cualquier duda, contáctanos a accesototal707@gmail.com.`;
+Ante cualquier duda, contáctanos a [accesototal707@gmail.com](mailto:accesototal707@gmail.com).`;
 
 export const Route = createFileRoute("/aviso-legal")({
   head: () => ({

@@ -42,6 +42,12 @@ export function BudgetCalculator() {
   const totalGastos = gastos.reduce((a, g) => a + g.value, 0);
   const balance = income - totalGastos;
   const tasaAhorro = income > 0 ? (balance / income) * 100 : 0;
+  const necesidades = vivienda + comida + transporte + deudas;
+  const regla = [
+    { label: "Necesidades · 50%", actual: necesidades, objetivo: income * 0.5 },
+    { label: "Deseos · 30%", actual: otros, objetivo: income * 0.3 },
+    { label: "Ahorro · 20%", actual: balance, objetivo: income * 0.2 },
+  ];
 
   return (
     <CalcShell
@@ -78,6 +84,23 @@ export function BudgetCalculator() {
           </PieChart>
         </ResponsiveContainer>
       </ChartCard>
+
+      <section className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-soft" aria-labelledby="budget-rule">
+        <h2 id="budget-rule" className="font-display text-base font-semibold">Referencia 50/30/20</h2>
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          Para esta comparación, vivienda, alimentación, transporte y pagos de deuda cuentan como necesidades; “Otros” representa deseos y el balance es el ahorro disponible.
+        </p>
+        <ul className="mt-4 space-y-3">
+          {regla.map((item) => (
+            <li key={item.label} className="flex flex-wrap items-center justify-between gap-2 text-sm">
+              <span>{item.label}</span>
+              <span className="text-right tabular-nums text-muted-foreground">
+                Actual: {money(item.actual)} · Referencia: {money(item.objetivo)}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-soft">
         <h2 className="font-display text-base font-semibold">Peso de cada gasto sobre tus ingresos</h2>

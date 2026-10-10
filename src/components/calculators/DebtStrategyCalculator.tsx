@@ -8,6 +8,7 @@ import { Field } from "@/components/calculators/Field";
 import { CalcShell, ChartCard, ResultStat } from "@/components/calculators/Shared";
 import { monthsToText, payoffStrategy, type DebtInput } from "@/lib/finance";
 import { useCurrency } from "@/lib/currency";
+import { normalizeNumberInput } from "@/lib/number-input";
 
 let nextId = 100;
 
@@ -90,15 +91,15 @@ export function DebtStrategyCalculator() {
               </div>
               <div>
                 <Label htmlFor={`${d.id}-bal`} className="text-xs text-muted-foreground">Saldo ({option.symbol})</Label>
-                <Input id={`${d.id}-bal`} type="number" inputMode="decimal" value={d.balance} onChange={(e) => update(d.id, { balance: Number(e.target.value) || 0 })} className="mt-1 h-9 text-right tabular-nums" />
+                <Input id={`${d.id}-bal`} type="number" inputMode="decimal" min="0" max="100000000" value={d.balance} onChange={(e) => update(d.id, { balance: normalizeNumberInput(e.target.value, 0, 100000000) })} className="mt-1 h-9 text-right tabular-nums" />
               </div>
               <div>
                 <Label htmlFor={`${d.id}-rate`} className="text-xs text-muted-foreground">Tasa anual (%)</Label>
-                <Input id={`${d.id}-rate`} type="number" inputMode="decimal" value={d.rate} onChange={(e) => update(d.id, { rate: Number(e.target.value) || 0 })} className="mt-1 h-9 text-right tabular-nums" />
+                <Input id={`${d.id}-rate`} type="number" inputMode="decimal" min="0" max="1000" value={d.rate} onChange={(e) => update(d.id, { rate: normalizeNumberInput(e.target.value, 0, 1000) })} className="mt-1 h-9 text-right tabular-nums" />
               </div>
               <div>
                 <Label htmlFor={`${d.id}-min`} className="text-xs text-muted-foreground">Pago mínimo</Label>
-                <Input id={`${d.id}-min`} type="number" inputMode="decimal" value={d.minimum} onChange={(e) => update(d.id, { minimum: Number(e.target.value) || 0 })} className="mt-1 h-9 text-right tabular-nums" />
+                <Input id={`${d.id}-min`} type="number" inputMode="decimal" min="0" max="100000000" value={d.minimum} onChange={(e) => update(d.id, { minimum: normalizeNumberInput(e.target.value, 0, 100000000) })} className="mt-1 h-9 text-right tabular-nums" />
               </div>
               <div className="flex items-end">
                 <Button

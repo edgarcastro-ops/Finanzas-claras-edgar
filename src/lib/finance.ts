@@ -216,10 +216,12 @@ export function payoffStrategy(
   const order: string[] = [];
   let totalInterest = 0;
   let months = 0;
+  let rolledMinimums = 0;
 
   while (list.some((d) => d.saldo > 0.01) && months < 600) {
     months += 1;
-    let pool = extra;
+    let pool = Math.max(extra, 0) + rolledMinimums;
+    let newlyFreedMinimums = 0;
     // intereses + mínimos
     for (const d of list) {
       if (d.saldo <= 0.01) continue;
@@ -229,9 +231,14 @@ export function payoffStrategy(
     }
     const actives = list.filter((d) => d.saldo > 0.01);
     for (const d of actives) {
-      const pago = Math.min(d.minimum, d.saldo);
+      const minimum = Math.max(d.minimum, 0);
+      const pago = Math.min(minimum, d.saldo);
       d.saldo -= pago;
-      if (d.saldo <= 0.01 && !order.includes(d.name)) order.push(d.name);
+      if (d.saldo <= 0.01) {
+        if (!order.includes(d.name)) order.push(d.name);
+        pool += minimum - pago;
+        newlyFreedMinimums += minimum;
+      }
     }
     const targets = list
       .filter((d) => d.saldo > 0.01)
@@ -241,8 +248,12 @@ export function payoffStrategy(
       const pago = Math.min(pool, d.saldo);
       d.saldo -= pago;
       pool -= pago;
-      if (d.saldo <= 0.01 && !order.includes(d.name)) order.push(d.name);
+      if (d.saldo <= 0.01) {
+        if (!order.includes(d.name)) order.push(d.name);
+        newlyFreedMinimums += Math.max(d.minimum, 0);
+      }
     }
+    rolledMinimums += newlyFreedMinimums;
     const restante = list.reduce((a, d) => a + Math.max(d.saldo, 0), 0);
     series.push({ mes: months, saldo: Math.round(restante) });
   }

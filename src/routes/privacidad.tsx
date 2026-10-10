@@ -7,30 +7,28 @@ const description =
 const content = `# Política de Privacidad
 Última actualización: 9 de septiembre de 2026
 
-En Finanzas a tu Bolsillo ("nosotros", "nuestro" o "el sitio"), accesible desde [dominio.com], respetamos tu privacidad y nos comprometemos a proteger los datos personales que puedas compartir al usar nuestro sitio web.
+En Finanzas a tu Bolsillo ("nosotros", "nuestro" o "el sitio"), accesible desde [finanzasatubolsillo.com](https://finanzasatubolsillo.com), respetamos tu privacidad y nos comprometemos a proteger los datos personales que puedas compartir al usar nuestro sitio web.
 
 ## 1. Información que recopilamos
 - Datos que nos proporcionas voluntariamente: si nos escribes por correo electrónico, podemos recopilar tu nombre y tu correo electrónico.
 - Datos de uso recopilados automáticamente: dirección IP, tipo de navegador, páginas visitadas, tiempo de permanencia, sitio de referencia y datos similares recolectados mediante cookies y herramientas de analítica (como Google Analytics 4), únicamente si aceptas las cookies no esenciales.
 - Datos ingresados en las calculadoras: los valores que ingresas en nuestras Calculadoras se procesan únicamente en tu navegador para mostrarte el resultado. No almacenamos ni enviamos esta información a nuestros servidores.
 
-## 2. Uso de cookies y publicidad de terceros
-Este sitio utiliza Google AdSense, un servicio de publicidad de Google LLC. Google, como proveedor externo, utiliza cookies (incluida la cookie DART) para mostrar anuncios basados en tus visitas anteriores a este y otros sitios web.
-- Puedes inhabilitar el uso de la cookie DART visitando la [Política de privacidad de anuncios y contenido de Google](https://policies.google.com/technologies/ads).
-- También puedes gestionar tus preferencias en [Configuración de anuncios de Google](https://adssettings.google.com/).
-- Otros proveedores externos pueden usar cookies para publicidad personalizada; puedes gestionar tus opciones en [www.aboutads.info/choices](http://www.aboutads.info/choices/).
+## 2. Analítica y publicidad
+Google Analytics 4 se carga únicamente después de que aceptes las cookies analíticas en el banner. Si las rechazas, la medición analítica no se activa.
+
+Google AdSense todavía no está aprobado ni activo en este sitio. No mostramos anuncios de AdSense ni instalamos sus cookies publicitarias actualmente. Si se habilita publicidad en el futuro, actualizaremos esta política y solicitaremos el consentimiento que corresponda antes de utilizar cookies no esenciales.
 
 Para más detalle, consulta nuestra [Política de Cookies](/cookies).
-Google Analytics 4 solo se carga después de que aceptes las cookies no esenciales. Si las rechazas, no se envían datos de analítica a Google Analytics.
 
 ## 3. Cómo usamos tu información
-Usamos los datos recopilados para operar y mejorar el sitio, entender cómo los visitantes interactúan con nuestro contenido, personalizar la publicidad mostrada y responder a tus consultas por correo electrónico.
+Usamos los datos recopilados para operar y mejorar el sitio, entender cómo los visitantes interactúan con nuestro contenido cuando aceptan analítica y responder a tus consultas por correo electrónico.
 
 ## 4. Compartir información con terceros
 No vendemos ni alquilamos tus datos personales a terceros. Podemos compartir información agregada y anónima con proveedores de analítica y publicidad únicamente con fines estadísticos y publicitarios.
 
 ## 5. Tus derechos
-Dependiendo de tu ubicación, puedes tener derecho a acceder, corregir, eliminar o limitar el uso de tus datos personales. Para ejercer estos derechos, contáctanos a accesototal707@gmail.com.
+Dependiendo de tu ubicación, puedes tener derecho a acceder, corregir, eliminar o limitar el uso de tus datos personales. Para ejercer estos derechos, contáctanos en [accesototal707@gmail.com](mailto:accesototal707@gmail.com).
 
 ## 6. Privacidad de menores
 Este sitio no está dirigido a menores de 18 años y no recopilamos conscientemente información de menores.
@@ -39,7 +37,7 @@ Este sitio no está dirigido a menores de 18 años y no recopilamos conscienteme
 Podemos actualizar esta Política de Privacidad periódicamente.
 
 ## 8. Contacto
-Si tienes preguntas, escríbenos a accesototal707@gmail.com.`;
+Si tienes preguntas, escríbenos a [accesototal707@gmail.com](mailto:accesototal707@gmail.com).`;
 
 export const Route = createFileRoute("/privacidad")({
   head: () => ({

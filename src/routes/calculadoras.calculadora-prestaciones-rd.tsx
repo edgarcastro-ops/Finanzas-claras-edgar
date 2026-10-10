@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCurrency } from "@/lib/currency";
+import { dominicanNoticeDays, dominicanSeveranceDays } from "@/lib/labor";
+import { normalizeNumberInput } from "@/lib/number-input";
 
 const title = "Calculadora de prestaciones laborales de República Dominicana";
 const description = "Estima preaviso, cesantía, vacaciones y regalía pascual según el Código de Trabajo dominicano.";
@@ -81,43 +83,19 @@ function Page() {
   const end = parseDate(endDate);
   const validDates = Number.isFinite(start.getTime()) && Number.isFinite(end.getTime()) && end >= start;
   const months = validDates ? completedMonths(start, end) : 0;
-  const years = months / 12;
   const dailySalary = Math.max(salary, 0) / 23.83;
-  const moreThanOneYear = validDates && end > addMonths(start, 12);
-  const moreThanFiveYears = validDates && end > addMonths(start, 60);
+  const atLeastFiveYears = validDates && months >= 60;
 
-  let noticeDays = 0;
-  if (reason === "desahucio" && !noticeGiven) {
-    if (months >= 3 && months < 6) noticeDays = 7;
-    else if (months >= 6 && !moreThanOneYear) noticeDays = 14;
-    else if (moreThanOneYear) noticeDays = 28;
-  }
-
-  let severanceDays = 0;
-  if (reason === "desahucio") {
-    if (months >= 3 && months < 6) severanceDays = 6;
-    else if (months >= 6 && !moreThanOneYear) severanceDays = 13;
-    else if (moreThanOneYear) {
-      const completedYears = Math.floor(years);
-      const daysPerYear = moreThanFiveYears ? 23 : 21;
-      severanceDays = completedYears * daysPerYear;
-      const lastAnniversary = addMonths(start, completedYears * 12);
-      const threeMonthMark = addMonths(lastAnniversary, 3);
-      if (end > threeMonthMark) {
-        const nextAnniversary = addMonths(lastAnniversary, 12);
-        const elapsed = dateStamp(end) - dateStamp(lastAnniversary);
-        const serviceYearLength = dateStamp(nextAnniversary) - dateStamp(lastAnniversary);
-        severanceDays += (elapsed / serviceYearLength) * daysPerYear;
-      }
-    }
-  }
+  const noticeDays =
+    reason === "desahucio" && !noticeGiven ? dominicanNoticeDays(months) : 0;
+  const severanceDays = reason === "desahucio" ? dominicanSeveranceDays(months) : 0;
 
   const calendarYearStart = new Date(end.getFullYear(), 0, 1);
   const periodStart = validDates && start > calendarYearStart ? start : calendarYearStart;
   const workedDaysThisYear = validDates ? daysInclusive(periodStart, end) : 0;
   const daysInYear = (Date.UTC(end.getFullYear() + 1, 0, 1) - Date.UTC(end.getFullYear(), 0, 1)) / 86_400_000;
   const workedMonthsThisYear = workedDaysThisYear * 12 / daysInYear;
-  const vacationEntitlement = moreThanFiveYears ? 18 : 14;
+  const vacationEntitlement = atLeastFiveYears ? 18 : 14;
   const vacationDays = validDates ? vacationEntitlement * Math.min(workedMonthsThisYear / 12, 1) : 0;
   const noticeAmount = dailySalary * noticeDays;
   const severanceAmount = dailySalary * severanceDays;
@@ -134,7 +112,7 @@ function Page() {
         <>
           <h2 className="font-display text-lg font-semibold">Referencia legal y moneda</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Estimación basada en los artículos 76, 80, 82, 177 y 219 del Código de Trabajo (Ley 16-92). El selector de moneda del sitio no convierte este cálculo: ingresa el salario en DOP y los resultados siempre se muestran en pesos dominicanos.
+            Estimación basada en los artículos 76, 80, 82, 177 y 219 del Código de Trabajo (Ley 16-92) y contrastada con el cálculo público del <a className="font-medium text-brand underline" href="https://calculo.mt.gob.do/" target="_blank" rel="noreferrer">Ministerio de Trabajo</a>. El cálculo oficial puede variar por modalidad de pago, tipo de trabajo y promedios salariales; esta página simplifica esos datos. El selector de moneda del sitio no convierte este cálculo: ingresa el salario en DOP y los resultados siempre se muestran en pesos dominicanos.
           </p>
         </>
       }
@@ -148,7 +126,7 @@ function Page() {
             </div>
             <div className="flex items-center gap-2 rounded-lg border border-input bg-background px-2">
               <span className="text-sm text-muted-foreground">RD$</span>
-              <Input id="rd-salary" type="number" min="0" step="500" value={salary} onChange={(event) => setSalary(Math.max(Number(event.target.value), 0))} className="border-0 text-right shadow-none focus-visible:ring-0" />
+              <Input id="rd-salary" type="number" min="0" max="100000000" step="500" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 100000000))} className="border-0 text-right shadow-none focus-visible:ring-0" />
             </div>
             <p className="-mt-4 text-xs leading-relaxed text-muted-foreground">La moneda global seleccionada es {option.code}; no se aplica conversión.</p>
             <DateField id="rd-start" label="Fecha de inicio del contrato" value={startDate} onChange={setStartDate} max={endDate} />

@@ -58,22 +58,21 @@ function AboutPage() {
             Finanzas personales explicadas con claridad
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            Finanzas a tu Bolsillo nació de una idea simple: la mayoría de las malas decisiones con el dinero
-            no vienen de la falta de disciplina, sino de la falta de información entendible.
+            Finanzas a tu Bolsillo es un proyecto de educación financiera con calculadoras y guías
+            para ayudarte a entender conceptos y comparar escenarios con tus propios datos.
           </p>
         </header>
 
         <section className="mt-10 space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
-            Somos un pequeño equipo de divulgadores y analistas financieros que lleva años
-            traduciendo hojas de cálculo y contratos bancarios a un lenguaje que cualquiera pueda
-            entender. Empezamos ayudando a amigos y familiares a comparar préstamos y terminamos
-            construyendo las Calculadoras que nos hubiera gustado tener.
+            Publicamos herramientas que funcionan en tu navegador y contenido informativo sobre
+            presupuesto, ahorro, crédito y planificación. Las calculadoras ofrecen estimaciones:
+            sus resultados dependen de los datos que ingresas y de los supuestos explicados en cada
+            página.
           </p>
           <p>
-            Nuestro objetivo es que salgas de cada página con una respuesta concreta: cuánto vas a
-            pagar, cuánto puedes ahorrar y qué alternativa te conviene. Nada de promesas de
-            enriquecimiento rápido ni de productos milagro.
+            No somos una entidad financiera ni ofrecemos asesoría personalizada. Si encuentras un
+            error o necesitas una corrección, puedes escribirnos desde la página de contacto.
           </p>
           <p>
             ¿Tienes una pregunta o una sugerencia? Puedes escribirnos en nuestra página de <Link to="/contacto" className="font-medium text-brand hover:underline">contacto</Link>.

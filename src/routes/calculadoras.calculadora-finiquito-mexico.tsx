@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCurrency } from "@/lib/currency";
+import { normalizeNumberInput } from "@/lib/number-input";
 
 const title = "Calculadora de finiquito y liquidación de México";
 const description = "Estima el finiquito y la liquidación laboral conforme a la Ley Federal del Trabajo de México.";
@@ -88,7 +89,7 @@ function Page() {
         <>
           <h2 className="font-display text-lg font-semibold">Tope de prima de antigüedad</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Para la prima de antigüedad se usa un salario base máximo de $630.08 MXN diarios como referencia 2026 (dos veces el salario mínimo diario general). Es un dato de referencia que puede cambiar; verifica el monto vigente aplicable a tu caso.
+            Para la prima de antigüedad se usa un salario base máximo de $630.08 MXN diarios como referencia 2026 (dos veces el salario mínimo diario general); verifica el tope vigente aplicable a tu caso. Esta estimación incluye la prima únicamente para despido injustificado o renuncia con 15 años de servicio y puede omitir otros supuestos del artículo 162. Los 90 días y los 20 días por año tampoco se generan automáticamente en todos los casos: la procedencia depende de las circunstancias y de la vía de reclamación. Consulta la <a className="font-medium text-brand underline" href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LFT.pdf" target="_blank" rel="noreferrer">Ley Federal del Trabajo</a> y la <a className="font-medium text-brand underline" href="https://www.gob.mx/profedet" target="_blank" rel="noreferrer">PROFEDET</a>; este cálculo no determina derechos ni sustituye asesoría laboral.
           </p>
         </>
       }
@@ -111,7 +112,7 @@ function Page() {
                 <Label htmlFor="mx-salary" className="text-sm font-medium">{salaryMode === "mensual" ? "Salario mensual (MXN)" : "Salario diario (MXN)"}</Label>
                 <CurrencySelect />
               </div>
-              <Input id="mx-salary" type="number" inputMode="decimal" min="0" step="100" value={salary} onChange={(event) => setSalary(Math.max(Number(event.target.value), 0))} />
+              <Input id="mx-salary" type="number" inputMode="decimal" min="0" max="100000000" step="100" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 100000000))} />
               <p className="text-xs text-muted-foreground">La moneda global seleccionada es {option.code}; no hay conversión y los resultados siempre se muestran en MXN.</p>
             </div>
             <p className="-mt-4 text-xs text-muted-foreground">Salario diario calculado: {formatMxn(dailySalary)}</p>
@@ -154,11 +155,11 @@ function Page() {
   );
 }
 
-function NumberField({ id, label, value, onChange, min, max, step = 1 }: { id: string; label: string; value: number; onChange: (value: number) => void; min: number; max?: number; step?: number }) {
+function NumberField({ id, label, value, onChange, min, max, step = 1 }: { id: string; label: string; value: number; onChange: (value: number) => void; min: number; max: number; step?: number }) {
   return (
     <div className="space-y-2">
       <Label htmlFor={id} className="text-sm font-medium">{label}</Label>
-      <Input id={id} type="number" inputMode="decimal" value={value} min={min} max={max} step={step} onChange={(event) => onChange(Math.max(Number(event.target.value), min))} />
+      <Input id={id} type="number" inputMode="decimal" value={value} min={min} max={max} step={step} onChange={(event) => onChange(normalizeNumberInput(event.target.value, min, max))} />
     </div>
   );
 }

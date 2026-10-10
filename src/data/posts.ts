@@ -204,15 +204,13 @@ Comprueba tu nivel de deuda y la cuota que podrías asumir con la **calculadora 
   },
   {
     slug: "bcrd-mantiene-tasa-agosto-2026",
-    title: "El Banco Central mantuvo la tasa en 5.25% en agosto (actualización: en septiembre subió a 5.50%)",
+    title: "El Banco Central mantuvo la tasa en 5.25% en agosto de 2026",
     category: "Crédito",
-    excerpt: "En agosto de 2026 el BCRD dejó la tasa en 5.25%, pero el 30 de septiembre la subió a 5.50%. Mira qué decidió en agosto y qué cambió después.",
+    excerpt: "Qué significa para tus préstamos y ahorros que el BCRD mantuviera su tasa de política monetaria en agosto.",
     readTime: "4 min",
     date: "2026-09-09",
     relatedToolSlug: "calculadora-prestamo-personal",
-    content: `> **Actualización (30 de septiembre de 2026):** el BCRD subió su tasa de política monetaria de 5.25% a 5.50%. Lee la [nota más reciente](/blog/bcrd-sube-tasa-septiembre-2026). Lo que sigue describe la decisión de agosto.
-
-El Banco Central de la República Dominicana (BCRD) decidió mantener su tasa de política monetaria (TPM) en 5.25% anual en su reunión de agosto de 2026, la misma cifra que viene sosteniendo desde hace varios meses. Junto a esta, la tasa de repos a un día se mantuvo en 5.75% y la de depósitos remunerados (overnight) en 4.50%.
+    content: `El Banco Central de la República Dominicana (BCRD) mantuvo su tasa de política monetaria (TPM) en 5.25% anual en agosto de 2026. La decisión de septiembre se explica en la [nota más reciente](/blog/bcrd-sube-tasa-septiembre-2026).
 
 ## ¿Por qué es relevante para ti?
 
@@ -220,15 +218,13 @@ La TPM es la tasa de referencia que influye, de forma indirecta, en cuánto cobr
 
 ## El contexto detrás de la decisión
 
-El BCRD explicó que esta decisión responde al dinamismo reciente de la economía dominicana, aunque persiste la incertidumbre internacional asociada al conflicto en Medio Oriente, que ha presionado al alza los precios del petróleo. Las reservas internacionales del país se ubican por encima de los US$15,000 millones, superando las métricas recomendadas por el Fondo Monetario Internacional — una señal de estabilidad para la economía en general.
-
-> Esta decisión de agosto mantenía la tasa estable, pero el Banco Central la subió en septiembre. Revisa la nota actualizada antes de decidir.
+Para conocer el motivo expuesto por el Banco Central, consulta el [archivo oficial de comunicados de política monetaria](https://www.bancentral.gov.do/a/d/2576-comunicados-de-politica-monetaria) y verifica la fecha de cada decisión. Una tasa de referencia estable no garantiza que las ofertas de crédito de todos los bancos se mantengan iguales.
 
 ## Qué hacer con esta información
 
 Si estás evaluando pedir un préstamo personal, este es un buen momento para comparar ofertas concretas de distintos bancos, ya que el escenario de tasas se mantiene relativamente predecible. Puedes usar nuestra [calculadora de préstamo personal](/calculadoras/calculadora-prestamo-personal) para simular distintas cuotas según el monto y plazo que estés considerando.
 
-*Fuente: Banco Central de la República Dominicana (BCRD), comunicado de política monetaria de agosto de 2026.*`
+*Fuentes: [comunicados de política monetaria del BCRD](https://www.bancentral.gov.do/a/d/2576-comunicados-de-politica-monetaria) y [serie histórica de la tasa de política monetaria](https://cdn.bancentral.gov.do/documents/estadisticas/sector-monetario-y-financiero/documents/Serie_TPM.xlsx).*`
   },
   {
     slug: "bcrd-sube-tasa-septiembre-2026",
@@ -238,18 +234,11 @@ Si estás evaluando pedir un préstamo personal, este es un buen momento para co
     readTime: "5 min",
     date: "2026-10-08",
     relatedToolSlug: "calculadora-prestamo-personal",
-    content: `El 30 de septiembre de 2026, el Banco Central de la República Dominicana (BCRD) subió su tasa de política monetaria (TPM) en 25 puntos básicos: pasó de 5.25% a 5.50% anual. La tasa se había mantenido sin cambios en las reuniones de junio, julio y agosto.
+    content: `El Banco Central de la República Dominicana (BCRD) subió su tasa de política monetaria (TPM) en 25 puntos básicos el 30 de septiembre de 2026: de 5.25% a 5.50% anual. La decisión y la serie histórica se pueden consultar en el [archivo oficial de comunicados del BCRD](https://www.bancentral.gov.do/a/d/2576-comunicados-de-politica-monetaria) y en su [serie de tasas de política monetaria](https://cdn.bancentral.gov.do/documents/estadisticas/sector-monetario-y-financiero/documents/Serie_TPM.xlsx).
 
-Junto con la TPM se movieron las otras dos tasas con las que el Banco Central maneja la liquidez del sistema:
+## Qué significa una subida de la tasa de referencia
 
-- **Facilidad permanente de expansión de liquidez (repos a un día):** subió de 5.75% a 6.00%.
-- **Depósitos remunerados (overnight):** subió de 4.50% a 4.75%.
-
-## ¿Por qué subió la tasa?
-
-El Banco Central explicó que el entorno internacional empujó la decisión: la Reserva Federal de Estados Unidos subió su tasa de referencia 25 puntos básicos en septiembre y dejó abierta la posibilidad de otro aumento antes de que termine el año, y el Banco Central Europeo también la subió en su reunión de ese mes. En la región, la mayoría de los bancos centrales dejó sus tasas sin cambios, aunque los analistas esperan aumentos en algunas economías antes de cerrar 2026.
-
-En el plano local, la inflación interanual de agosto fue de 5.13%, un poco por encima del techo del rango meta del Banco Central (4.0% ± 1.0%). Subir la tasa es una de las herramientas con las que un banco central intenta enfriar la demanda y llevar los precios de vuelta a su meta.
+La TPM es una señal para el mercado monetario, no una tasa que se aplique directamente a todos los préstamos o cuentas de ahorro. Cada entidad define las condiciones de sus productos y puede revisarlas en fechas distintas. Por eso, una subida de 0.25 puntos no implica que todas las cuotas aumenten inmediatamente en esa misma proporción.
 
 ## Qué puede cambiar para ti
 
@@ -262,70 +251,58 @@ Una subida de 0.25 puntos es pequeña, y no se traslada de un día para otro ni 
 
 ## Qué debes hacer ahora
 
-Si tienes deuda con tasa variable, revisa tu contrato y calcula cuánto subiría tu cuota con un ajuste adicional. Si estás comparando crédito, compara ofertas antes de firmar, porque una diferencia pequeña de tasa puede influir en el costo total. Si ahorras, una tasa más alta no siempre es mala noticia: puede mejorar el rendimiento de algunos productos de ahorro y plazo fijo.
+Si tienes deuda con tasa variable, revisa en el contrato cuándo se ajusta y qué índice utiliza. Si estás comparando crédito, solicita la tasa, comisiones, seguros y calendario de pagos por escrito; no presupongas que una tasa de referencia se traslada automáticamente a tu oferta. En una cuenta de ahorro o certificado, compara el rendimiento neto, el plazo y las condiciones para retirar el dinero.
 
 Para simular el impacto real en tu cuota y ver cómo cambia el costo total, usa nuestra **calculadora de préstamo personal** y compara distintos escenarios antes de decidir.
 
-*Fuente: Banco Central de la República Dominicana (BCRD), comunicado de política monetaria del 30 de septiembre de 2026.*`
+*Fuentes: [comunicados de política monetaria del BCRD](https://www.bancentral.gov.do/a/d/2576-comunicados-de-politica-monetaria) y [serie histórica de la tasa de política monetaria](https://cdn.bancentral.gov.do/documents/estadisticas/sector-monetario-y-financiero/documents/Serie_TPM.xlsx).*`
   },
   {
     slug: "inflacion-agosto-2026-presupuesto-familiar",
-    title: "La inflación bajó a 5.13% en agosto, pero la canasta básica sigue presionando el presupuesto",
+    title: "La inflación interanual fue de 5.13% en agosto: cómo leer ese dato",
     category: "Presupuesto",
-    excerpt: "Buenas y malas noticias: la inflación interanual bajó por segundo mes consecutivo, pero el costo de vida sigue por encima de la meta del Banco Central.",
+    excerpt: "Qué representa la variación interanual del IPC y cómo usarla al revisar tu presupuesto.",
     readTime: "5 min",
     date: "2026-09-09",
     relatedToolSlug: "calculadora-presupuesto-mensual",
-    content: `La inflación interanual en República Dominicana se ubicó en 5.13% en agosto de 2026, bajando por segundo mes consecutivo desde el 5.67% registrado en junio, según el Banco Central de la República Dominicana (BCRD). Es una buena noticia en la tendencia, aunque la cifra todavía está por encima del rango meta oficial de 4.0% ± 1.0%.
+    content: `La variación interanual del Índice de Precios al Consumidor (IPC) de República Dominicana fue de 5.13% en agosto de 2026, según la serie oficial de [inflación publicada por el Banco Central](https://cdn.bancentral.gov.do/documents/estadisticas/precios/documents/ipc_base_2019-2020.xls). El dato compara el nivel general de precios con el mismo mes del año anterior; no significa que todos los productos subieran en esa proporción.
 
 ## Qué está empujando los precios hacia arriba
 
-El índice de precios al consumidor (IPC) subió 0.38% solo en agosto, explicado principalmente por aumentos en:
-- **Educación** (+2.72%), por el ajuste de tarifas de colegios privados y universidades al inicio del año escolar, junto con útiles y transporte escolar.
-- **Alimentos y bebidas no alcohólicas** (+0.42%), con subas puntuales en pollo, arroz, agua purificada y hortalizas frescas (aunque bajaron aguacate, huevos y yuca, amortiguando el impacto).
-- Muebles y artículos para el hogar, transporte, y restaurantes y hoteles.
+La variación interanual describe un promedio estadístico. Tu gasto personal puede subir más o menos según los bienes y servicios que consumes; para identificar los grupos que más variaron, consulta el boletín mensual del IPC del BCRD.
 
 ## Lo positivo: la inflación subyacente está más controlada
 
-La inflación subyacente (que excluye los productos más volátiles, como combustibles y algunos alimentos) se ubicó en 4.76% interanual, dentro del rango que maneja el Banco Central como objetivo. El BCRD proyecta que la inflación general retome el rango meta durante el último trimestre de 2026.
-
 ## Cómo ajustar tu presupuesto mientras tanto
 
-1. **Revisa el rubro de educación si tienes hijos en el sistema privado** — es el grupo que más subió este mes, así que conviene anticipar ese gasto en tu planificación mensual.
-2. **Aprovecha las bajas puntuales en algunos alimentos** (aguacate, huevos, yuca, naranjas) ajustando tu lista de compras según lo que esté más barato ese mes, en vez de mantener siempre los mismos productos fijos.
-3. **No asumas que "ya bajó la inflación" significa que los precios volvieron atrás** — una inflación más baja significa que los precios suben más lento, no que bajan. El costo acumulado de los últimos meses sigue ahí.
+1. Compara los importes actuales de vivienda, alimentos, transporte y servicios con tus recibos anteriores.
+2. Separa cambios recurrentes de gastos puntuales y ajusta las categorías según lo que realmente pagas.
+3. No confundas una menor tasa de inflación con una caída general de precios: el índice puede seguir subiendo, pero a un ritmo distinto.
 
 Si quieres ver con números concretos cómo estos cambios impactan en tu presupuesto mensual, prueba nuestra [calculadora de presupuesto 50/30/20](/calculadoras/calculadora-presupuesto-mensual) y ajusta las categorías según tus gastos reales de este mes.
 
-*Fuente: Banco Central de la República Dominicana (BCRD), Índice de Precios al Consumidor, agosto de 2026.*`
+*Fuente: [serie oficial del IPC del BCRD](https://cdn.bancentral.gov.do/documents/estadisticas/precios/documents/ipc_base_2019-2020.xls), agosto de 2026.*`
   },
   {
     slug: "cuentas-ahorro-tradicionales-pierden-frente-inflacion",
-    title: "Por qué tu cuenta de ahorro tradicional te está haciendo perder dinero frente a la inflación",
+    title: "Cómo comparar el rendimiento de tus ahorros con la inflación",
     category: "Ahorro",
-    excerpt: "Con la inflación en 5.13% y las cuentas de ahorro tradicionales pagando apenas 0.5%-2%, tu dinero guardado está perdiendo poder de compra. Te explicamos las alternativas.",
+    excerpt: "Compara el rendimiento neto de una cuenta o certificado con la inflación y las condiciones de acceso a tu dinero.",
     readTime: "5 min",
     date: "2026-09-09",
     relatedToolSlug: "calculadora-ahorro-meta",
-    content: `Si tienes tus ahorros en una cuenta de ahorro tradicional en República Dominicana, es momento de hacer una cuenta simple: la mayoría de estas cuentas pagan entre 0.5% y 2% de interés anual, mientras que la inflación interanual se ubicó en 5.13% en agosto de 2026. La diferencia significa que, en términos reales, **tu dinero guardado está perdiendo poder de compra cada mes que pasa**.
+    content: `Para saber si tus ahorros mantienen su poder de compra, compara el rendimiento que realmente recibes con la variación de precios del mismo periodo. El Banco Central publica la [serie oficial del IPC](https://cdn.bancentral.gov.do/documents/estadisticas/precios/documents/ipc_base_2019-2020.xls); para comparar, usa también la tasa vigente y las condiciones que publica cada institución financiera.
 
 ## El problema no es ahorrar, es dónde ahorrar
 
-Guardar dinero siempre es mejor que no hacerlo, pero no todas las opciones de ahorro protegen tu dinero de la misma forma frente a la inflación. Esto es lo que existe hoy en el mercado dominicano:
-
-- **Cuentas de ahorro tradicionales de bancos múltiples**: generalmente entre 0.5% y 2% anual — muy por debajo de la inflación actual.
-- **Cuentas de ahorro programado o escalonadas**: algunas cuentas digitales ofrecen tasas más altas según el balance mantenido, acercándose más a compensar la inflación.
-- **Certificados financieros (CDs)**: suelen rendir entre 8% y 12% anual según el banco y el plazo, superando la inflación actual.
-- **Cooperativas de ahorro y crédito**: al ser organizaciones sin fines de lucro, algunas ofrecen ahorro programado desde 7% hasta 9% anual, entre las opciones más competitivas del mercado.
-
-> Un dato importante para cualquier opción: los bancos retienen un 10% de los intereses generados como impuesto (DGII). La tasa que ves anunciada es bruta — lo que realmente recibes es un poco menos.
+El rendimiento real aproximado se calcula restando la inflación al rendimiento nominal. Para una comparación más precisa, usa la fórmula (1 + rendimiento nominal) / (1 + inflación) - 1, con ambas tasas expresadas como decimales y del mismo periodo. El resultado no incluye impuestos, comisiones ni cambios en las condiciones del producto.
 
 ## Qué puedes hacer con esta información
 
-No se trata de sacar todo tu dinero de la cuenta de ahorro básica — esa cuenta sigue siendo útil para el efectivo que necesitas disponible de inmediato. La estrategia más común es dividir tus ahorros: mantener un fondo de emergencia accesible en la cuenta tradicional, y mover el resto (lo que no vas a necesitar en el corto plazo) hacia certificados financieros o cooperativas que ofrezcan mejor rendimiento.
+Antes de mover tu dinero, revisa si la tasa es fija o variable, el saldo mínimo, las comisiones, el plazo y las penalizaciones por retiro anticipado. Mantén disponible el dinero que podrías necesitar pronto y compara las condiciones por escrito; una tasa nominal mayor no siempre implica un rendimiento neto mayor ni la misma liquidez.
 
 Si quieres proyectar cuánto necesitas ahorrar por mes para alcanzar una meta concreta, considerando distintas tasas de interés, prueba nuestra [calculadora de meta de ahorro](/calculadoras/calculadora-ahorro-meta).
 
-*Fuente: Banco Central de la República Dominicana (tasas de referencia e inflación, agosto 2026); tarifarios públicos de bancos y cooperativas dominicanas.*`
+*Fuente: [serie oficial del IPC del BCRD](https://cdn.bancentral.gov.do/documents/estadisticas/precios/documents/ipc_base_2019-2020.xls). Las tasas y condiciones de ahorro dependen de cada entidad y deben verificarse directamente antes de contratar.*`
   },
 ];

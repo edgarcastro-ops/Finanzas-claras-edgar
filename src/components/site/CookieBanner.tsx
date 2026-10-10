@@ -34,8 +34,8 @@ export function CookieBanner() {
     >
       <h2 className="font-display text-lg font-semibold">Usamos cookies 🍪</h2>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        Utilizamos cookies propias y de terceros (incluidos Google Analytics y Google AdSense) para
-        mejorar tu experiencia, analizar el tráfico del sitio y mostrar publicidad relevante.
+        Google Analytics solo se activa si aceptas las cookies analíticas. Google AdSense todavía
+        no está aprobado ni activo y actualmente no mostramos anuncios.
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
@@ -43,14 +43,14 @@ export function CookieBanner() {
           onClick={() => choose("accepted")}
           className="rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
         >
-          Aceptar todas
+          Aceptar analíticas
         </button>
         <button
           type="button"
           onClick={() => choose("rejected")}
           className="rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
         >
-          Rechazar no esenciales
+          Rechazar analíticas
         </button>
         <Link to="/cookies" className="px-2 py-2 text-sm font-semibold text-brand hover:underline">
           Más información

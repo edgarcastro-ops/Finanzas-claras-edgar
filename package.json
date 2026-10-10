@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
+    "test": "node --test src/lib/finance.test.ts src/lib/number-input.test.ts src/lib/labor.test.ts",
     "format": "prettier --write ."
   },
   "overrides": {

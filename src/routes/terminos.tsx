@@ -21,7 +21,7 @@ Las Calculadoras de cálculo ofrecen estimaciones basadas en los datos que ingre
 Todo el contenido, diseño y Calculadoras de este sitio son propiedad de Finanzas a tu Bolsillo o se usan bajo licencia.
 
 ## 5. Publicidad
-Este sitio muestra publicidad de terceros a través de Google AdSense. No nos hacemos responsables del contenido de los anuncios mostrados.
+Google AdSense todavía no está aprobado ni activo en este sitio, por lo que actualmente no mostramos anuncios de ese servicio. Si se incorpora publicidad en el futuro, se actualizarán estos términos y las políticas de privacidad y cookies correspondientes.
 
 ## 6. Limitación de responsabilidad
 En ningún caso Finanzas a tu Bolsillo será responsable por daños derivados del uso de este sitio, incluyendo decisiones financieras tomadas en base a su contenido.
@@ -30,7 +30,7 @@ En ningún caso Finanzas a tu Bolsillo será responsable por daños derivados de
 Estos términos se rigen por las leyes de República Dominicana.
 
 ## 8. Contacto
-Para consultas, escríbenos a accesototal707@gmail.com.`;
+Para consultas, escríbenos a [accesototal707@gmail.com](mailto:accesototal707@gmail.com).`;
 
 export const Route = createFileRoute("/terminos")({
   head: () => ({

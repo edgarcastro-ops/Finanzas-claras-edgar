@@ -14,18 +14,19 @@ Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo c
 | Tipo | Finalidad | Ejemplos |
 |---|---|---|
 | Necesarias | Funcionamiento básico del sitio | Preferencias de navegación, consentimiento de cookies |
-| Analíticas | Entender cómo se usa el sitio | Google Analytics |
-| Publicitarias | Mostrar anuncios relevantes | Google AdSense, cookie DART |
+| Analíticas (opcionales) | Entender cómo se usa el sitio si aceptas | Google Analytics 4 |
 | Funcionales | Recordar tus preferencias | Modo oscuro, moneda seleccionada, Calculadoras favoritas |
 
+Google AdSense todavía no está aprobado ni activo; actualmente no mostramos anuncios ni utilizamos cookies publicitarias de Google. Si esto cambia, actualizaremos esta política antes de habilitar la publicidad.
+
 ## 3. Cookies de terceros
-Google y otros proveedores de publicidad pueden colocar y leer cookies en tu navegador. El uso que Google haga de estas cookies se rige por su [Política de Privacidad](https://policies.google.com/privacy).
+Google Analytics 4 solo se carga si aceptas las cookies analíticas. Consulta la [Política de Privacidad de Google](https://policies.google.com/privacy) para conocer el tratamiento que Google hace de los datos.
 
 ## 4. Cómo gestionar las cookies
-Puedes configurar tu navegador para rechazar cookies, o gestionar las cookies publicitarias en [Configuración de anuncios de Google](https://adssettings.google.com/) o en [www.aboutads.info/choices](http://www.aboutads.info/choices/).
+Puedes cambiar tu decisión sobre las cookies analíticas borrando el almacenamiento local del sitio en tu navegador. También puedes configurar el navegador para bloquear cookies.
 
 ## 5. Consentimiento
-Al aceptar todas las cookies en el banner, consientes el uso de cookies conforme a esta política. Google Analytics 4 solo se activa después de aceptar; si rechazas las cookies no esenciales, no se carga ni registra datos de analítica.`;
+Si aceptas las cookies analíticas en el banner, Google Analytics 4 se carga. Si las rechazas, Google Analytics 4 no se activa.`;
 
 export const Route = createFileRoute("/cookies")({
   head: () => ({

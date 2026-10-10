@@ -9,7 +9,7 @@ const content = `# Contacto
 
 ## Correo electrónico
 
-accesototal707@gmail.com
+[accesototal707@gmail.com](mailto:accesototal707@gmail.com)
 
 ## Qué puedes escribirnos
 

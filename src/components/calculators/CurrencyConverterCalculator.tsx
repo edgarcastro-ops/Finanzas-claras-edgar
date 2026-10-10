@@ -6,6 +6,7 @@ import { CalcShell, ResultStat } from "@/components/calculators/Shared";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { CURRENCIES, formatMoney } from "@/lib/currency";
+import { normalizeNumberInput } from "@/lib/number-input";
 import {
   Select,
   SelectContent,
@@ -19,8 +20,11 @@ export function CurrencyConverterCalculator() {
   const [to, setTo] = useState("MXN");
   const [rate, setRate] = useState(17.5);
   const [amount, setAmount] = useState(100);
+  const [commissionPercent, setCommissionPercent] = useState(0);
 
-  const converted = amount * (rate > 0 ? rate : 0);
+  const grossConverted = amount * (rate > 0 ? rate : 0);
+  const commission = grossConverted * commissionPercent / 100;
+  const converted = grossConverted - commission;
   const inverse = rate > 0 ? 1 / rate : 0;
 
   const swap = () => {
@@ -64,10 +68,22 @@ export function CurrencyConverterCalculator() {
               inputMode="decimal"
               step="0.0001"
               value={rate}
-              onChange={(e) => setRate(Number(e.target.value) || 0)}
+              min="0"
+              max="1000000"
+              onChange={(e) => setRate(normalizeNumberInput(e.target.value, 0, 1000000))}
               className="text-right font-display font-semibold tabular-nums"
             />
           </div>
+          <Field
+            id="commission"
+            label="Comisión de cambio"
+            value={commissionPercent}
+            onChange={setCommissionPercent}
+            min={0}
+            max={100}
+            step={0.1}
+            suffix="%"
+          />
           <Button type="button" variant="soft" className="w-full" onClick={swap}>
             <ArrowLeftRight className="h-4 w-4" /> Invertir monedas
           </Button>
@@ -75,9 +91,13 @@ export function CurrencyConverterCalculator() {
       }
     >
       <div className="grid gap-4 sm:grid-cols-3">
-        <ResultStat label="Resultado" value={formatMoney(converted, to, 2)} highlight sub={`${formatMoney(amount, from, 2)} convertidos`} />
+        <ResultStat label="Resultado neto" value={formatMoney(converted, to, 2)} highlight sub={`${formatMoney(amount, from, 2)} convertidos`} />
         <ResultStat label={`1 ${from} equivale a`} value={formatMoney(rate, to, 4)} accent />
-        <ResultStat label={`1 ${to} equivale a`} value={formatMoney(inverse, from, 4)} />
+        <ResultStat
+          label="Comisión estimada"
+          value={formatMoney(commission, to, 2)}
+          sub={`Equivalencia inversa: 1 ${to} = ${formatMoney(inverse, from, 4)}`}
+        />
       </div>
 
       <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-soft">
