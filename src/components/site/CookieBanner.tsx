@@ -34,8 +34,9 @@ export function CookieBanner() {
     >
       <h2 className="font-display text-lg font-semibold">Usamos cookies 🍪</h2>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        Google Analytics solo se activa si aceptas las cookies analíticas. Google AdSense todavía
-        no está aprobado ni activo y actualmente no mostramos anuncios.
+        Google Analytics solo se activa si aceptas las cookies analíticas. Actualmente no mostramos
+        anuncios; antes de habilitar publicidad actualizaremos la información de privacidad y
+        consentimiento.
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button

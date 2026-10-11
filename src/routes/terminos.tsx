@@ -4,7 +4,7 @@ import { LegalPage } from "@/components/site/LegalPage";
 const title = "Términos y Condiciones";
 const description = "Condiciones de uso del contenido educativo y las Calculadoras de Finanzas a tu Bolsillo.";
 const content = `# Términos y Condiciones
-Última actualización: 9 de septiembre de 2026
+Última actualización: 11 de octubre de 2026
 
 Bienvenido a Finanzas a tu Bolsillo. Al acceder y usar este sitio web, aceptas los siguientes términos. Si no estás de acuerdo, por favor no utilices el sitio.
 
@@ -21,7 +21,7 @@ Las Calculadoras de cálculo ofrecen estimaciones basadas en los datos que ingre
 Todo el contenido, diseño y Calculadoras de este sitio son propiedad de Finanzas a tu Bolsillo o se usan bajo licencia.
 
 ## 5. Publicidad
-Google AdSense todavía no está aprobado ni activo en este sitio, por lo que actualmente no mostramos anuncios de ese servicio. Si se incorpora publicidad en el futuro, se actualizarán estos términos y las políticas de privacidad y cookies correspondientes.
+Actualmente este sitio no muestra anuncios. Si en el futuro mostramos publicidad de terceros, actualizaremos estos términos y las políticas de privacidad y cookies correspondientes. El contenido de los anuncios puede ser seleccionado por esas plataformas.
 
 ## 6. Limitación de responsabilidad
 En ningún caso Finanzas a tu Bolsillo será responsable por daños derivados del uso de este sitio, incluyendo decisiones financieras tomadas en base a su contenido.

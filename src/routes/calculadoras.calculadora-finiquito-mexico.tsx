@@ -13,8 +13,6 @@ const title = "Calculadora de finiquito y liquidación de México";
 const description = "Estima el finiquito y la liquidación laboral conforme a la Ley Federal del Trabajo de México.";
 const path = "/calculadoras/calculadora-finiquito-mexico";
 const disclaimer = "Este cálculo es una estimación basada en la Ley Federal del Trabajo (LFT) vigente. No incluye el cálculo del Salario Diario Integrado (SDI) completo, PTU (reparto de utilidades), ni retenciones de ISR sobre la indemnización. Para tu caso específico, consulta con un especialista o acude a la PROFEDET (Procuraduría Federal de la Defensa del Trabajo).";
-const seniorityCap = 630.08;
-
 export const Route = createFileRoute("/calculadoras/calculadora-finiquito-mexico")({
   head: () => ({
     meta: [
@@ -43,6 +41,7 @@ function Page() {
   const [salary, setSalary] = useState(30000);
   const [years, setYears] = useState(3);
   const [months, setMonths] = useState(0);
+  const [seniorityCap, setSeniorityCap] = useState(630.08);
   const today = new Date();
   const yearStartUtc = Date.UTC(today.getFullYear(), 0, 1);
   const todayUtc = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
@@ -89,7 +88,7 @@ function Page() {
         <>
           <h2 className="font-display text-lg font-semibold">Tope de prima de antigüedad</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Para la prima de antigüedad se usa un salario base máximo de $630.08 MXN diarios como referencia 2026 (dos veces el salario mínimo diario general); verifica el tope vigente aplicable a tu caso. Esta estimación incluye la prima únicamente para despido injustificado o renuncia con 15 años de servicio y puede omitir otros supuestos del artículo 162. Los 90 días y los 20 días por año tampoco se generan automáticamente en todos los casos: la procedencia depende de las circunstancias y de la vía de reclamación. Consulta la <a className="font-medium text-brand underline" href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LFT.pdf" target="_blank" rel="noreferrer">Ley Federal del Trabajo</a> y la <a className="font-medium text-brand underline" href="https://www.gob.mx/profedet" target="_blank" rel="noreferrer">PROFEDET</a>; este cálculo no determina derechos ni sustituye asesoría laboral.
+            El tope de referencia es editable y parte del doble del salario mínimo general diario de 2026 (MXN 315.04); en la Zona Libre de la Frontera Norte el salario mínimo diario es MXN 440.87. Verifica el tope aplicable a tu zona y caso. Consulta la resolución de <a className="font-medium text-brand underline" href="https://www.gob.mx/conasami/articulos/incremento-a-los-salarios-minimos-para-2026?idiom=es" target="_blank" rel="noreferrer">CONASAMI para 2026</a>, la <a className="font-medium text-brand underline" href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LFT.pdf" target="_blank" rel="noreferrer">Ley Federal del Trabajo</a> y la <a className="font-medium text-brand underline" href="https://www.gob.mx/profedet" target="_blank" rel="noreferrer">PROFEDET</a>. Este cálculo no determina derechos ni sustituye asesoría laboral.
           </p>
         </>
       }
@@ -118,6 +117,7 @@ function Page() {
             <p className="-mt-4 text-xs text-muted-foreground">Salario diario calculado: {formatMxn(dailySalary)}</p>
             <NumberField id="mx-years" label="Años completos de antigüedad" value={years} onChange={(value) => setYears(Math.min(Math.floor(value), 60))} min={0} max={60} />
             <NumberField id="mx-months" label="Meses completos adicionales" value={months} onChange={(value) => setMonths(Math.min(value, 11))} min={0} max={11} />
+            <NumberField id="mx-seniority-cap" label="Tope diario de referencia (MXN)" value={seniorityCap} onChange={setSeniorityCap} min={0} max={1000000} step={0.01} />
             <NumberField id="mx-days-worked" label="Días trabajados en el año" value={daysWorked} onChange={setDaysWorked} min={0} max={365} />
             <NumberField id="mx-vacation" label="Días de vacaciones no disfrutados" value={unusedVacation} onChange={setUnusedVacation} min={0} max={365} step={0.5} />
             <div className="space-y-2">

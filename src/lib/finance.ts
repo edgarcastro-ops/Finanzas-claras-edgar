@@ -1,4 +1,16 @@
-export const percent = (value: number) => `${value.toLocaleString("es-ES", { maximumFractionDigits: 2 })}%`;
+export const percent = (value: number) =>
+  `${(Number.isFinite(value) ? value : 0).toLocaleString("es-ES", { maximumFractionDigits: 2 })}%`;
+
+const MAX_SIMULATION_MONTHS = 1200;
+const MAX_STRATEGY_MONTHS = 600;
+
+function validNonNegative(...values: number[]) {
+  return values.every((value) => Number.isFinite(value) && value >= 0);
+}
+
+function validTerm(value: number, maximum = MAX_SIMULATION_MONTHS) {
+  return Number.isInteger(value) && value > 0 && value <= maximum;
+}
 
 /* ---------------- Interés compuesto ---------------- */
 
@@ -15,6 +27,14 @@ export function compoundInterest(
   annualRate: number,
   years: number,
 ): CompoundYear[] {
+  if (
+    !validNonNegative(initial, monthly, annualRate, years) ||
+    years <= 0 ||
+    years > MAX_SIMULATION_MONTHS
+  ) {
+    return [];
+  }
+
   const r = annualRate / 100 / 12;
   const rows: CompoundYear[] = [];
   let balance = initial;
@@ -26,6 +46,7 @@ export function compoundInterest(
     for (let m = 0; m < 12; m++) {
       balance = balance * (1 + r) + monthly;
       contributed += monthly;
+      if (!validNonNegative(balance, contributed)) return [];
     }
     rows.push({
       year: y,
@@ -50,10 +71,12 @@ export interface AmortRow {
 }
 
 export function monthlyPayment(principal: number, annualRate: number, months: number) {
+  if (!validNonNegative(principal, annualRate) || !validTerm(months)) return 0;
+
   const r = annualRate / 100 / 12;
-  if (months <= 0) return 0;
   if (r === 0) return principal / months;
-  return (principal * r) / (1 - Math.pow(1 + r, -months));
+  const payment = (principal * r) / (1 - Math.pow(1 + r, -months));
+  return Number.isFinite(payment) && payment >= 0 ? payment : 0;
 }
 
 export function amortizationSchedule(
@@ -61,8 +84,11 @@ export function amortizationSchedule(
   annualRate: number,
   months: number,
 ): AmortRow[] {
+  if (!validNonNegative(principal, annualRate) || !validTerm(months)) return [];
+
   const r = annualRate / 100 / 12;
   const cuota = monthlyPayment(principal, annualRate, months);
+  if (principal > 0 && cuota === 0) return [];
   const rows: AmortRow[] = [];
   let saldo = principal;
   let capitalAcum = 0;
@@ -71,6 +97,7 @@ export function amortizationSchedule(
   for (let m = 1; m <= months; m++) {
     const interes = saldo * r;
     const capital = Math.min(cuota - interes, saldo);
+    if (!validNonNegative(interes, capital)) return [];
     saldo = Math.max(saldo - capital, 0);
     capitalAcum += capital;
     interesAcum += interes;
@@ -96,15 +123,26 @@ export function creditCardPayoff(
   minPercent = 0.02,
   minFloor = 25,
 ): CardPayoff {
+  const emptyResult: CardPayoff = {
+    months: 0,
+    totalInterest: 0,
+    totalPaid: 0,
+    feasible: false,
+    series: [],
+  };
+  if (!validNonNegative(balance, annualRate, payment, minPercent, minFloor)) return emptyResult;
+
   const r = annualRate / 100 / 12;
   let saldo = balance;
   let totalInterest = 0;
   let months = 0;
   const series: { mes: number; saldo: number }[] = [{ mes: 0, saldo: balance }];
-  const isMinimum = payment <= 0;
+  const isMinimum = payment === 0;
+
+  if (balance === 0) return { ...emptyResult, feasible: true, series };
 
   if (!isMinimum && payment <= balance * r) {
-    return { months: 0, totalInterest: 0, totalPaid: 0, feasible: false, series };
+    return { ...emptyResult, series };
   }
 
   while (saldo > 0.01 && months < 1200) {
@@ -112,9 +150,10 @@ export function creditCardPayoff(
     const pago = isMinimum
       ? Math.max(Math.min(saldo + interes, minFloor), saldo * minPercent + interes)
       : Math.min(payment, saldo + interes);
-    if (pago <= interes) return { months: 0, totalInterest: 0, totalPaid: 0, feasible: false, series };
+    if (!validNonNegative(interes, pago) || pago <= interes) return emptyResult;
     totalInterest += interes;
     saldo = saldo + interes - pago;
+    if (!validNonNegative(totalInterest, saldo)) return emptyResult;
     months += 1;
     if (months % 3 === 0 || saldo <= 0.01) series.push({ mes: months, saldo: Math.max(saldo, 0) });
   }
@@ -154,8 +193,23 @@ export function amortizationWithExtra(
   lumpSum = 0,
   lumpMonth = 12,
 ): ExtraResult {
+  const emptyResult: ExtraResult = {
+    rows: [],
+    cuota: 0,
+    months: 0,
+    totalInterest: 0,
+    totalPaid: 0,
+  };
+  if (
+    !validNonNegative(principal, annualRate, extraMonthly, lumpSum, lumpMonth) ||
+    !validTerm(months)
+  ) {
+    return emptyResult;
+  }
+
   const r = annualRate / 100 / 12;
   const cuota = monthlyPayment(principal, annualRate, months);
+  if (principal > 0 && cuota === 0) return emptyResult;
   const rows: AmortRow[] = [];
   let saldo = principal;
   let capitalAcum = 0;
@@ -168,6 +222,7 @@ export function amortizationWithExtra(
     let capital = cuota - interes + Math.max(extraMonthly, 0);
     if (lumpSum > 0 && m === Math.max(1, Math.round(lumpMonth))) capital += lumpSum;
     capital = Math.min(capital, saldo);
+    if (!validNonNegative(interes, capital)) return emptyResult;
     if (capital <= 0) break;
     saldo = Math.max(saldo - capital, 0);
     capitalAcum += capital;
@@ -208,38 +263,57 @@ export function payoffStrategy(
   extra: number,
   method: "snowball" | "avalanche",
 ): StrategyResult {
+  const emptyResult: StrategyResult = {
+    months: 0,
+    totalInterest: 0,
+    totalPaid: 0,
+    feasible: false,
+    order: [],
+    series: [],
+  };
+  if (
+    !Array.isArray(debts) ||
+    !validNonNegative(extra) ||
+    (method !== "snowball" && method !== "avalanche") ||
+    debts.some((debt) => !validNonNegative(debt.balance, debt.rate, debt.minimum))
+  ) {
+    return emptyResult;
+  }
+
   const list = debts
     .filter((d) => d.balance > 0)
     .map((d) => ({ ...d, saldo: d.balance }));
   const totalStart = list.reduce((a, d) => a + d.saldo, 0);
+  const totalBudget = list.reduce((total, debt) => total + debt.minimum, 0) + extra;
+  if (!validNonNegative(totalStart, totalBudget)) return emptyResult;
+
   const series: { mes: number; saldo: number }[] = [{ mes: 0, saldo: Math.round(totalStart) }];
   const order: string[] = [];
   let totalInterest = 0;
   let months = 0;
-  let rolledMinimums = 0;
 
-  while (list.some((d) => d.saldo > 0.01) && months < 600) {
+  while (list.some((d) => d.saldo > 0.01) && months < MAX_STRATEGY_MONTHS) {
     months += 1;
-    let pool = Math.max(extra, 0) + rolledMinimums;
-    let newlyFreedMinimums = 0;
-    // intereses + mínimos
     for (const d of list) {
       if (d.saldo <= 0.01) continue;
       const interes = (d.saldo * d.rate) / 100 / 12;
       d.saldo += interes;
       totalInterest += interes;
+      if (!validNonNegative(d.saldo, totalInterest)) return emptyResult;
     }
+
     const actives = list.filter((d) => d.saldo > 0.01);
+    let paidMinimums = 0;
     for (const d of actives) {
-      const minimum = Math.max(d.minimum, 0);
-      const pago = Math.min(minimum, d.saldo);
+      const pago = Math.min(d.minimum, d.saldo);
       d.saldo -= pago;
+      paidMinimums += pago;
       if (d.saldo <= 0.01) {
         if (!order.includes(d.name)) order.push(d.name);
-        pool += minimum - pago;
-        newlyFreedMinimums += minimum;
       }
     }
+    let pool = Math.max(totalBudget - paidMinimums, 0);
+
     const targets = list
       .filter((d) => d.saldo > 0.01)
       .sort((a, b) => (method === "snowball" ? a.saldo - b.saldo : b.rate - a.rate));
@@ -250,11 +324,10 @@ export function payoffStrategy(
       pool -= pago;
       if (d.saldo <= 0.01) {
         if (!order.includes(d.name)) order.push(d.name);
-        newlyFreedMinimums += Math.max(d.minimum, 0);
       }
     }
-    rolledMinimums += newlyFreedMinimums;
     const restante = list.reduce((a, d) => a + Math.max(d.saldo, 0), 0);
+    if (!validNonNegative(pool, restante, totalInterest)) return emptyResult;
     series.push({ mes: months, saldo: Math.round(restante) });
   }
 
@@ -262,7 +335,7 @@ export function payoffStrategy(
     months,
     totalInterest,
     totalPaid: totalStart + totalInterest,
-    feasible: months < 600,
+    feasible: list.every((d) => d.saldo <= 0.01),
     order,
     series,
   };
@@ -276,12 +349,15 @@ export function monthlySavingForGoal(
   annualRate: number,
   months: number,
 ): number {
-  if (months <= 0) return 0;
+  if (!validNonNegative(goal, initial, annualRate) || !validTerm(months)) return 0;
+
   const r = annualRate / 100 / 12;
   const futureInitial = initial * Math.pow(1 + r, months);
+  if (!Number.isFinite(futureInitial)) return 0;
   const remaining = Math.max(goal - futureInitial, 0);
   if (r === 0) return remaining / months;
-  return (remaining * r) / (Math.pow(1 + r, months) - 1);
+  const monthly = (remaining * r) / (Math.pow(1 + r, months) - 1);
+  return Number.isFinite(monthly) && monthly >= 0 ? monthly : 0;
 }
 
 export function savingSeries(
@@ -290,6 +366,8 @@ export function savingSeries(
   annualRate: number,
   months: number,
 ) {
+  if (!validNonNegative(initial, monthly, annualRate) || !validTerm(months)) return [];
+
   const r = annualRate / 100 / 12;
   let balance = initial;
   let aportado = initial;
@@ -297,6 +375,7 @@ export function savingSeries(
   for (let m = 1; m <= months; m++) {
     balance = balance * (1 + r) + monthly;
     aportado += monthly;
+    if (!validNonNegative(balance, aportado)) return [];
     if (m % Math.max(1, Math.round(months / 24)) === 0 || m === months) {
       out.push({ mes: m, aportado: Math.round(aportado), total: Math.round(balance) });
     }
@@ -314,6 +393,14 @@ export function retirementProjection(
   annualReturn: number,
 ) {
   const years = Math.max(retireAge - currentAge, 0);
+  if (
+    !validNonNegative(currentAge, retireAge, currentSavings, monthly, annualReturn) ||
+    years <= 0 ||
+    years > MAX_SIMULATION_MONTHS
+  ) {
+    return { series: [], final: 0, aportado: 0, intereses: 0 };
+  }
+
   const r = annualReturn / 100 / 12;
   let balance = currentSavings;
   let aportado = currentSavings;
@@ -322,6 +409,9 @@ export function retirementProjection(
     for (let m = 0; m < 12; m++) {
       balance = balance * (1 + r) + monthly;
       aportado += monthly;
+      if (!validNonNegative(balance, aportado)) {
+        return { series: [], final: 0, aportado: 0, intereses: 0 };
+      }
     }
     series.push({ edad: currentAge + y, total: Math.round(balance), aportado: Math.round(aportado) });
   }
@@ -329,5 +419,6 @@ export function retirementProjection(
 }
 
 export function sustainableWithdrawal(capital: number, rate = 4) {
+  if (!validNonNegative(capital, rate)) return 0;
   return (capital * rate) / 100 / 12;
 }

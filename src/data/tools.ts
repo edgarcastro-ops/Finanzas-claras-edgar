@@ -62,10 +62,10 @@ export const tools: Tool[] = [
   {
     slug: "calculadora-presupuesto-mensual",
     href: "/calculadoras/calculadora-presupuesto-mensual",
-    title: "Calculadora de presupuesto 50/30/20",
-    short: "Reparte tu sueldo entre necesidades, gustos y ahorro.",
+    title: "Calculadora de presupuesto mensual",
+    short: "Registra tus ingresos y gastos mensuales.",
     description:
-      "Reparte tu ingreso mensual entre necesidades, gustos y ahorro con la regla 50/30/20 y ajusta los porcentajes a tu realidad.",
+      "Registra tus ingresos y gastos del mes y ve tu balance y tu tasa de ahorro.",
     category: "Presupuesto",
     icon: "wallet",
   },
@@ -102,10 +102,10 @@ export const tools: Tool[] = [
   {
     slug: "calculadora-salario-neto",
     href: "/calculadoras/calculadora-salario-neto",
-    title: "Calculadora de salario neto",
-    short: "Convierte tu sueldo bruto en neto al instante.",
+    title: "Calculadora de salario neto estimado",
+    short: "Estima tu sueldo neto con porcentajes de descuento.",
     description:
-      "Convierte tu sueldo bruto en neto descontando impuestos y seguridad social, con el desglose mensual y anual.",
+      "Estima tu salario neto con los porcentajes de descuento que ingreses; no aplica tablas tributarias de ningún país.",
     category: "Ingresos",
     icon: "wallet",
   },

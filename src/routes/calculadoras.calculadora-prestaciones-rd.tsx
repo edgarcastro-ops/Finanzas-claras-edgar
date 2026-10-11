@@ -13,7 +13,7 @@ import { normalizeNumberInput } from "@/lib/number-input";
 const title = "Calculadora de prestaciones laborales de República Dominicana";
 const description = "Estima preaviso, cesantía, vacaciones y regalía pascual según el Código de Trabajo dominicano.";
 const path = "/calculadoras/calculadora-prestaciones-rd";
-const disclaimer = "Este cálculo es una estimación basada en el Código de Trabajo de la República Dominicana (Ley 16-92). No incluye horas extras, comisiones variables ni otras bonificaciones que puedan afectar el salario promedio real. Para casos específicos o en disputa, consulta con un abogado laboral o el Ministerio de Trabajo.";
+const disclaimer = "Este cálculo es una estimación basada en el Código de Trabajo de la República Dominicana (Ley 16-92). Al alcanzar cinco años de servicio, aplica 23 días por cada año al total de años trabajados; este supuesto debe confirmarse para cada caso con el Ministerio de Trabajo. No incluye horas extras, comisiones variables ni otras bonificaciones que puedan afectar el salario promedio real. Para casos específicos o en disputa, consulta con un abogado laboral o el Ministerio de Trabajo.";
 
 export const Route = createFileRoute("/calculadoras/calculadora-prestaciones-rd")({
   head: () => ({

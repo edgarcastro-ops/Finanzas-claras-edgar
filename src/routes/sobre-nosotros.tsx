@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { AdSlot } from "@/components/site/AdSlot";
 
 const description =
-  "Conoce al equipo de Finanzas a tu Bolsillo: explicamos las finanzas personales sin jerga y creamos calculadoras gratuitas que puedes usar hoy mismo.";
+  "Conoce Finanzas a tu Bolsillo: un proyecto editorial que publica calculadoras financieras gratuitas y guías de finanzas personales en español.";
 
 export const Route = createFileRoute("/sobre-nosotros")({
   head: () => ({
@@ -41,7 +41,7 @@ const values = [
   },
   {
     icon: Sparkles,
-    title: "Siempre gratis",
+    title: "Gratis",
     text: "Todas las Calculadoras son gratuitas y funcionan en tu navegador, sin registro.",
   },
 ];
@@ -65,18 +65,30 @@ function AboutPage() {
 
         <section className="mt-10 space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
-            Publicamos herramientas que funcionan en tu navegador y contenido informativo sobre
-            presupuesto, ahorro, crédito y planificación. Las calculadoras ofrecen estimaciones:
-            sus resultados dependen de los datos que ingresas y de los supuestos explicados en cada
-            página.
+            Finanzas a tu Bolsillo es un proyecto editorial. Publicamos calculadoras gratuitas y
+            guías de finanzas personales en español, pensadas para quienes quieren entender un
+            préstamo, un ahorro o un presupuesto antes de decidir.
           </p>
           <p>
-            No somos una entidad financiera ni ofrecemos asesoría personalizada. Si encuentras un
-            error o necesitas una corrección, puedes escribirnos desde la página de contacto.
+            No somos una entidad financiera ni damos asesoría personalizada. Los resultados de las
+            calculadoras son estimaciones y las noticias enlazan sus fuentes cuando están
+            disponibles. Si encuentras un error, escríbenos desde la página de contacto y lo
+            revisamos.
           </p>
           <p>
             ¿Tienes una pregunta o una sugerencia? Puedes escribirnos en nuestra página de <Link to="/contacto" className="font-medium text-brand hover:underline">contacto</Link>.
           </p>
+        </section>
+
+        <section className="mt-12" aria-labelledby="how-we-work">
+          <h2 id="how-we-work" className="font-display text-2xl font-semibold text-foreground">
+            Cómo trabajamos
+          </h2>
+          <ul className="mt-5 list-disc space-y-3 pl-6 text-base leading-relaxed text-muted-foreground">
+            <li>En las notas de actualidad citamos las fuentes y añadimos enlaces cuando están disponibles.</li>
+            <li>Las calculadoras presentan estimaciones; revisa sus páginas para conocer los supuestos y límites de cada herramienta.</li>
+            <li>Cuando una noticia queda desactualizada, añadimos contexto y enlazamos una nota más reciente cuando corresponde.</li>
+          </ul>
         </section>
 
         <section aria-label="Nuestros principios" className="mt-12">

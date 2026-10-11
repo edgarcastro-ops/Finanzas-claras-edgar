@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { BudgetCalculator } from "@/components/calculators/BudgetCalculator";
 
-const title = "Calculadora de presupuesto mensual 50/30/20";
-const description = "Reparte tu ingreso mensual entre necesidades, gustos y ahorro con la regla 50/30/20 y ajusta los porcentajes a tu realidad.";
+const title = "Calculadora de presupuesto mensual";
+const description = "Registra tus ingresos y gastos del mes y ve tu balance y tu tasa de ahorro.";
 const path = "/calculadoras/calculadora-presupuesto-mensual";
 
 export const Route = createFileRoute("/calculadoras/calculadora-presupuesto-mensual")({
@@ -27,7 +27,7 @@ function Page() {
     <ToolPage
       title={title}
       category="Presupuesto"
-      intro="Introduce tu ingreso neto y reparte tu dinero entre lo imprescindible, lo que disfrutas y lo que guardas. La regla 50/30/20 es un punto de partida, no una camisa de fuerza."
+      intro="Registra tus ingresos y gastos del mes para ver tu balance y tu tasa de ahorro. También puedes comparar tus categorías con la referencia 50/30/20."
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Adapta los porcentajes</h2>

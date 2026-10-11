@@ -9,3 +9,8 @@ test("normalizeNumberInput handles empty, invalid, negative, and out-of-range va
   assert.equal(normalizeNumberInput("125", 0, 100), 100);
   assert.equal(normalizeNumberInput("42.5", 0, 100), 42.5);
 });
+
+test("normalizeNumberInput uses a finite fallback maximum when one is omitted", () => {
+  assert.equal(normalizeNumberInput("", 0), 0);
+  assert.equal(normalizeNumberInput("1000000000001", 0), 1_000_000_000_000);
+});

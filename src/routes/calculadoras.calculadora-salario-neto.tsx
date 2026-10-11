@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { NetSalaryCalculator } from "@/components/calculators/NetSalaryCalculator";
 
-const title = "Calculadora de salario neto a partir del bruto";
-const description = "Convierte tu sueldo bruto en neto descontando impuestos y seguridad social, con el desglose mensual y anual.";
+const title = "Calculadora de salario neto estimado";
+const description = "Estima tu salario neto con los porcentajes de descuento que ingreses; no aplica tablas tributarias de ningún país.";
 const path = "/calculadoras/calculadora-salario-neto";
 
 export const Route = createFileRoute("/calculadoras/calculadora-salario-neto")({
@@ -27,12 +27,12 @@ function Page() {
     <ToolPage
       title={title}
       category="Ingresos"
-      intro="Introduce tu salario bruto anual, el número de pagas y los porcentajes de retención y seguridad social que se te aplican para ver tu sueldo neto real."
+      intro="Introduce tu salario, el número de pagas y los porcentajes de descuento que quieras considerar para obtener una estimación de tu sueldo neto."
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Los porcentajes son configurables</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Cada país (y cada situación personal) tiene sus propios tramos y deducciones. Ajusta los porcentajes con los datos de tu nómina para que el resultado coincida con lo que recibes en el banco.
+            Cada país y cada situación personal tiene reglas propias. Esta herramienta no aplica tablas de impuestos ni de seguridad social de ningún país: introduce tus porcentajes de descuento y contrasta el resultado con tu nómina.
           </p>
         </>
       }

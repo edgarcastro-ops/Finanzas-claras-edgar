@@ -4,7 +4,7 @@ import { LegalPage } from "@/components/site/LegalPage";
 const title = "Aviso Legal / Disclaimer Financiero";
 const description = "Alcance informativo y limitaciones de las Calculadoras y contenidos financieros de Finanzas a tu Bolsillo.";
 const content = `# Aviso Legal / Disclaimer Financiero
-Última actualización: 9 de septiembre de 2026
+Última actualización: 11 de octubre de 2026
 
 ## 1. No es asesoría financiera profesional
 La información, artículos y Calculadoras de Finanzas a tu Bolsillo se ofrecen únicamente con fines educativos e informativos generales. No constituyen asesoría financiera, de inversión, legal, fiscal o contable personalizada.

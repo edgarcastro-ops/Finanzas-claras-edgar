@@ -3,26 +3,23 @@ import { LegalPage } from "@/components/site/LegalPage";
 
 const title = "Política de Cookies";
 const description =
-  "Información sobre las cookies necesarias, analíticas, publicitarias y funcionales de Finanzas a tu Bolsillo.";
+  "Información sobre cookies y almacenamiento local necesarios, analíticos y funcionales en Finanzas a tu Bolsillo.";
 const content = `# Política de Cookies
-Última actualización: 9 de septiembre de 2026
+Última actualización: 11 de octubre de 2026
 
 ## 1. ¿Qué son las cookies?
 Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web.
 
-## 2. Tipos de cookies que usamos
-| Tipo | Finalidad | Ejemplos |
-|---|---|---|
-| Necesarias | Funcionamiento básico del sitio | Preferencias de navegación, consentimiento de cookies |
-| Analíticas (opcionales) | Entender cómo se usa el sitio si aceptas | Google Analytics 4 |
-| Funcionales | Recordar tus preferencias | Modo oscuro, moneda seleccionada, Calculadoras favoritas |
-
-Google AdSense todavía no está aprobado ni activo; actualmente no mostramos anuncios ni utilizamos cookies publicitarias de Google. Si esto cambia, actualizaremos esta política antes de habilitar la publicidad.
+## 2. Cookies y almacenamiento del navegador
+- **Funcionamiento del sitio:** una preferencia de estado de navegación puede guardarse en una cookie técnica.
+- **Analítica (opcional):** Google Analytics 4 solo se carga si aceptas las cookies analíticas en el banner.
+- **Preferencias:** el consentimiento, el modo oscuro, la moneda y las calculadoras favoritas se guardan en el almacenamiento local del navegador; no son cookies.
+- **Publicidad:** actualmente no mostramos anuncios ni utilizamos cookies publicitarias. Si incorporamos publicidad de terceros, actualizaremos esta política y la información de consentimiento antes de activarla.
 
 ## 3. Cookies de terceros
 Google Analytics 4 solo se carga si aceptas las cookies analíticas. Consulta la [Política de Privacidad de Google](https://policies.google.com/privacy) para conocer el tratamiento que Google hace de los datos.
 
-## 4. Cómo gestionar las cookies
+## 4. Cómo gestionar cookies y preferencias
 Puedes cambiar tu decisión sobre las cookies analíticas borrando el almacenamiento local del sitio en tu navegador. También puedes configurar el navegador para bloquear cookies.
 
 ## 5. Consentimiento

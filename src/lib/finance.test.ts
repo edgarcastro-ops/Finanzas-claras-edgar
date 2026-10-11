@@ -12,12 +12,15 @@ import {
 
 test("monthlyPayment handles zero interest and standard amortization", () => {
   assert.equal(monthlyPayment(1200, 0, 12), 100);
-  assert.ok(Math.abs(monthlyPayment(15000, 9.5, 48) - 376.84705006403937) < 0.000001);
+  const payment = monthlyPayment(15000, 9.5, 48);
+  assert.ok(Math.abs(payment - 376.85) < 0.01);
+  assert.ok(Math.abs(payment * 48 - 15000 - 3088.66) < 0.01);
 });
 
 test("monthlySavingForGoal reaches the target at zero and positive interest", () => {
   assert.equal(monthlySavingForGoal(1200, 0, 0, 12), 100);
   const monthly = monthlySavingForGoal(10000, 1000, 3, 24);
+  assert.ok(Math.abs(monthly - 361.83) < 0.01);
   let balance = 1000;
   for (let month = 0; month < 24; month += 1) balance = balance * (1 + 0.03 / 12) + monthly;
   assert.ok(Math.abs(balance - 10000) < 0.000001);
@@ -73,4 +76,16 @@ test("payoff strategies apply minimums greater than a debt's last balance once",
 
   assert.equal(result.feasible, true);
   assert.equal(result.months, 2);
+});
+
+test("shared finance calculations return safe empty results for invalid inputs", () => {
+  assert.equal(monthlyPayment(-1, 5, 12), 0);
+  assert.equal(monthlyPayment(1000, Number.NaN, 12), 0);
+  assert.equal(monthlyPayment(1000, 5, 0), 0);
+  assert.deepEqual(amortizationSchedule(1000, 5, -1), []);
+  assert.deepEqual(compoundInterest(1000, 100, 5, 0), []);
+  assert.equal(monthlySavingForGoal(1000, -1, 5, 12), 0);
+  assert.deepEqual(amortizationWithExtra(1000, 5, 12, Number.POSITIVE_INFINITY).rows, []);
+  assert.equal(creditCardPayoff(-1000, 20, 100).feasible, false);
+  assert.equal(payoffStrategy([{ id: "invalid", name: "Invalid", balance: -1, rate: 5, minimum: 10 }], 0, "snowball").feasible, false);
 });

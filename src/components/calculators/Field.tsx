@@ -10,7 +10,7 @@ interface FieldProps {
   value: number;
   onChange: (value: number) => void;
   min: number;
-  max: number;
+  max?: number;
   step?: number;
   prefix?: string;
   suffix?: string;
@@ -27,6 +27,9 @@ export function Field({
   prefix,
   suffix,
 }: FieldProps) {
+  const minimum = Number.isFinite(min) ? min : 0;
+  const maximum =
+    max !== undefined && Number.isFinite(max) ? Math.max(max, minimum) : 1_000_000_000_000;
   const [inputValue, setInputValue] = useState(String(Number.isFinite(value) ? value : 0));
   const editing = useRef(false);
 
@@ -47,8 +50,8 @@ export function Field({
             type="number"
             inputMode="decimal"
             value={inputValue}
-            min={min}
-            max={max}
+            min={minimum}
+            max={maximum}
             step={step}
             onFocus={() => {
               editing.current = true;
@@ -57,12 +60,12 @@ export function Field({
               const next = e.target.value;
               setInputValue(next);
               if (next.trim() !== "" && Number.isFinite(Number(next))) {
-                onChange(normalizeNumberInput(next, min, max));
+                onChange(normalizeNumberInput(next, minimum, maximum));
               }
             }}
             onBlur={() => {
               editing.current = false;
-              const normalized = normalizeNumberInput(inputValue, min, max);
+              const normalized = normalizeNumberInput(inputValue, minimum, maximum);
               setInputValue(String(normalized));
               onChange(normalized);
             }}
@@ -72,11 +75,11 @@ export function Field({
         </div>
       </div>
       <Slider
-        value={[Math.min(Math.max(value, min), max)]}
-        min={min}
-        max={max}
+        value={[Math.min(Math.max(value, minimum), maximum)]}
+        min={minimum}
+        max={maximum}
         step={step}
-        onValueChange={(vals) => onChange(vals[0] ?? min)}
+        onValueChange={(vals) => onChange(vals[0] ?? minimum)}
         aria-label={label}
       />
     </div>
