@@ -126,7 +126,7 @@ function Page() {
             </div>
             <div className="flex items-center gap-2 rounded-lg border border-input bg-background px-2">
               <span className="text-sm text-muted-foreground">RD$</span>
-              <Input id="rd-salary" type="number" min="0" max="100000000" step="500" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 100000000))} className="border-0 text-right shadow-none focus-visible:ring-0" />
+              <Input id="rd-salary" type="number" min="0" max="1000000000000" step="500" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 1_000_000_000_000))} className="border-0 text-right shadow-none focus-visible:ring-0" />
             </div>
             <p className="-mt-4 text-xs leading-relaxed text-muted-foreground">La moneda global seleccionada es {option.code}; no se aplica conversión.</p>
             <DateField id="rd-start" label="Fecha de inicio del contrato" value={startDate} onChange={setStartDate} max={endDate} />

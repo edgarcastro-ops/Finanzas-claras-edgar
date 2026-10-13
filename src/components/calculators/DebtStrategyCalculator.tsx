@@ -91,7 +91,7 @@ export function DebtStrategyCalculator() {
               </div>
               <div>
                 <Label htmlFor={`${d.id}-bal`} className="text-xs text-muted-foreground">Saldo ({option.symbol})</Label>
-                <Input id={`${d.id}-bal`} type="number" inputMode="decimal" min="0" max="100000000" value={d.balance} onChange={(e) => update(d.id, { balance: normalizeNumberInput(e.target.value, 0, 100000000) })} className="mt-1 h-9 text-right tabular-nums" />
+                <Input id={`${d.id}-bal`} type="number" inputMode="decimal" min="0" max="1000000000000" value={d.balance} onChange={(e) => update(d.id, { balance: normalizeNumberInput(e.target.value, 0, 1_000_000_000_000) })} className="mt-1 h-9 text-right tabular-nums" />
               </div>
               <div>
                 <Label htmlFor={`${d.id}-rate`} className="text-xs text-muted-foreground">Tasa anual (%)</Label>
@@ -99,7 +99,7 @@ export function DebtStrategyCalculator() {
               </div>
               <div>
                 <Label htmlFor={`${d.id}-min`} className="text-xs text-muted-foreground">Pago mínimo</Label>
-                <Input id={`${d.id}-min`} type="number" inputMode="decimal" min="0" max="100000000" value={d.minimum} onChange={(e) => update(d.id, { minimum: normalizeNumberInput(e.target.value, 0, 100000000) })} className="mt-1 h-9 text-right tabular-nums" />
+                <Input id={`${d.id}-min`} type="number" inputMode="decimal" min="0" max="1000000000000" value={d.minimum} onChange={(e) => update(d.id, { minimum: normalizeNumberInput(e.target.value, 0, 1_000_000_000_000) })} className="mt-1 h-9 text-right tabular-nums" />
               </div>
               <div className="flex items-end">
                 <Button

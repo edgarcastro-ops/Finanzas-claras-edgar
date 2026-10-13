@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { normalizeNumberInput } from "@/lib/number-input";
+import { getNumberInputMax, normalizeNumberInput } from "@/lib/number-input";
 
 interface FieldProps {
   id: string;
@@ -11,6 +11,7 @@ interface FieldProps {
   onChange: (value: number) => void;
   min: number;
   max?: number;
+  maxInput?: number;
   step?: number;
   prefix?: string;
   suffix?: string;
@@ -23,6 +24,7 @@ export function Field({
   onChange,
   min,
   max,
+  maxInput,
   step = 1,
   prefix,
   suffix,
@@ -30,8 +32,10 @@ export function Field({
   const minimum = Number.isFinite(min) ? min : 0;
   const maximum =
     max !== undefined && Number.isFinite(max) ? Math.max(max, minimum) : 1_000_000_000_000;
+  const inputMax = getNumberInputMax(suffix, maxInput, minimum);
   const [inputValue, setInputValue] = useState(String(Number.isFinite(value) ? value : 0));
   const editing = useRef(false);
+  const inputWidth = Math.min(Math.max(inputValue.length + 1, 6), 18);
 
   useEffect(() => {
     if (!editing.current) setInputValue(String(Number.isFinite(value) ? value : 0));
@@ -51,8 +55,9 @@ export function Field({
             inputMode="decimal"
             value={inputValue}
             min={minimum}
-            max={maximum}
+            max={inputMax}
             step={step}
+            style={{ width: `${inputWidth}ch` }}
             onFocus={() => {
               editing.current = true;
             }}
@@ -60,16 +65,16 @@ export function Field({
               const next = e.target.value;
               setInputValue(next);
               if (next.trim() !== "" && Number.isFinite(Number(next))) {
-                onChange(normalizeNumberInput(next, minimum, maximum));
+                onChange(normalizeNumberInput(next, minimum, inputMax));
               }
             }}
             onBlur={() => {
               editing.current = false;
-              const normalized = normalizeNumberInput(inputValue, minimum, maximum);
+              const normalized = normalizeNumberInput(inputValue, minimum, inputMax);
               setInputValue(String(normalized));
               onChange(normalized);
             }}
-            className="h-9 w-24 border-0 bg-transparent px-1 text-right font-display text-sm font-semibold shadow-none focus-visible:ring-0"
+            className="h-9 border-0 bg-transparent px-1 text-right font-display text-sm font-semibold shadow-none focus-visible:ring-0"
           />
           {suffix && <span className="pr-1 text-sm text-muted-foreground">{suffix}</span>}
         </div>

@@ -111,7 +111,7 @@ function Page() {
                 <Label htmlFor="mx-salary" className="text-sm font-medium">{salaryMode === "mensual" ? "Salario mensual (MXN)" : "Salario diario (MXN)"}</Label>
                 <CurrencySelect />
               </div>
-              <Input id="mx-salary" type="number" inputMode="decimal" min="0" max="100000000" step="100" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 100000000))} />
+              <Input id="mx-salary" type="number" inputMode="decimal" min="0" max="1000000000000" step="100" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 1_000_000_000_000))} />
               <p className="text-xs text-muted-foreground">La moneda global seleccionada es {option.code}; no hay conversión y los resultados siempre se muestran en MXN.</p>
             </div>
             <p className="-mt-4 text-xs text-muted-foreground">Salario diario calculado: {formatMxn(dailySalary)}</p>

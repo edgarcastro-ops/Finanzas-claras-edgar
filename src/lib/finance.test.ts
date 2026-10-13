@@ -17,6 +17,25 @@ test("monthlyPayment handles zero interest and standard amortization", () => {
   assert.ok(Math.abs(payment * 48 - 15000 - 3088.66) < 0.01);
 });
 
+test("large calculator examples produce finite results", () => {
+  const loanPayment = monthlyPayment(2_500_000, 45, 360);
+  assert.ok(Number.isFinite(loanPayment) && loanPayment > 0);
+  assert.ok(Math.abs(loanPayment - 93_750.16) < 0.01);
+
+  const investment = compoundInterest(5_000_000, 0, 25, 10);
+  assert.ok(investment.length > 0);
+  assert.ok(investment.every((row) => Number.isFinite(row.total)));
+
+  const debt = payoffStrategy(
+    [{ id: "large", name: "Large balance", balance: 300_000_000, rate: 0, minimum: 50_000_000 }],
+    0,
+    "snowball",
+  );
+  assert.equal(debt.feasible, true);
+  assert.equal(debt.months, 6);
+  assert.ok(Number.isFinite(debt.totalPaid));
+});
+
 test("monthlySavingForGoal reaches the target at zero and positive interest", () => {
   assert.equal(monthlySavingForGoal(1200, 0, 0, 12), 100);
   const monthly = monthlySavingForGoal(10000, 1000, 3, 24);
