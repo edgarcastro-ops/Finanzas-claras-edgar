@@ -84,22 +84,22 @@ export function DebtStrategyCalculator() {
 
         <div className="mt-4 space-y-4">
           {debts.map((d, i) => (
-            <div key={d.id} className="grid gap-3 rounded-xl border border-border p-4 sm:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))_auto]">
-              <div>
+            <div key={d.id} className="grid gap-3 rounded-xl border border-border p-4 sm:grid-cols-2 xl:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))_auto]">
+              <div className="min-w-0">
                 <Label htmlFor={`${d.id}-name`} className="text-xs text-muted-foreground">Nombre</Label>
                 <Input id={`${d.id}-name`} value={d.name} onChange={(e) => update(d.id, { name: e.target.value })} className="mt-1 h-9" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <Label htmlFor={`${d.id}-bal`} className="text-xs text-muted-foreground">Saldo ({option.symbol})</Label>
-                <Input id={`${d.id}-bal`} type="number" inputMode="decimal" min="0" max="1000000000000" value={d.balance} onChange={(e) => update(d.id, { balance: normalizeNumberInput(e.target.value, 0, 1_000_000_000_000) })} className="mt-1 h-9 text-right tabular-nums" />
+                <Input id={`${d.id}-bal`} type="number" inputMode="decimal" min="0" max="1000000000000" value={d.balance} onChange={(e) => update(d.id, { balance: normalizeNumberInput(e.target.value, 0, 1_000_000_000_000) })} className="mt-1 h-9 w-full min-w-0 overflow-x-auto text-right tabular-nums" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <Label htmlFor={`${d.id}-rate`} className="text-xs text-muted-foreground">Tasa anual (%)</Label>
-                <Input id={`${d.id}-rate`} type="number" inputMode="decimal" min="0" max="1000" value={d.rate} onChange={(e) => update(d.id, { rate: normalizeNumberInput(e.target.value, 0, 1000) })} className="mt-1 h-9 text-right tabular-nums" />
+                <Input id={`${d.id}-rate`} type="number" inputMode="decimal" min="0" max="1000" value={d.rate} onChange={(e) => update(d.id, { rate: normalizeNumberInput(e.target.value, 0, 1000) })} className="mt-1 h-9 w-full min-w-0 overflow-x-auto text-right tabular-nums" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <Label htmlFor={`${d.id}-min`} className="text-xs text-muted-foreground">Pago mínimo</Label>
-                <Input id={`${d.id}-min`} type="number" inputMode="decimal" min="0" max="1000000000000" value={d.minimum} onChange={(e) => update(d.id, { minimum: normalizeNumberInput(e.target.value, 0, 1_000_000_000_000) })} className="mt-1 h-9 text-right tabular-nums" />
+                <Input id={`${d.id}-min`} type="number" inputMode="decimal" min="0" max="1000000000000" value={d.minimum} onChange={(e) => update(d.id, { minimum: normalizeNumberInput(e.target.value, 0, 1_000_000_000_000) })} className="mt-1 h-9 w-full min-w-0 overflow-x-auto text-right tabular-nums" />
               </div>
               <div className="flex items-end">
                 <Button

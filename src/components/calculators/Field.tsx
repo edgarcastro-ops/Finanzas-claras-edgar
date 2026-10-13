@@ -35,7 +35,6 @@ export function Field({
   const inputMax = getNumberInputMax(suffix, maxInput, minimum);
   const [inputValue, setInputValue] = useState(String(Number.isFinite(value) ? value : 0));
   const editing = useRef(false);
-  const inputWidth = Math.min(Math.max(inputValue.length + 1, 6), 18);
 
   useEffect(() => {
     if (!editing.current) setInputValue(String(Number.isFinite(value) ? value : 0));
@@ -43,12 +42,12 @@ export function Field({
 
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+      <div className="min-w-0 space-y-2">
         <Label htmlFor={id} className="min-w-0 text-sm font-medium text-foreground">
           {label}
         </Label>
-        <div className="flex shrink-0 items-center gap-1 rounded-lg border border-input bg-background px-2">
-          {prefix && <span className="text-sm text-muted-foreground">{prefix}</span>}
+        <div className="flex w-full min-w-0 items-center gap-1 rounded-lg border border-input bg-background px-2">
+          {prefix && <span className="shrink-0 text-sm text-muted-foreground">{prefix}</span>}
           <Input
             id={id}
             type="number"
@@ -57,7 +56,6 @@ export function Field({
             min={minimum}
             max={inputMax}
             step={step}
-            style={{ width: `${inputWidth}ch` }}
             onFocus={() => {
               editing.current = true;
             }}
@@ -74,9 +72,9 @@ export function Field({
               setInputValue(String(normalized));
               onChange(normalized);
             }}
-            className="h-9 border-0 bg-transparent px-1 text-right font-display text-sm font-semibold shadow-none focus-visible:ring-0"
+            className="h-9 w-full min-w-0 flex-1 overflow-x-auto border-0 bg-transparent px-1 text-right font-display text-sm font-semibold tabular-nums shadow-none focus-visible:ring-0"
           />
-          {suffix && <span className="pr-1 text-sm text-muted-foreground">{suffix}</span>}
+          {suffix && <span className="shrink-0 pr-1 text-sm text-muted-foreground">{suffix}</span>}
         </div>
       </div>
       <Slider

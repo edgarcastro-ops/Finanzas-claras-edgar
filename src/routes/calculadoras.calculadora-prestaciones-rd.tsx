@@ -124,9 +124,9 @@ function Page() {
               <Label htmlFor="rd-salary" className="text-sm font-medium">Salario mensual (DOP)</Label>
               <CurrencySelect />
             </div>
-            <div className="flex items-center gap-2 rounded-lg border border-input bg-background px-2">
-              <span className="text-sm text-muted-foreground">RD$</span>
-              <Input id="rd-salary" type="number" min="0" max="1000000000000" step="500" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 1_000_000_000_000))} className="border-0 text-right shadow-none focus-visible:ring-0" />
+            <div className="flex w-full min-w-0 items-center gap-2 rounded-lg border border-input bg-background px-2">
+              <span className="shrink-0 text-sm text-muted-foreground">RD$</span>
+              <Input id="rd-salary" type="number" min="0" max="1000000000000" step="500" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 1_000_000_000_000))} className="w-full min-w-0 flex-1 overflow-x-auto border-0 text-right tabular-nums shadow-none focus-visible:ring-0" />
             </div>
             <p className="-mt-4 text-xs leading-relaxed text-muted-foreground">La moneda global seleccionada es {option.code}; no se aplica conversión.</p>
             <DateField id="rd-start" label="Fecha de inicio del contrato" value={startDate} onChange={setStartDate} max={endDate} />
