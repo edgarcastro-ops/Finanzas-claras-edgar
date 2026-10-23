@@ -139,6 +139,7 @@ function PostPage() {
     .filter((item) => item.category === post.category && item.slug !== post.slug)
     .slice(0, 3);
   const formattedDate = new Date(post.date).toLocaleDateString("es", {
+    timeZone: "UTC",
     year: "numeric",
     month: "long",
     day: "numeric",
