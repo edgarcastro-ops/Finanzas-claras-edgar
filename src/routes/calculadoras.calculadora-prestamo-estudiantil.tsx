@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { AmortizationCalculator } from "@/components/calculators/AmortizationCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de préstamo estudiantil";
 const description = "Calcula la cuota y el coste total de tu crédito educativo y cuánto ahorras abonando capital extra al terminar los estudios.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-prestamo-estudia
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Educación"
       intro="Los créditos educativos suelen tener plazos largos y cuotas que empiezan cuando ya estás trabajando. Introduce el importe, la tasa y el plazo para ver cuánto pagarás en total."
+      guide={calculatorGuides["calculadora-prestamo-estudiantil"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Piensa en la cuota, no solo en el importe</h2>

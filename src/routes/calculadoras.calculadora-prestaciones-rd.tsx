@@ -5,10 +5,13 @@ import { CurrencySelect } from "@/components/site/CurrencySelect";
 import { ToolPage } from "@/components/site/ToolPage";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { FormattedNumberInput } from "@/components/calculators/FormattedNumberInput";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { calculatorGuides } from "@/data/calculator-guides";
 import { useCurrency } from "@/lib/currency";
 import { dominicanNoticeDays, dominicanSeveranceDays } from "@/lib/labor";
 import { normalizeNumberInput } from "@/lib/number-input";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de prestaciones laborales de República Dominicana";
 const description = "Estima preaviso, cesantía, vacaciones y regalía pascual según el Código de Trabajo dominicano.";
@@ -23,10 +26,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-prestaciones-rd"
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -108,6 +111,7 @@ function Page() {
       title={title}
       category="Laboral"
       intro="Estima los conceptos de prestaciones laborales según el motivo de terminación y el tiempo trabajado. Ingresa el salario mensual en pesos dominicanos (DOP)."
+      guide={calculatorGuides["calculadora-prestaciones-rd"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Referencia legal y moneda</h2>
@@ -126,7 +130,7 @@ function Page() {
             </div>
             <div className="flex w-full min-w-0 items-center gap-2 rounded-lg border border-input bg-background px-2">
               <span className="shrink-0 text-sm text-muted-foreground">RD$</span>
-              <Input id="rd-salary" type="number" min="0" max="1000000000000" step="500" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 1_000_000_000_000))} className="w-full min-w-0 flex-1 overflow-x-auto border-0 text-right tabular-nums shadow-none focus-visible:ring-0" />
+              <FormattedNumberInput id="rd-salary" min={0} max={1_000_000_000_000} step={500} value={salary} onChange={setSalary} className="w-full min-w-0 flex-1 overflow-x-auto border-0 text-right tabular-nums shadow-none focus-visible:ring-0" />
             </div>
             <p className="-mt-4 text-xs leading-relaxed text-muted-foreground">La moneda global seleccionada es {option.code}; no se aplica conversión.</p>
             <DateField id="rd-start" label="Fecha de inicio del contrato" value={startDate} onChange={setStartDate} max={endDate} />

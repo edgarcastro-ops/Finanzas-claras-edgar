@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { CurrencyConverterCalculator } from "@/components/calculators/CurrencyConverterCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Conversor de moneda";
 const description = "Convierte importes entre monedas introduciendo tú mismo el tipo de cambio, y calcula el impacto de las comisiones de cambio.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/conversor-de-moneda")({
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Divisas"
       intro="Introduce el importe, el tipo de cambio que te ofrecen y la comisión aplicada para ver exactamente cuánto dinero recibes al final de la operación."
+      guide={calculatorGuides["conversor-de-moneda"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Por qué el tipo de cambio lo pones tú</h2>

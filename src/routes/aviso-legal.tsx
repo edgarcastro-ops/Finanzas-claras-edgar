@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Aviso Legal / Disclaimer Financiero";
 const description = "Alcance informativo y limitaciones de las Calculadoras y contenidos financieros de Finanzas a tu Bolsillo.";
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/aviso-legal")({
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/aviso-legal" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/aviso-legal") }],
   }),
   component: Page,
 });

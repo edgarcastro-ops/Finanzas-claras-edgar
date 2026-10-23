@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { DebtCapacityCalculator } from "@/components/calculators/DebtCapacityCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de capacidad de endeudamiento (DTI)";
 const description = "Calcula qué porcentaje de tu ingreso se va en deudas y cuál es la cuota máxima que puedes asumir antes de pedir un crédito.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-capacidad-endeud
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Crédito"
       intro="Antes de solicitar un préstamo, comprueba si la cuota cabe en tu presupuesto. Introduce tus ingresos, las cuotas que ya pagas y la cuota del nuevo crédito para ver tu nivel de endeudamiento."
+      guide={calculatorGuides["calculadora-capacidad-endeudamiento"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Por qué el 35% es la referencia</h2>

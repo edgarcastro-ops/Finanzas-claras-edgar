@@ -4,6 +4,7 @@ import { blogCategories } from "@/data/tools";
 import { posts } from "@/data/posts";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
+import { absoluteUrl } from "@/lib/seo";
 
 const description =
   "Guías claras sobre ahorro, inversión, deudas y presupuesto para tomar mejores decisiones con tu dinero.";
@@ -16,10 +17,10 @@ export const Route = createFileRoute("/blog/")({
       { property: "og:title", content: "Blog de finanzas personales | Finanzas a tu Bolsillo" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: absoluteUrl("/blog") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/blog") }],
   }),
   component: BlogPage,
 });

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Política de Privacidad";
 const description =
@@ -48,7 +49,7 @@ export const Route = createFileRoute("/privacidad")({
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/privacidad" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/privacidad") }],
   }),
   component: Page,
 });

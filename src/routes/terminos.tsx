@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Términos y Condiciones";
 const description = "Condiciones de uso del contenido educativo y las Calculadoras de Finanzas a tu Bolsillo.";
@@ -41,7 +42,7 @@ export const Route = createFileRoute("/terminos")({
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/terminos" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/terminos") }],
   }),
   component: Page,
 });

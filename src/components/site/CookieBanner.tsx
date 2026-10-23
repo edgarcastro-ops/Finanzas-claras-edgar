@@ -54,7 +54,7 @@ export function CookieBanner() {
           Rechazar analíticas
         </button>
         <Link to="/cookies" className="px-2 py-2 text-sm font-semibold text-brand hover:underline">
-          Más información
+          Política de cookies
         </Link>
       </div>
     </aside>

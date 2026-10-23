@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Política de Cookies";
 const description =
@@ -34,7 +35,7 @@ export const Route = createFileRoute("/cookies")({
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/cookies" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/cookies") }],
   }),
   component: Page,
 });

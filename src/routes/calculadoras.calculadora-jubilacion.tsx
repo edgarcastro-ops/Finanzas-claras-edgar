@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { RetirementCalculator } from "@/components/calculators/RetirementCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de jubilación y retiro";
 const description = "Proyecta el capital que tendrás al jubilarte según tu edad, tus aportes mensuales y el rendimiento esperado, y la renta que podrías retirar.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-jubilacion")({
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Jubilación"
       intro="Introduce tu edad, cuándo quieres retirarte y cuánto aportas cada mes. Verás el capital estimado al llegar a esa edad y la renta mensual que podría sostener."
+      guide={calculatorGuides["calculadora-jubilacion"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Sobre la renta estimada</h2>

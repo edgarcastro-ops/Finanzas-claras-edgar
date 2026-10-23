@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { SavingsGoalCalculator } from "@/components/calculators/SavingsGoalCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de meta de ahorro";
 const description = "Calcula cuánto ahorrar cada mes para alcanzar tu meta en el plazo que te propongas, con o sin rendimiento.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-ahorro-meta")({
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Ahorro"
       intro="Define cuánto dinero necesitas, en cuánto tiempo lo quieres y qué tienes ahorrado hoy. Verás el aporte mensual exacto y cómo avanza tu meta mes a mes."
+      guide={calculatorGuides["calculadora-ahorro-meta"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Cómo usar esta meta</h2>

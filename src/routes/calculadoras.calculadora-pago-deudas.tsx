@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { DebtStrategyCalculator } from "@/components/calculators/DebtStrategyCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de pago de deudas: bola de nieve vs. avalancha";
 const description = "Compara el método bola de nieve y el método avalancha para saber cuál elimina tus deudas antes y con menos intereses.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-pago-deudas")({
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Deuda"
       intro="Carga tus deudas con su saldo, tasa y pago mínimo, y añade cuánto extra puedes destinar cada mes. Compararemos las dos estrategias más usadas para salir de deudas."
+      guide={calculatorGuides["calculadora-pago-deudas"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Cuál elegir</h2>

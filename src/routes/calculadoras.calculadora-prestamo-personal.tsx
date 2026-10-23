@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { LoanCalculator } from "@/components/calculators/LoanCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de préstamo personal";
 const description =
   "Calcula la cuota mensual de tu préstamo, el total de intereses y consulta la tabla de amortización completa mes a mes.";
+const path = "/calculadoras/calculadora-prestamo-personal";
 
 export const Route = createFileRoute("/calculadoras/calculadora-prestamo-personal")({
   head: () => ({
@@ -14,10 +17,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-prestamo-persona
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/calculadoras/calculadora-prestamo-personal" },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/calculadoras/calculadora-prestamo-personal" }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -32,13 +35,14 @@ function Page() {
         <>
           <h2 className="font-display text-lg font-semibold">Qué tener en cuenta</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            El cálculo usa el sistema francés de cuota fija, el más habitual en préstamos personales.
-            No incluye comisiones de apertura, seguros vinculados ni otros gastos: para comparar
-            ofertas reales fíjate siempre en la TAE, no solo en el tipo de interés nominal. Alargar
-            el plazo baja la cuota, pero incrementa el total de intereses que pagarás.
+            El cálculo usa el sistema de cuota fija, el más habitual en préstamos personales. No
+            incluye comisiones de apertura, seguros vinculados ni otros gastos: para comparar
+            ofertas reales pregunta siempre por el costo total del préstamo, no solo por la tasa de
+            interés. Alargar el plazo baja la cuota, pero aumenta el total de intereses que pagarás.
           </p>
         </>
       }
+      guide={calculatorGuides["calculadora-prestamo-personal"]}
     >
       <LoanCalculator />
     </ToolPage>

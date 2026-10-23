@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { AmortizationCalculator } from "@/components/calculators/AmortizationCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de hipoteca";
-const description = "Calcula la cuota de tu hipoteca, los intereses totales y la tabla de amortización, incluyendo entrada y abonos extra a capital.";
+const description = "Calcula la cuota de tu hipoteca, los intereses totales y la tabla de amortización, incluyendo enganche o pago inicial y abonos extra a capital.";
 const path = "/calculadoras/calculadora-hipoteca";
 
 export const Route = createFileRoute("/calculadoras/calculadora-hipoteca")({
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-hipoteca")({
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -27,23 +29,27 @@ function Page() {
     <ToolPage
       title={title}
       category="Vivienda"
-      intro="Una hipoteca es el crédito más largo que firmarás. Introduce el precio de la vivienda, tu entrada, el tipo de interés y el plazo para ver la cuota real y cuánto pagarás de intereses a lo largo de los años."
+      intro="Una hipoteca suele ser el crédito más largo que firmarás. Introduce el precio de la vivienda, tu enganche o pago inicial, la tasa de interés y el plazo para ver la cuota y cuánto pagarás de intereses a lo largo de los años."
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Lo que no incluye la cuota</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Al coste mensual hay que sumarle seguro de hogar, seguro de vida si lo exige el banco, impuestos y comunidad. Y ojo con el plazo: alargarlo baja la cuota, pero los intereses de una hipoteca a 30 años pueden acercarse al precio de la vivienda.
+            Al costo mensual hay que sumarle el seguro de la vivienda, los impuestos y el mantenimiento,
+            además de los gastos de la compra (escrituración, avalúo y otros). Y ojo con el plazo:
+            alargarlo baja la cuota, pero los intereses de una hipoteca a 20 o 30 años pueden superar
+            el monto que pediste.
           </p>
         </>
       }
+      guide={calculatorGuides["calculadora-hipoteca"]}
     >
       <AmortizationCalculator config={{
               "amountLabel": "Precio de la vivienda",
               "amountDefault": 200000,
               "amountMin": 20000,
-              "amountMax": 1500000,
+              "amountMax": 2000000,
               "amountStep": 1000,
-              "rateLabel": "Tipo de interés anual",
+              "rateLabel": "Tasa de interés anual",
               "rateDefault": 3.5,
               "rateMax": 15,
               "monthsLabel": "Plazo",
@@ -51,7 +57,7 @@ function Page() {
               "monthsMin": 60,
               "monthsMax": 480,
               "allowDownPayment": true,
-              "downPaymentLabel": "Entrada aportada",
+              "downPaymentLabel": "Enganche o pago inicial",
               "downPaymentDefault": 40000,
               "allowExtra": true,
               "tableTitle": "Tabla de amortización de la hipoteca"

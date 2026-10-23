@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Contacto";
 const description = "Escríbenos para consultas, sugerencias, correcciones o dudas sobre el contenido del sitio.";
@@ -31,7 +32,7 @@ export const Route = createFileRoute("/contacto")({
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
     ],
-    links: [{ rel: "canonical", href: "/contacto" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/contacto") }],
   }),
   component: Page,
 });

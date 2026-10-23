@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { LoanComparisonCalculator } from "@/components/calculators/LoanComparisonCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Comparador de préstamos: hasta 3 ofertas lado a lado";
 const description = "Compara tres ofertas de préstamo a la vez: cuota, intereses, comisiones y coste total, para saber cuál sale realmente más barata.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/comparador-de-prestamos")({
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Crédito"
       intro="La oferta con la cuota más baja no siempre es la más barata. Introduce hasta tres propuestas con su importe, tasa, plazo y comisión de apertura para verlas comparadas una al lado de la otra."
+      guide={calculatorGuides["comparador-de-prestamos"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Compara el coste total, no la cuota</h2>

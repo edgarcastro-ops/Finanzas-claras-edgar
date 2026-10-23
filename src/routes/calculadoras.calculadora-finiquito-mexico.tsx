@@ -5,9 +5,12 @@ import { CurrencySelect } from "@/components/site/CurrencySelect";
 import { ToolPage } from "@/components/site/ToolPage";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { FormattedNumberInput } from "@/components/calculators/FormattedNumberInput";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { calculatorGuides } from "@/data/calculator-guides";
 import { useCurrency } from "@/lib/currency";
 import { normalizeNumberInput } from "@/lib/number-input";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de finiquito y liquidación de México";
 const description = "Estima el finiquito y la liquidación laboral conforme a la Ley Federal del Trabajo de México.";
@@ -21,10 +24,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-finiquito-mexico
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -84,6 +87,7 @@ function Page() {
       title={title}
       category="Laboral"
       intro="Estima el finiquito que corresponde al terminar la relación laboral y, si aplica, los conceptos adicionales de liquidación. Los resultados se muestran en pesos mexicanos (MXN)."
+      guide={calculatorGuides["calculadora-finiquito-mexico"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Tope de prima de antigüedad</h2>
@@ -111,13 +115,13 @@ function Page() {
                 <Label htmlFor="mx-salary" className="text-sm font-medium">{salaryMode === "mensual" ? "Salario mensual (MXN)" : "Salario diario (MXN)"}</Label>
                 <CurrencySelect />
               </div>
-              <Input id="mx-salary" type="number" inputMode="decimal" min="0" max="1000000000000" step="100" value={salary} onChange={(event) => setSalary(normalizeNumberInput(event.target.value, 0, 1_000_000_000_000))} className="w-full min-w-0 overflow-x-auto text-right tabular-nums" />
+              <FormattedNumberInput id="mx-salary" min={0} max={1_000_000_000_000} step={100} value={salary} onChange={setSalary} className="w-full min-w-0 overflow-x-auto text-right tabular-nums" />
               <p className="text-xs text-muted-foreground">La moneda global seleccionada es {option.code}; no hay conversión y los resultados siempre se muestran en MXN.</p>
             </div>
             <p className="-mt-4 text-xs text-muted-foreground">Salario diario calculado: {formatMxn(dailySalary)}</p>
             <NumberField id="mx-years" label="Años completos de antigüedad" value={years} onChange={(value) => setYears(Math.min(Math.floor(value), 60))} min={0} max={60} />
             <NumberField id="mx-months" label="Meses completos adicionales" value={months} onChange={(value) => setMonths(Math.min(value, 11))} min={0} max={11} />
-            <NumberField id="mx-seniority-cap" label="Tope diario de referencia (MXN)" value={seniorityCap} onChange={setSeniorityCap} min={0} max={1000000} step={0.01} />
+            <NumberField id="mx-seniority-cap" label="Tope diario de referencia (MXN)" value={seniorityCap} onChange={setSeniorityCap} min={0} max={1000000} step={0.01} formatThousands />
             <NumberField id="mx-days-worked" label="Días trabajados en el año" value={daysWorked} onChange={setDaysWorked} min={0} max={365} />
             <NumberField id="mx-vacation" label="Días de vacaciones no disfrutados" value={unusedVacation} onChange={setUnusedVacation} min={0} max={365} step={0.5} />
             <div className="space-y-2">
@@ -155,11 +159,15 @@ function Page() {
   );
 }
 
-function NumberField({ id, label, value, onChange, min, max, step = 1 }: { id: string; label: string; value: number; onChange: (value: number) => void; min: number; max: number; step?: number }) {
+function NumberField({ id, label, value, onChange, min, max, step = 1, formatThousands = false }: { id: string; label: string; value: number; onChange: (value: number) => void; min: number; max: number; step?: number; formatThousands?: boolean }) {
   return (
     <div className="space-y-2">
       <Label htmlFor={id} className="text-sm font-medium">{label}</Label>
-      <Input id={id} type="number" inputMode="decimal" value={value} min={min} max={max} step={step} onChange={(event) => onChange(normalizeNumberInput(event.target.value, min, max))} />
+      {formatThousands ? (
+        <FormattedNumberInput id={id} value={value} onChange={onChange} min={min} max={max} step={step} />
+      ) : (
+        <Input id={id} type="number" inputMode="decimal" value={value} min={min} max={max} step={step} onChange={(event) => onChange(normalizeNumberInput(event.target.value, min, max))} />
+      )}
     </div>
   );
 }

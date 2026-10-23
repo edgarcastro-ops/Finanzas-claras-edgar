@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { AdSlot } from "@/components/site/AdSlot";
+import { GuideContent } from "@/components/site/GuideContent";
 import { Reveal } from "@/components/site/Reveal";
 
 interface ToolPageProps {
@@ -10,9 +11,10 @@ interface ToolPageProps {
   intro: string;
   children: ReactNode;
   notes?: ReactNode;
+  guide?: string | undefined;
 }
 
-export function ToolPage({ title, category, intro, children, notes }: ToolPageProps) {
+export function ToolPage({ title, category, intro, children, notes, guide }: ToolPageProps) {
   return (
     <main className="mx-auto w-full max-w-5xl px-4 pt-10 sm:px-6">
       <nav aria-label="Ruta de navegación" className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -43,6 +45,12 @@ export function ToolPage({ title, category, intro, children, notes }: ToolPagePr
         {notes && (
           <section className="mt-10 rounded-2xl border border-border bg-card p-6 shadow-soft">
             {notes}
+          </section>
+        )}
+
+        {guide && (
+          <section className="mt-10 rounded-2xl border border-border bg-card p-6 shadow-soft">
+            <GuideContent content={guide} />
           </section>
         )}
       </article>

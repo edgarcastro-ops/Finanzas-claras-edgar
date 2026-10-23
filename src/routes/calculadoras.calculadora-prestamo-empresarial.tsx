@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { AmortizationCalculator } from "@/components/calculators/AmortizationCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de préstamo empresarial";
 const description = "Calcula la cuota de un crédito para tu negocio, los intereses totales y su tabla de amortización para planificar tu flujo de caja.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-prestamo-empresa
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Negocio"
       intro="Un crédito para tu negocio debe caber en el flujo de caja del mes más flojo del año. Introduce el importe, la tasa y el plazo para ver la cuota y el coste financiero total."
+      guide={calculatorGuides["calculadora-prestamo-empresarial"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Contrástalo con tu flujo de caja</h2>

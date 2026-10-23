@@ -53,9 +53,9 @@ export function BudgetCalculator() {
     <CalcShell
       inputs={
         <>
-          <Field id="income" label="Ingresos mensuales netos" value={income} onChange={setIncome} min={0} max={20000} step={50} prefix={option.symbol} />
+          <Field id="income" label="Ingresos mensuales netos" value={income} onChange={setIncome} min={0} max={25000} step={50} prefix={option.symbol} />
           <Field id="vivienda" label="Vivienda (alquiler/hipoteca)" value={vivienda} onChange={setVivienda} min={0} max={8000} step={25} prefix={option.symbol} />
-          <Field id="comida" label="Alimentación" value={comida} onChange={setComida} min={0} max={3000} step={25} prefix={option.symbol} />
+          <Field id="comida" label="Alimentación" value={comida} onChange={setComida} min={0} max={5000} step={25} prefix={option.symbol} />
           <Field id="transporte" label="Transporte" value={transporte} onChange={setTransporte} min={0} max={2000} step={10} prefix={option.symbol} />
           <Field id="deudas" label="Pago de deudas" value={deudas} onChange={setDeudas} min={0} max={5000} step={25} prefix={option.symbol} />
           <Field id="otros" label="Otros gastos" value={otros} onChange={setOtros} min={0} max={5000} step={25} prefix={option.symbol} />

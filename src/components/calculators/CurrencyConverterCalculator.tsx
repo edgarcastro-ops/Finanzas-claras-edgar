@@ -5,7 +5,7 @@ import { Field } from "@/components/calculators/Field";
 import { CalcShell, ResultStat } from "@/components/calculators/Shared";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { CURRENCIES, formatMoney } from "@/lib/currency";
+import { CURRENCIES, formatMoney, getCurrencyOption } from "@/lib/currency";
 import { normalizeNumberInput } from "@/lib/number-input";
 import {
   Select,
@@ -37,7 +37,7 @@ export function CurrencyConverterCalculator() {
     <CalcShell
       inputs={
         <>
-          <Field id="amount" label="Cantidad a convertir" value={amount} onChange={setAmount} min={0} max={100000} step={10} />
+          <Field id="amount" label="Cantidad a convertir" value={amount} onChange={setAmount} min={0} max={100000} step={10} prefix={getCurrencyOption(from).symbol} formatThousands />
           <div className="space-y-2">
             <Label htmlFor="from">Moneda de origen</Label>
             <Select value={from} onValueChange={setFrom}>

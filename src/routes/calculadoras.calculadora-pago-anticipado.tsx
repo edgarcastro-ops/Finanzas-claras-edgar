@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { PrepaymentCalculator } from "@/components/calculators/PrepaymentCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de pago anticipado de préstamo";
 const description = "Descubre cuánto ahorras en intereses y cuántos meses te quitas abonando capital extra a tu préstamo cada mes o de una sola vez.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-pago-anticipado"
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Crédito"
       intro="Abonar capital extra reduce la deuda directamente, así que los intereses de todos los meses siguientes bajan. Introduce tu saldo pendiente y cuánto puedes abonar para ver el ahorro."
+      guide={calculatorGuides["calculadora-pago-anticipado"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">Revisa la comisión por amortización anticipada</h2>

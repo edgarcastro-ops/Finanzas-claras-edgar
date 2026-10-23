@@ -3,6 +3,7 @@ import { ShieldCheck, Users, Calculator, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { AdSlot } from "@/components/site/AdSlot";
+import { absoluteUrl } from "@/lib/seo";
 
 const description =
   "Conoce Finanzas a tu Bolsillo: un proyecto editorial que publica calculadoras financieras gratuitas y guías de finanzas personales en español.";
@@ -15,10 +16,10 @@ export const Route = createFileRoute("/sobre-nosotros")({
       { property: "og:title", content: "Sobre nosotros | Finanzas a tu Bolsillo" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/sobre-nosotros" },
+      { property: "og:url", content: absoluteUrl("/sobre-nosotros") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/sobre-nosotros" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/sobre-nosotros") }],
   }),
   component: AboutPage,
 });

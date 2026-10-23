@@ -3,6 +3,7 @@ import { tools } from "@/data/tools";
 import { ToolCard } from "@/components/site/ToolCard";
 import { Reveal } from "@/components/site/Reveal";
 import { AdSlot } from "@/components/site/AdSlot";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/calculadoras/")({
   head: () => ({
@@ -19,10 +20,10 @@ export const Route = createFileRoute("/calculadoras/")({
         content: "Calculadoras para calcular inversiones, cuotas de préstamo y deudas de tarjeta.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/calculadoras" },
+      { property: "og:url", content: absoluteUrl("/calculadoras") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/calculadoras" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/calculadoras") }],
   }),
   component: CalculadorasPage,
 });

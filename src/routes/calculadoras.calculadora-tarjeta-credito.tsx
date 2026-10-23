@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { CreditCardCalculator } from "@/components/calculators/CreditCardCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de tarjeta de crédito";
 const description =
   "Descubre en cuánto tiempo saldas la deuda de tu tarjeta y cuánto ahorras frente a pagar solo el mínimo mensual.";
+const path = "/calculadoras/calculadora-tarjeta-credito";
 
 export const Route = createFileRoute("/calculadoras/calculadora-tarjeta-credito")({
   head: () => ({
@@ -14,10 +17,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-tarjeta-credito"
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/calculadoras/calculadora-tarjeta-credito" },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/calculadoras/calculadora-tarjeta-credito" }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -33,12 +36,13 @@ function Page() {
           <h2 className="font-display text-lg font-semibold">Sobre el pago mínimo</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Para el escenario de pago mínimo usamos una regla habitual: el 2% del saldo más los
-            intereses del mes, con un suelo de 25 $. Cada emisor aplica su propia fórmula, así que
+            intereses del mes, con un piso de $25. Cada emisor aplica su propia fórmula, así que
             revisa tu contrato. La conclusión no cambia: cualquier importe fijo por encima del mínimo
-            reduce drásticamente el tiempo y el coste total de la deuda.
+            reduce drásticamente el tiempo y el costo total de la deuda.
           </p>
         </>
       }
+      guide={calculatorGuides["calculadora-tarjeta-credito"]}
     >
       <CreditCardCalculator />
     </ToolPage>

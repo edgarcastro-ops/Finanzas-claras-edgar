@@ -6,6 +6,7 @@ import { AdSlot } from "@/components/site/AdSlot";
 import { ToolCard } from "@/components/site/ToolCard";
 import { tools, blogCategories } from "@/data/tools";
 import { posts } from "@/data/posts";
+import { absoluteUrl } from "@/lib/seo";
 
 const description =
   "Calculadoras gratuitas de interés compuesto, préstamos y tarjetas de crédito, más guías claras para ahorrar, invertir y salir de deudas.";
@@ -21,10 +22,10 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: absoluteUrl("/") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/") }],
   }),
   component: Index,
 });

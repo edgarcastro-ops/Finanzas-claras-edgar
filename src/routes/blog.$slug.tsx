@@ -5,6 +5,7 @@ import { AdSlot } from "@/components/site/AdSlot";
 import { Reveal } from "@/components/site/Reveal";
 import { posts } from "@/data/posts";
 import { tools } from "@/data/tools";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -26,10 +27,10 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: path },
+        { property: "og:url", content: absoluteUrl(path) },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [{ rel: "canonical", href: path }],
+      links: [{ rel: "canonical", href: absoluteUrl(path) }],
     };
   },
   component: PostPage,

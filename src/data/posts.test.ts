@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { blogCategories, tools } from "./tools";
 import { posts } from "./posts";
+import { calculatorGuides } from "./calculator-guides";
 
 const staticRoutes = new Set([
   "/",
@@ -95,5 +96,13 @@ describe("blog posts", () => {
       expect(questions.length, post.slug).toBeGreaterThanOrEqual(4);
       expect(questions.length, post.slug).toBeLessThanOrEqual(7);
     }
+  });
+});
+
+describe("calculator guides", () => {
+  it("provides a guide for every calculator", () => {
+    expect(Object.keys(calculatorGuides).sort()).toEqual(
+      tools.map((tool) => tool.slug).sort(),
+    );
   });
 });

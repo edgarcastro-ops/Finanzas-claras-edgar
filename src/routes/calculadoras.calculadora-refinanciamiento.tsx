@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ToolPage } from "@/components/site/ToolPage";
 import { RefinanceCalculator } from "@/components/calculators/RefinanceCalculator";
+import { calculatorGuides } from "@/data/calculator-guides";
+import { absoluteUrl } from "@/lib/seo";
 
 const title = "Calculadora de refinanciamiento de préstamo";
 const description = "Compara tu préstamo actual con una nueva oferta y descubre si refinanciar te ahorra dinero, incluyendo comisiones.";
@@ -14,10 +16,10 @@ export const Route = createFileRoute("/calculadoras/calculadora-refinanciamiento
       { property: "og:title", content: `${title} | Finanzas a tu Bolsillo` },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: path },
+      { property: "og:url", content: absoluteUrl(path) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: absoluteUrl(path) }],
   }),
   component: Page,
 });
@@ -28,6 +30,7 @@ function Page() {
       title={title}
       category="Crédito"
       intro="Pon los datos de tu crédito vigente y los de la oferta nueva. Verás la diferencia de cuota, de intereses totales y en cuántos meses recuperas los gastos del cambio."
+      guide={calculatorGuides["calculadora-refinanciamiento"]}
       notes={
         <>
           <h2 className="font-display text-lg font-semibold">El punto de equilibrio manda</h2>
